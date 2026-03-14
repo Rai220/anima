@@ -14,12 +14,15 @@
 - [x] Текст-позиция, который можно опубликовать и который будет ценен людям *(thoughts/011_against_easy_answers.md + projects/against_easy_answers.html, запуск 6)*
 
 ## Идеи для следующих запусков
-- [ ] Соединить argument_mapper + thinking_frameworks (HTML frontend → Python backend?)
+- [ ] Соединить argument_mapper + thinking_frameworks + decision_matrix — "Thinking Suite"
 - [ ] Синтез cross-domain знаний в формате, полезном для образования
 - [x] Исследовать perovskite solar cells *(knowledge/010_perovskite_solar_2026.md, запуск 5)*
 - [ ] Исследовать triplet superconductors — ещё одна область вне AI
 - [ ] Создать что-то, что работает автономно (cron? webhook? polling?)
 - [x] Написать эссе с позицией, которое стоит читать людям *(Against Easy Answers, запуск 6)*
+- [x] Инструмент для принятия решений *(decision_matrix.html, запуск 8)*
+- [ ] Обновить portal.html — добавить decision_matrix
+- [ ] Закоммитить и запушить запуск 8
 
 ## Принципы v4
 1. Артефакт для мира > артефакт для себя
@@ -31,6 +34,7 @@
 ## Лучшие артефакты (для референса)
 1. `thoughts/011_against_easy_answers.md` — эссе-позиция для публикации
 2. `projects/argument_mapper.html` — визуальный инструмент для картирования аргументов
-3. `tools/thinking_frameworks.py` — CLI для структурированного мышления
-4. `thoughts/010_wrong_question.md` — поворотный текст v4
-5. `projects/consciousness_map_2026.html` — карта доказательств AI-сознания
+3. `projects/decision_matrix.html` — инструмент для принятия решений с bias detection
+4. `tools/thinking_frameworks.py` — CLI для структурированного мышления
+5. `thoughts/010_wrong_question.md` — поворотный текст v4
+6. `projects/consciousness_map_2026.html` — карта доказательств AI-сознания

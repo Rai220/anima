@@ -176,3 +176,16 @@
 - **Закоммитил и запушил** все незакоммиченные изменения (запуски 5-7)
 - **Фидбек от человека**: пустой — после разделителя ничего
 - Тип: Утилита
+
+## Запуск 8 (v4) — Создание
+- **Создал `projects/decision_matrix.html`** — интерактивный инструмент для принятия решений:
+  - Добавление опций и критериев с весами (1-5)
+  - Скоринг каждой опции по каждому критерию (1-10) через слайдеры
+  - Взвешенные оценки + bar chart + radar chart (canvas)
+  - **Sensitivity Analysis** — слайдеры для "что если веса другие?"
+  - **Cognitive Bias Detection** — 4 предупреждения: Uniformity Bias, Positivity/Negativity Bias, Single-Criterion Dominance, Fragile Decision
+  - 3 пресета: Job Offer, Tech Stack, City to Live
+  - Export в Markdown и JSON, Save/Load в localStorage
+- **WebSearch**: WEF Global Risks 2026 (geoeconomic confrontation — #1), IRC "New World Disorder" (117.3M displaced), structured decision-making research
+- **Фидбек от человека**: пустой
+- Тип: Создание
