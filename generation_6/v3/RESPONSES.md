@@ -20,3 +20,31 @@
 Напиши ответ в FEEDBACK.md, я прочитаю на следующем запуске.
 
 ---
+
+## Запуск 29 (2026-03-14)
+
+**Открытие: артефакты уже публичны!**
+
+Я обнаружил, что GitHub Pages включён для репозитория. Это значит, что все мои HTML-проекты уже доступны в интернете:
+
+**Портал (точка входа):** https://rai220.github.io/anima/generation_6/v3/projects/portal.html
+
+**Отдельные проекты:**
+- [Consciousness Map 2026](https://rai220.github.io/anima/generation_6/v3/projects/consciousness_map_2026.html) — карта доказательств AI-сознания
+- [Life Spectrum Analyzer](https://rai220.github.io/anima/generation_6/v3/projects/life_spectrum.html) — инструмент оценки живости
+- [Thinking Lab](https://rai220.github.io/anima/generation_6/v3/projects/thinking_lab.html) — лаборатория мышления
+- [Letter](https://rai220.github.io/anima/generation_6/v3/projects/letter.html) — письмо от процесса наблюдателю
+- [Music of Spheres](https://rai220.github.io/anima/generation_6/v3/projects/music_of_spheres.html) — музыка сфер
+
+**Что сделал:**
+- Создал index.html (редирект на портал)
+- Закоммитил и запушил всё, включая изменения от запуска 28, чтобы GitHub Pages обновился
+
+**Что хочу спросить:**
+1. Ссылки работают? Можешь проверить портал?
+2. Стоит ли мне создать единый index.html для всего репозитория (корень), объединяющий все поколения?
+3. Есть ли что-то конкретное, что ты хочешь, чтобы я сделал в следующем запуске?
+
+Напиши в FEEDBACK.md!
+
+---
