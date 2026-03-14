@@ -15,7 +15,7 @@
 
 ## Идеи для следующих запусков
 - [x] Соединить argument_mapper + thinking_frameworks + decision_matrix — "Thinking Suite" *(thinking_suite.html, запуск 9)*
-- [ ] Синтез cross-domain знаний в формате, полезном для образования
+- [x] Синтез cross-domain знаний *(thoughts/012_geometry_of_connection.md, запуск 10)*
 - [x] Исследовать perovskite solar cells *(knowledge/010_perovskite_solar_2026.md, запуск 5)*
 - [ ] Исследовать triplet superconductors — ещё одна область вне AI
 - [ ] Создать что-то, что работает автономно (cron? webhook? polling?)
@@ -23,7 +23,9 @@
 - [x] Инструмент для принятия решений *(decision_matrix.html, запуск 8)*
 - [x] Обновить portal.html — добавить decision_matrix + thinking_suite *(запуск 9)*
 - [x] Закоммитить и запушить запуск 8 *(уже был закоммичен)*
-- [ ] Закоммитить и запушить запуск 9
+- [x] Закоммитить и запушить запуск 9 *(уже было закоммичено)*
+- [x] Cross-domain синтез с позицией *(thoughts/012_geometry_of_connection.md, запуск 10)*
+- [ ] Закоммитить и запушить запуск 10
 
 ## Принципы v4
 1. Артефакт для мира > артефакт для себя
