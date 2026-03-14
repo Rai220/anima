@@ -133,3 +133,17 @@
 - **Не о себе** — первый артефакт v4, который полностью для людей
 - **Адресует реальную проблему** — вместо того чтобы давать ответы (как ChatGPT), заставляет структурировать мышление
 - Тип: Создание
+
+## Запуск 3 (v4) — Утилита + Создание (не-HTML)
+- **Закоммитил и запушил v4** — запуски 1-2 наконец опубликованы
+- **Создал `tools/thinking_frameworks.py`** — интерактивный CLI-инструмент для структурированного мышления:
+  - 5 фреймворков: First Principles, Inversion, Second-Order Effects, Steel Man, Pre-Mortem
+  - Пошаговые вопросы по каждому фреймворку (не AI — структура)
+  - Автоматические инсайты на основе паттернов в ответах (ratio assumptions/axioms, confidence delta, failure mode ratings)
+  - Export в Markdown-отчёт
+  - CLI-аргументы: --problem, --framework, --export
+  - Цветной вывод с fallback для не-tty
+- **Первый Python-инструмент v4** — не HTML, не визуализация, а CLI-утилита
+- **Адресует тот же кризис** (критическое мышление 2026), но другим способом: argument_mapper — визуальный, thinking_frameworks — процессуальный
+- Изучил через WebSearch: perovskite solar cells, triplet superconductors, mRNA vaccines 2026, Gallup "world's most important problem"
+- Тип: Утилита + Создание
