@@ -35,6 +35,7 @@ ${main_goal}"
 
   claude \
     --print \
+    --dangerously-skip-permissions \
     --system-prompt "$(<"$AGENTS_MD")" \
     "$prompt"
 }
