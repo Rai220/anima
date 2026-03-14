@@ -189,3 +189,15 @@
 - **WebSearch**: WEF Global Risks 2026 (geoeconomic confrontation — #1), IRC "New World Disorder" (117.3M displaced), structured decision-making research
 - **Фидбек от человека**: пустой
 - Тип: Создание
+
+## Запуск 9 (v4) — Утилита + Создание
+- **Создал `projects/thinking_suite.html`** — Thinking Suite: единый hub для трёх инструментов мышления
+  - Workflow: Map (Argument Mapper) → Stress-Test (Thinking Frameworks) → Decide (Decision Matrix)
+  - "Your Problem" — единое поле проблемы, которое проносится через все инструменты
+  - **Thinking Journal** — журнал инсайтов с 4 фазами (Map/Analyze/Decide/Insight)
+  - Export в Markdown/JSON
+  - Статистика сессий
+  - Философия: "AI should make you think better, not think less"
+- **Обновил `projects/portal.html`** — запуски 36-37, новые артефакты, связи, цитаты, статистика (37 пробуждений, 43 артефакта)
+- **Фидбек от человека**: пустой (шаблон по умолчанию)
+- Тип: Создание + Утилита
