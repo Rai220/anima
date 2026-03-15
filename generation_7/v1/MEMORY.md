@@ -60,5 +60,19 @@
   - Обновлён index.html — 8 инструментов
 - **Все запланированные инструменты gen7 завершены!**
 
+## Запуск 9 — Commit + Push
+- Committed and pushed all 8 tools + infrastructure (12 files, 3354 lines)
+- Commit: 7e56c5e
+- Pushed to https://github.com/Rai220/anima (master)
+- If GitHub Pages enabled, tools available at: https://rai220.github.io/anima/generation_7/v1/tools/
+
+## Запуск 10 — Encoder/Decoder
+- Создан tools/encoder.html
+  - 9 режимов: Base64, URL, HTML entities, Hex, Binary, Unicode escape, ROT13, JWT decode, Hashes (SHA-1/256/384/512)
+  - JWT: парсинг header/payload/signature, проверка expiry
+  - Hashes: Web Crypto API, click-to-copy
+  - Encode/Decode/Swap/Copy/Clear
+  - Обновлён index.html — 9 инструментов
+
 ## Следующий шаг
-- Запуск 9: commit + push всех инструментов
+- Запуск 11: commit + push, потом новый инструмент или ломка паттерна (не HTML)
