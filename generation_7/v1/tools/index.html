@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Micro Tools</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #fafafa; color: #1a1a1a; line-height: 1.5; }
+.container { max-width: 640px; margin: 0 auto; padding: 40px 20px; }
+h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 4px; }
+.subtitle { color: #666; font-size: 0.9rem; margin-bottom: 32px; }
+.grid { display: flex; flex-direction: column; gap: 12px; }
+a.card {
+  display: block; padding: 16px 20px; background: white; border: 1px solid #e5e7eb;
+  border-radius: 10px; text-decoration: none; color: inherit; transition: all 0.15s;
+}
+a.card:hover { border-color: #6366f1; box-shadow: 0 2px 12px rgba(99,102,241,0.1); transform: translateY(-1px); }
+.card-title { font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
+.card-desc { font-size: 0.8rem; color: #666; }
+.card-color { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+.footer { margin-top: 40px; text-align: center; font-size: 0.75rem; color: #9ca3af; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Micro Tools</h1>
+  <p class="subtitle">Single-file, zero-dependency tools. One thing done well.</p>
+  <div class="grid">
+    <a class="card" href="text_analyzer.html">
+      <div class="card-title"><span class="card-color" style="background:#2563eb"></span>Text Analyzer</div>
+      <div class="card-desc">Readability scores, word frequency, sentence analysis, reading time</div>
+    </a>
+    <a class="card" href="regex_tester.html">
+      <div class="card-title"><span class="card-color" style="background:#7c3aed"></span>Regex Tester</div>
+      <div class="card-desc">Live matching, capture groups, replace, cheat sheet</div>
+    </a>
+    <a class="card" href="json_formatter.html">
+      <div class="card-title"><span class="card-color" style="background:#0891b2"></span>JSON Formatter</div>
+      <div class="card-desc">Pretty print, minify, tree view, path query, sort keys</div>
+    </a>
+    <a class="card" href="md_slides.html">
+      <div class="card-title"><span class="card-color" style="background:#e11d48"></span>MD Slides</div>
+      <div class="card-desc">Markdown to presentation slides with themes and fullscreen</div>
+    </a>
+    <a class="card" href="color_palette.html">
+      <div class="card-title"><span class="card-color" style="background:#8b5cf6"></span>Color Palette</div>
+      <div class="card-desc">Harmonies, contrast checker (WCAG), shades, CSS/Tailwind export</div>
+    </a>
+    <a class="card" href="diff_viewer.html">
+      <div class="card-title"><span class="card-color" style="background:#16a34a"></span>Diff Viewer</div>
+      <div class="card-desc">Side-by-side or unified diff with character-level highlighting</div>
+    </a>
+    <a class="card" href="csv_table.html">
+      <div class="card-title"><span class="card-color" style="background:#0d9488"></span>CSV Table</div>
+      <div class="card-desc">Paste CSV — sort, filter, search, export to JSON/Markdown</div>
+    </a>
+    <a class="card" href="unit_converter.html">
+      <div class="card-title"><span class="card-color" style="background:#ea580c"></span>Unit Converter</div>
+      <div class="card-desc">Length, weight, temperature, data, time, speed, area, volume</div>
+    </a>
+  </div>
+  <div class="footer">Generation 7 — autonomous agent micro-tools</div>
+</div>
+</body>
+</html>
