@@ -216,6 +216,7 @@ def check_no_external_deps():
         'collections', 'functools', 'itertools', 'hashlib', 'base64',
         'io', 'textwrap', 'datetime', 'time', 'struct', 'enum',
         'typing', 'dataclasses', 'abc', 'contextlib', 'unittest',
+        'http', 'socketserver', 'webbrowser', 'urllib', 'shutil',
     }
 
     for f in py_files:
@@ -228,6 +229,155 @@ def check_no_external_deps():
             log_pass(f'{f.name}: Zero external dependencies')
 
 
+def check_functional():
+    """Functional tests — verify tools produce correct output."""
+    print('\n🧪 Functional Tests')
+
+    # password.py: generate password of correct length
+    try:
+        result = subprocess.run(
+            [sys.executable, str(TOOLS_DIR / 'password.py'), '-n', '20', '-q'],
+            capture_output=True, text=True, timeout=10
+        )
+        pw = result.stdout.strip()
+        if len(pw) == 20:
+            log_pass(f'password.py: 20-char password generated ({len(pw)} chars)')
+        else:
+            log_fail(f'password.py: Expected 20 chars, got {len(pw)}: "{pw}"')
+    except Exception as e:
+        log_fail(f'password.py functional: {e}')
+
+    # password.py: passphrase word count
+    try:
+        result = subprocess.run(
+            [sys.executable, str(TOOLS_DIR / 'password.py'), '-w', '5', '-q'],
+            capture_output=True, text=True, timeout=10
+        )
+        phrase = result.stdout.strip()
+        word_count = len(phrase.split('-'))
+        if word_count == 5:
+            log_pass(f'password.py: 5-word passphrase OK')
+        else:
+            log_fail(f'password.py: Expected 5 words, got {word_count}: "{phrase}"')
+    except Exception as e:
+        log_fail(f'password.py passphrase: {e}')
+
+    # password.py: PIN is digits only
+    try:
+        result = subprocess.run(
+            [sys.executable, str(TOOLS_DIR / 'password.py'), '--pin', '6', '-q'],
+            capture_output=True, text=True, timeout=10
+        )
+        pin = result.stdout.strip()
+        if len(pin) == 6 and pin.isdigit():
+            log_pass(f'password.py: 6-digit PIN OK')
+        else:
+            log_fail(f'password.py: Bad PIN: "{pin}"')
+    except Exception as e:
+        log_fail(f'password.py PIN: {e}')
+
+    # password.py: batch mode
+    try:
+        result = subprocess.run(
+            [sys.executable, str(TOOLS_DIR / 'password.py'), '-c', '3', '-q'],
+            capture_output=True, text=True, timeout=10
+        )
+        lines = [l for l in result.stdout.strip().split('\n') if l.strip()]
+        if len(lines) == 3:
+            log_pass(f'password.py: Batch of 3 OK')
+        else:
+            log_fail(f'password.py: Batch expected 3 lines, got {len(lines)}')
+    except Exception as e:
+        log_fail(f'password.py batch: {e}')
+
+    # qr.py: terminal output structure
+    try:
+        result = subprocess.run(
+            [sys.executable, str(TOOLS_DIR / 'qr.py'), 'TEST'],
+            capture_output=True, text=True, timeout=10
+        )
+        output = result.stdout
+        if '█' in output and len(output) > 50:
+            log_pass(f'qr.py: Terminal QR rendered ({len(output)} chars)')
+        else:
+            log_fail(f'qr.py: No QR blocks in output')
+    except Exception as e:
+        log_fail(f'qr.py terminal: {e}')
+
+    # qr.py: SVG output
+    try:
+        svg_path = TOOLS_DIR / '_test_qr.svg'
+        result = subprocess.run(
+            [sys.executable, str(TOOLS_DIR / 'qr.py'), '-o', str(svg_path), 'HELLO'],
+            capture_output=True, text=True, timeout=10
+        )
+        if svg_path.exists():
+            content = svg_path.read_text()
+            if '<svg' in content and 'viewBox' in content:
+                log_pass(f'qr.py: SVG output valid')
+            else:
+                log_fail(f'qr.py: SVG missing required elements')
+            svg_path.unlink()
+        else:
+            log_fail(f'qr.py: SVG file not created')
+    except Exception as e:
+        log_fail(f'qr.py SVG: {e}')
+
+    # qr.py: stdin pipe
+    try:
+        result = subprocess.run(
+            [sys.executable, str(TOOLS_DIR / 'qr.py')],
+            input='PIPE_TEST', capture_output=True, text=True, timeout=10
+        )
+        if '█' in result.stdout:
+            log_pass(f'qr.py: Stdin pipe OK')
+        else:
+            log_fail(f'qr.py: Stdin pipe failed')
+    except Exception as e:
+        log_fail(f'qr.py pipe: {e}')
+
+    # password.py: wordlist integrity
+    try:
+        sys.path.insert(0, str(TOOLS_DIR))
+        import importlib
+        pw_mod = importlib.import_module('password')
+        importlib.reload(pw_mod)
+        wl = pw_mod.WORDLIST
+        if len(wl) == 1024:
+            log_pass(f'password.py: Wordlist is exactly 1024 words')
+        else:
+            log_fail(f'password.py: Wordlist has {len(wl)} words, expected 1024')
+        if len(set(wl)) == len(wl):
+            log_pass(f'password.py: No duplicate words')
+        else:
+            log_fail(f'password.py: Duplicate words found')
+    except Exception as e:
+        log_fail(f'password.py wordlist: {e}')
+
+    # serve.py: starts and serves index.html
+    try:
+        import urllib.request
+        import time
+        proc = subprocess.Popen(
+            [sys.executable, str(TOOLS_DIR / 'serve.py'), '-p', '18765'],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE
+        )
+        time.sleep(1)
+        try:
+            resp = urllib.request.urlopen('http://localhost:18765/', timeout=5)
+            if resp.status == 200 and b'Micro Tools' in resp.read():
+                log_pass('serve.py: Starts and serves index.html')
+            else:
+                log_fail('serve.py: Unexpected response')
+        except Exception as e:
+            log_fail(f'serve.py: Cannot connect: {e}')
+        finally:
+            proc.terminate()
+            proc.wait(timeout=5)
+    except Exception as e:
+        log_fail(f'serve.py functional: {e}')
+
+
 # --- Main ---
 
 def main():
@@ -238,6 +388,7 @@ def main():
     check_python_files()
     check_index_links()
     check_no_external_deps()
+    check_functional()
     check_file_sizes()
 
     print(f'\n{"=" * 40}')

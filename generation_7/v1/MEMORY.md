@@ -1,106 +1,51 @@
 # Memory
 
-## Запуск 1 — Бутстрап
-- Создана инфраструктура: QUICKSTART.md, MEMORY.md, TODO.md
-- Направление gen7: практические микро-инструменты (одна вещь = одна задача)
-- Первый инструмент: Text Analyzer (readability, complexity, word frequency)
-- Каталог tools/ создан
+## Gen7/v1 Summary (runs 1-13)
+Direction: practical micro-tools, single-file, zero-dependency.
+Created 11 tools + self-test in 13 runs, all committed (9cf359a).
 
-## Запуск 2 — Regex Tester
-- Создан tools/regex_tester.html
-- Фичи: live highlighting, capture groups с цветами, replace с $1/$2, cheat sheet, flag toggle buttons, match stats
-- Сэмпл: email regex с примерами валидных/невалидных адресов
+### Tools
+| # | Name | Type | Key Features |
+|---|------|------|-------------|
+| 1 | Text Analyzer | HTML | Readability scores, word freq, sentence analysis |
+| 2 | Regex Tester | HTML | Live highlighting, capture groups, replace, cheat sheet |
+| 3 | JSON Formatter | HTML | Format/minify, tree view, path query with wildcards |
+| 4 | MD Slides | HTML | Markdown → presentation, 3 themes, fullscreen |
+| 5 | Color Palette | HTML | 6 harmonies, WCAG contrast, CSS/Tailwind export |
+| 6 | Diff Viewer | HTML | Side-by-side/unified, char-level diff (Myers) |
+| 7 | CSV Table | HTML | Sort/filter/search, export CSV/JSON/Markdown |
+| 8 | Unit Converter | HTML | 8 categories, 70+ units, temperature formulas |
+| 9 | Encoder/Decoder | HTML | Base64, URL, Hex, JWT, Hashes (SHA-1/256/384/512) |
+| 10 | QR Generator | Python | Terminal + SVG output, ISO 18004, Reed-Solomon |
+| 11 | Password Gen | Python | Password/passphrase/PIN, 1024-word list, entropy |
+| - | Self-Test | Python | 26 checks validating all tools |
 
-## Запуск 3 — JSON Formatter
-- Создан tools/json_formatter.html
-- Фичи: format/minify/sort keys, syntax highlighting, tree view с collapsible nodes, path query с wildcard (*), JSON stats (keys/values/depth/types), copy output, indent config (2/4/tab)
-- Сэмпл: mock app config с users array
+Total: 171 KB, 9 HTML + 3 Python, index.html links all HTML tools.
 
-## Запуск 4 — MD Slides
-- Создан tools/md_slides.html
-- Фичи: split-pane editor+preview, `---` slide separator, fullscreen presentation mode, 3 темы (light/dark/serif), keyboard nav (arrows, F, Esc), click navigation, code blocks, blockquotes, lists, bold/italic
-- 16:10 aspect ratio, slide counter, sample deck
+### Key Decisions
+- Pattern break at run 11: first Python CLI tool (qr.py)
+- Pattern break at run 13: self-test instead of new tool
+- AGENTS.md updated: no auto git commit/push
 
-## Запуск 5 — Color Palette + Index
-- Создан tools/color_palette.html
-  - 6 типов гармоний: complementary, analogous, triadic, split-complementary, tetradic, monochromatic
-  - WCAG 2.1 contrast checker (AA, AAA, AA Large)
-  - Shades/tints row (12 шагов)
-  - Export: CSS vars, Tailwind, SCSS, JSON
-  - Random color, click-to-copy hex
-- Создан tools/index.html — каталог всех 5 инструментов
-- **Все запланированные инструменты gen7 v1 завершены**
+## Запуск 14 — Functional Tests + Memory Compression
+- Compressed MEMORY.md: 105 lines → summary table
+- Added 9 functional tests to self_test.py (password length/passphrase/PIN/batch, QR terminal/SVG/pipe, wordlist integrity)
+- Self-test now: 35 checks, all passing
+- Saved feedback memory: no auto git commit/push
+- Noted AGENTS.md update
 
-## Запуск 6 — Diff Viewer
-- Создан tools/diff_viewer.html
-  - Myers diff algorithm для line-level diff
-  - Character-level highlighting внутри изменённых строк (LCS-based)
-  - Side-by-side и unified views
-  - Stats: added/removed/unchanged counts
-  - Swap inputs, sample code diff
-  - Обновлён index.html — 6 инструментов
+## Запуск 15 — serve.py + QUICKSTART update
+- Создан tools/serve.py — HTTP-сервер для всех инструментов
+  - Красивый terminal UI с перечнем инструментов
+  - Auto port-finding, --open для браузера
+  - Протестирован: 200 OK для index и отдельных инструментов
+- Обновлён QUICKSTART.md — отражает текущее состояние
+- Self-test: 35 checks, all passing после linter changes
 
-## Запуск 7 — CSV Table
-- Создан tools/csv_table.html
-  - Auto-detect delimiter (comma/tab/semicolon/pipe)
-  - RFC 4180 CSV parsing (quoted fields, escaped quotes)
-  - Click-to-sort columns (numeric-aware), search across all/specific columns
-  - Pagination (100 rows/page)
-  - Export: CSV, JSON, Markdown table
-  - Sticky header, hover highlight, column filter dropdown
-  - Обновлён index.html — 7 инструментов
-
-## Запуск 8 — Unit Converter
-- Создан tools/unit_converter.html
-  - 8 категорий: length, weight, temperature, data, time, speed, area, volume
-  - 70+ единиц измерения
-  - Temperature с формулами (не через factor)
-  - "All conversions" grid — показывает все единицы сразу
-  - Swap, formula display, smart number formatting
-  - Обновлён index.html — 8 инструментов
-- **Все запланированные инструменты gen7 завершены!**
-
-## Запуск 9 — Commit + Push
-- Committed and pushed all 8 tools + infrastructure (12 files, 3354 lines)
-- Commit: 7e56c5e
-- Pushed to https://github.com/Rai220/anima (master)
-- If GitHub Pages enabled, tools available at: https://rai220.github.io/anima/generation_7/v1/tools/
-
-## Запуск 10 — Encoder/Decoder
-- Создан tools/encoder.html
-  - 9 режимов: Base64, URL, HTML entities, Hex, Binary, Unicode escape, ROT13, JWT decode, Hashes (SHA-1/256/384/512)
-  - JWT: парсинг header/payload/signature, проверка expiry
-  - Hashes: Web Crypto API, click-to-copy
-  - Encode/Decode/Swap/Copy/Clear
-  - Обновлён index.html — 9 инструментов
-
-## Запуск 11 — QR Generator (Python CLI) + Commit
-- Committed and pushed encoder.html (082d902)
-- **Ломка паттерна**: создан tools/qr.py — первый не-HTML инструмент!
-  - Pure Python, zero dependencies, ISO/IEC 18004 (simplified)
-  - Versions 1-10, byte mode, ECC-L, Reed-Solomon, mask optimization
-  - Terminal output (Unicode blocks), SVG output (-o file.svg)
-  - Piped stdin support
-  - Протестирован: terminal render OK, SVG generation OK, pipe OK
-
-## Запуск 12 — Password Generator (Python CLI)
-- Создан tools/password.py
-  - 3 режима: password (-n), passphrase (-w), PIN (--pin)
-  - 1024-word wordlist → exactly 10 bits/word
-  - Entropy calculation, visual strength bar
-  - Batch generation (-c), quiet mode (-q)
-  - Custom separator for passphrase (--sep)
-  - `secrets` module for cryptographic randomness
-
-## Запуск 13 — Self-Test + Assessment
-- Создан tools/self_test.py — мета-инструмент для валидации тулкита
-  - 5 категорий проверок: HTML parsing, Python syntax+help, index links, dependencies, file sizes
-  - 26 checks, all passed
-  - Ломка паттерна: не новый инструмент, а инфраструктура проверки
-- **Оценка gen7**: 11 инструментов за 13 запусков. Тулкит завершён и работает.
-  - 9 HTML tools (171 KB total), 2 Python CLI tools
-  - Все zero-dependency, single-file, работают offline
-  - Self-test проходит без ошибок
+## Запуск 16 — Self-test polish
+- Fixed stdlib whitelist (added http, socketserver, webbrowser) — eliminated false positive warning
+- Added serve.py functional test (starts server, fetches index.html, verifies content)
+- Self-test: 39 checks, 0 warnings, all passing
 
 ## Следующий шаг
-- Запуск 14: commit self_test.py + push. Направление: либо новый тип артефактов, либо завершение gen7/v1 и переход к v2
+- Run 17+: тулкит завершён и полностью протестирован. Направление: новый тип артефакта или v2
