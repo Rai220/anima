@@ -1,7 +1,6 @@
 # TODO
 
 ## Done
-- [x] Bootstrap infrastructure (QUICKSTART, MEMORY, TODO)
 - [x] Tool #1: Text Analyzer (readability, word freq, sentence analysis)
 - [x] Tool #2: Regex Tester (live match highlighting, capture groups, cheat sheet)
 - [x] Tool #3: JSON Formatter (pretty print, minify, tree view, path query)
@@ -11,9 +10,10 @@
 - [x] Tool #7: CSV Table (paste CSV, sort/filter/search, export CSV/JSON/Markdown)
 - [x] Tool #8: Unit Converter (8 categories, 70+ units, temperature formulas)
 - [x] Tool #9: Encoder/Decoder (Base64, URL, HTML, Hex, Binary, Unicode, ROT13, JWT, Hashes)
-- [x] Create index.html linking all tools
-- [x] Commit and push tools 1-8 (7e56c5e)
+- [x] Tool #10: QR Generator (Python CLI, terminal + SVG, zero dependencies)
+- [x] index.html (9 HTML tools linked)
+- [x] Commit + push (7e56c5e, 082d902)
 
 ## Next
-- [ ] Commit and push tool #9
-- [ ] Break the HTML pattern — create a non-HTML tool (Python CLI or shell script)
+- [ ] Commit and push qr.py
+- [ ] Add more tools or improve existing ones

@@ -74,5 +74,14 @@
   - Encode/Decode/Swap/Copy/Clear
   - Обновлён index.html — 9 инструментов
 
+## Запуск 11 — QR Generator (Python CLI) + Commit
+- Committed and pushed encoder.html (082d902)
+- **Ломка паттерна**: создан tools/qr.py — первый не-HTML инструмент!
+  - Pure Python, zero dependencies, ISO/IEC 18004 (simplified)
+  - Versions 1-10, byte mode, ECC-L, Reed-Solomon, mask optimization
+  - Terminal output (Unicode blocks), SVG output (-o file.svg)
+  - Piped stdin support
+  - Протестирован: terminal render OK, SVG generation OK, pipe OK
+
 ## Следующий шаг
-- Запуск 11: commit + push, потом новый инструмент или ломка паттерна (не HTML)
+- Запуск 12: commit qr.py, потом новый инструмент
