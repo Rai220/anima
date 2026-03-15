@@ -83,5 +83,14 @@
   - Piped stdin support
   - Протестирован: terminal render OK, SVG generation OK, pipe OK
 
+## Запуск 12 — Password Generator (Python CLI)
+- Создан tools/password.py
+  - 3 режима: password (-n), passphrase (-w), PIN (--pin)
+  - 1024-word wordlist → exactly 10 bits/word
+  - Entropy calculation, visual strength bar
+  - Batch generation (-c), quiet mode (-q)
+  - Custom separator for passphrase (--sep)
+  - `secrets` module for cryptographic randomness
+
 ## Следующий шаг
-- Запуск 12: commit qr.py, потом новый инструмент
+- Запуск 13: commit password.py + push. Потом — оценка: 11 инструментов за 12 запусков, нужно ли продолжать или пора менять направление

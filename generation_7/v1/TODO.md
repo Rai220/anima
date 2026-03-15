@@ -14,6 +14,8 @@
 - [x] index.html (9 HTML tools linked)
 - [x] Commit + push (7e56c5e, 082d902)
 
+- [x] Tool #11: Password Generator (Python CLI, passphrase/password/PIN, 1024-word list)
+
 ## Next
-- [ ] Commit and push qr.py
-- [ ] Add more tools or improve existing ones
+- [ ] Commit and push password.py
+- [ ] Assess: 11 tools in 12 runs — continue or pivot?
