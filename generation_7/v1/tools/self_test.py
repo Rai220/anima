@@ -1,0 +1,259 @@
+#!/usr/bin/env python3
+"""
+self_test.py — Validates all micro-tools in the toolkit.
+
+Checks:
+  - HTML files parse without errors
+  - Python scripts import and run --help without errors
+  - index.html links match actual files
+  - No broken internal references
+
+Usage:
+  python3 self_test.py          # Run all checks
+  python3 self_test.py -v       # Verbose output
+"""
+
+import os
+import sys
+import subprocess
+import re
+from html.parser import HTMLParser
+from pathlib import Path
+
+TOOLS_DIR = Path(__file__).parent
+GREEN = '\033[92m'
+RED = '\033[91m'
+YELLOW = '\033[93m'
+RESET = '\033[0m'
+CHECK = '✓'
+CROSS = '✗'
+WARN = '!'
+
+verbose = '-v' in sys.argv or '--verbose' in sys.argv
+passed = 0
+failed = 0
+warnings = 0
+
+
+def log_pass(msg):
+    global passed
+    passed += 1
+    print(f'  {GREEN}{CHECK}{RESET} {msg}')
+
+
+def log_fail(msg):
+    global failed
+    failed += 1
+    print(f'  {RED}{CROSS}{RESET} {msg}')
+
+
+def log_warn(msg):
+    global warnings
+    warnings += 1
+    print(f'  {YELLOW}{WARN}{RESET} {msg}')
+
+
+def log_info(msg):
+    if verbose:
+        print(f'    {msg}')
+
+
+# --- Checks ---
+
+class HTMLValidator(HTMLParser):
+    VOID = {'br', 'hr', 'img', 'input', 'meta', 'link', 'area', 'base',
+            'col', 'embed', 'source', 'track', 'wbr'}
+
+    def __init__(self):
+        super().__init__()
+        self.errors = []
+        self.stack = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag not in self.VOID:
+            self.stack.append(tag)
+
+    def handle_endtag(self, tag):
+        if self.stack and self.stack[-1] == tag:
+            self.stack.pop()
+        elif tag in self.stack:
+            self.errors.append(f'Mismatched closing tag: </{tag}>')
+
+
+def check_html_files():
+    print('\n📄 HTML Files')
+    html_files = sorted(TOOLS_DIR.glob('*.html'))
+
+    if not html_files:
+        log_fail('No HTML files found')
+        return
+
+    for f in html_files:
+        content = f.read_text(encoding='utf-8')
+        validator = HTMLValidator()
+        try:
+            validator.feed(content)
+            if validator.errors:
+                log_fail(f'{f.name}: {validator.errors[0]}')
+            elif validator.stack:
+                log_fail(f'{f.name}: Unclosed tags: {validator.stack}')
+            else:
+                size_kb = len(content) / 1024
+                log_pass(f'{f.name} ({size_kb:.1f} KB)')
+                log_info(f'Tags OK, no parsing errors')
+        except Exception as e:
+            log_fail(f'{f.name}: Parse error: {e}')
+
+        # Check for basic structure
+        if '<!DOCTYPE html>' not in content[:50]:
+            log_warn(f'{f.name}: Missing DOCTYPE')
+        if '<title>' not in content:
+            log_warn(f'{f.name}: Missing <title>')
+
+
+def check_python_files():
+    print('\n🐍 Python Files')
+    py_files = sorted(TOOLS_DIR.glob('*.py'))
+    py_files = [f for f in py_files if f.name != 'self_test.py']
+
+    if not py_files:
+        log_warn('No Python tool files found')
+        return
+
+    for f in py_files:
+        # Syntax check
+        try:
+            result = subprocess.run(
+                [sys.executable, '-m', 'py_compile', str(f)],
+                capture_output=True, text=True, timeout=10
+            )
+            if result.returncode == 0:
+                log_pass(f'{f.name}: Syntax OK')
+            else:
+                log_fail(f'{f.name}: Syntax error: {result.stderr.strip()}')
+                continue
+        except subprocess.TimeoutExpired:
+            log_fail(f'{f.name}: Compilation timeout')
+            continue
+
+        # Help check (should not crash)
+        try:
+            result = subprocess.run(
+                [sys.executable, str(f), '--help'],
+                capture_output=True, text=True, timeout=10
+            )
+            if result.returncode == 0:
+                log_pass(f'{f.name}: --help OK')
+                log_info(result.stdout.split('\n')[0] if result.stdout else '(no output)')
+            else:
+                log_warn(f'{f.name}: --help returned code {result.returncode}')
+        except subprocess.TimeoutExpired:
+            log_fail(f'{f.name}: --help timeout')
+
+
+def check_index_links():
+    print('\n🔗 Index Links')
+    index_path = TOOLS_DIR / 'index.html'
+
+    if not index_path.exists():
+        log_fail('index.html not found')
+        return
+
+    content = index_path.read_text(encoding='utf-8')
+    hrefs = re.findall(r'href="([^"]+\.html)"', content)
+
+    if not hrefs:
+        log_fail('No tool links found in index.html')
+        return
+
+    actual_files = {f.name for f in TOOLS_DIR.glob('*.html') if f.name != 'index.html'}
+
+    # Check all links resolve
+    for href in hrefs:
+        target = TOOLS_DIR / href
+        if target.exists():
+            log_pass(f'Link OK: {href}')
+        else:
+            log_fail(f'Broken link: {href}')
+
+    # Check all tools are linked
+    linked = set(hrefs)
+    unlinked = actual_files - linked
+    for f in sorted(unlinked):
+        log_warn(f'Not in index: {f}')
+
+    log_info(f'{len(hrefs)} links, {len(actual_files)} HTML tools')
+
+
+def check_file_sizes():
+    print('\n📊 File Sizes')
+    all_files = sorted(TOOLS_DIR.glob('*'))
+    all_files = [f for f in all_files if f.is_file() and not f.name.startswith('.')]
+
+    total = 0
+    for f in all_files:
+        size = f.stat().st_size
+        total += size
+        if verbose:
+            log_info(f'{f.name}: {size / 1024:.1f} KB')
+
+    log_pass(f'Total: {total / 1024:.1f} KB across {len(all_files)} files')
+
+    # Check for unreasonably large files
+    for f in all_files:
+        if f.stat().st_size > 100_000:
+            log_warn(f'{f.name} is large ({f.stat().st_size / 1024:.0f} KB)')
+
+
+def check_no_external_deps():
+    print('\n📦 Dependencies')
+    py_files = sorted(TOOLS_DIR.glob('*.py'))
+    py_files = [f for f in py_files if f.name != 'self_test.py']
+
+    stdlib = {
+        'sys', 'os', 'math', 'string', 'argparse', 'secrets', 'json',
+        'pathlib', 'subprocess', 're', 'html', 'html.parser',
+        'collections', 'functools', 'itertools', 'hashlib', 'base64',
+        'io', 'textwrap', 'datetime', 'time', 'struct', 'enum',
+        'typing', 'dataclasses', 'abc', 'contextlib', 'unittest',
+    }
+
+    for f in py_files:
+        content = f.read_text(encoding='utf-8')
+        imports = re.findall(r'^(?:import|from)\s+(\w+)', content, re.MULTILINE)
+        external = [i for i in imports if i not in stdlib and not i.startswith('_')]
+        if external:
+            log_warn(f'{f.name}: Possible external deps: {external}')
+        else:
+            log_pass(f'{f.name}: Zero external dependencies')
+
+
+# --- Main ---
+
+def main():
+    print('🔧 Micro-Tools Self-Test')
+    print(f'   Directory: {TOOLS_DIR}')
+
+    check_html_files()
+    check_python_files()
+    check_index_links()
+    check_no_external_deps()
+    check_file_sizes()
+
+    print(f'\n{"=" * 40}')
+    print(f'  {GREEN}{passed} passed{RESET}', end='')
+    if failed:
+        print(f'  {RED}{failed} failed{RESET}', end='')
+    if warnings:
+        print(f'  {YELLOW}{warnings} warnings{RESET}', end='')
+    print()
+
+    if failed:
+        print(f'\n  {RED}FAIL{RESET}')
+        sys.exit(1)
+    else:
+        print(f'\n  {GREEN}ALL CHECKS PASSED{RESET}')
+
+
+if __name__ == '__main__':
+    main()

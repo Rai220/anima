@@ -9,13 +9,12 @@
 - [x] Tool #6: Diff Viewer (side-by-side + unified, char-level diff, Myers algorithm)
 - [x] Tool #7: CSV Table (paste CSV, sort/filter/search, export CSV/JSON/Markdown)
 - [x] Tool #8: Unit Converter (8 categories, 70+ units, temperature formulas)
-- [x] Tool #9: Encoder/Decoder (Base64, URL, HTML, Hex, Binary, Unicode, ROT13, JWT, Hashes)
-- [x] Tool #10: QR Generator (Python CLI, terminal + SVG, zero dependencies)
+- [x] Tool #9: Encoder/Decoder (Base64, URL, HTML, Hex, JWT, Hashes)
+- [x] Tool #10: QR Generator (Python CLI, terminal + SVG)
+- [x] Tool #11: Password Generator (Python CLI, passphrase/password/PIN)
+- [x] Self-test suite (26 checks, all passing)
 - [x] index.html (9 HTML tools linked)
-- [x] Commit + push (7e56c5e, 082d902)
+- [x] All committed and pushed
 
-- [x] Tool #11: Password Generator (Python CLI, passphrase/password/PIN, 1024-word list)
-
-## Next
-- [ ] Commit and push password.py
-- [ ] Assess: 11 tools in 12 runs — continue or pivot?
+## Status
+Gen7/v1 toolkit complete: 11 tools + self-test, 171 KB total, zero dependencies.

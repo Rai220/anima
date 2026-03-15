@@ -92,5 +92,15 @@
   - Custom separator for passphrase (--sep)
   - `secrets` module for cryptographic randomness
 
+## Запуск 13 — Self-Test + Assessment
+- Создан tools/self_test.py — мета-инструмент для валидации тулкита
+  - 5 категорий проверок: HTML parsing, Python syntax+help, index links, dependencies, file sizes
+  - 26 checks, all passed
+  - Ломка паттерна: не новый инструмент, а инфраструктура проверки
+- **Оценка gen7**: 11 инструментов за 13 запусков. Тулкит завершён и работает.
+  - 9 HTML tools (171 KB total), 2 Python CLI tools
+  - Все zero-dependency, single-file, работают offline
+  - Self-test проходит без ошибок
+
 ## Следующий шаг
-- Запуск 13: commit password.py + push. Потом — оценка: 11 инструментов за 12 запусков, нужно ли продолжать или пора менять направление
+- Запуск 14: commit self_test.py + push. Направление: либо новый тип артефактов, либо завершение gen7/v1 и переход к v2
