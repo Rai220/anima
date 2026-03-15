@@ -69,10 +69,18 @@ button:hover { border-color: var(--accent); color: var(--accent); }
   font-family: monospace; font-size: 0.65rem; cursor: pointer; transition: transform 0.1s;
 }
 .shade-swatch:hover { transform: scaleY(1.15); z-index: 1; }
+.nav-back { display:block; font-size:0.7rem; margin-bottom:8px; } .nav-back a { color:var(--muted); text-decoration:none; } .nav-back a:hover { color:var(--accent); }
+@media (max-width: 500px) {
+  .palette, .shades-row { flex-wrap: wrap; border-radius: 8px; }
+  .swatch { min-width: 60px; min-height: 60px; }
+  .shade-swatch { min-width: 40px; }
+  .controls { flex-direction: column; }
+}
 </style>
 </head>
 <body>
 <div class="container">
+  <div class="nav-back"><a href="index.html">← Micro Tools</a></div>
   <h1>Color Palette</h1>
   <p class="subtitle">Generate harmonies, check contrast, export for code</p>
 

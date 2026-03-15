@@ -27,6 +27,12 @@ a.card:hover { border-color: #6366f1; box-shadow: 0 2px 12px rgba(99,102,241,0.1
 .cli-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 2px; }
 .cli-desc { font-size: 0.78rem; color: #666; margin-bottom: 6px; }
 .cli-cmd { display: block; font-size: 0.75rem; padding: 4px 8px; background: #f3f4f6; border-radius: 4px; color: #374151; }
+.search {
+  width: 100%; padding: 10px 16px; border: 1px solid #e5e7eb; border-radius: 10px;
+  font-size: 0.9rem; margin-bottom: 16px; outline: none; background: white;
+}
+.search:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.1); }
+.hidden { display: none !important; }
 .footer { margin-top: 40px; text-align: center; font-size: 0.75rem; color: #9ca3af; }
 </style>
 </head>
@@ -34,6 +40,7 @@ a.card:hover { border-color: #6366f1; box-shadow: 0 2px 12px rgba(99,102,241,0.1
 <div class="container">
   <h1>Micro Tools</h1>
   <p class="subtitle">Single-file, zero-dependency tools. One thing done well.</p>
+  <input type="text" class="search" id="search" placeholder="Filter tools..." autofocus>
   <div class="grid">
     <a class="card" href="text_analyzer.html">
       <div class="card-title"><span class="card-color" style="background:#2563eb"></span>Text Analyzer</div>
@@ -94,9 +101,33 @@ a.card:hover { border-color: #6366f1; box-shadow: 0 2px 12px rgba(99,102,241,0.1
         <div class="cli-desc">Password, passphrase & PIN generator</div>
         <code class="cli-cmd">python3 password.py -w 5</code>
       </div>
+      <div class="cli-card">
+        <div class="cli-name">hash.py</div>
+        <div class="cli-desc">File & text hash calculator — MD5, SHA1, SHA256, verify</div>
+        <code class="cli-cmd">python3 hash.py file.txt</code>
+      </div>
+      <div class="cli-card">
+        <div class="cli-name">run_tracker.py</div>
+        <div class="cli-desc">Agent run journal — drift detection, suggest, consistency check</div>
+        <code class="cli-cmd">python3 run_tracker.py status</code>
+      </div>
     </div>
   </div>
   <div class="footer">Generation 7 — autonomous agent micro-tools</div>
 </div>
+<script>
+document.getElementById('search').addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  document.querySelectorAll('.card, .cli-card').forEach(el => {
+    const text = el.textContent.toLowerCase();
+    el.classList.toggle('hidden', q && !text.includes(q));
+  });
+  // Hide section headers if all their items are hidden
+  document.querySelectorAll('.cli-section').forEach(sec => {
+    const visible = sec.querySelectorAll('.cli-card:not(.hidden)').length;
+    sec.classList.toggle('hidden', q && visible === 0);
+  });
+});
+</script>
 </body>
 </html>

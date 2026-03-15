@@ -61,10 +61,12 @@ textarea:focus { outline: none; border-color: var(--accent); }
 .char-del { background: var(--del-line); border-radius: 2px; }
 
 .no-diff { padding: 40px; text-align: center; color: var(--muted); font-size: 0.9rem; }
+.nav-back { display:block; font-size:0.7rem; margin-bottom:8px; } .nav-back a { color:var(--muted); text-decoration:none; } .nav-back a:hover { color:var(--accent); }
 </style>
 </head>
 <body>
 <div class="container">
+  <div class="nav-back"><a href="index.html">← Micro Tools</a></div>
   <h1>Diff Viewer</h1>
   <p class="subtitle">Compare two texts — side by side or unified</p>
 
@@ -133,8 +135,8 @@ function runDiff() {
   if (!a && !b) { output.innerHTML = '<div class="no-diff">Paste two texts to compare</div>'; statsEl.innerHTML = ''; return; }
   if (a === b) { output.innerHTML = '<div class="no-diff">Texts are identical</div>'; statsEl.innerHTML = '<span class="stat-num" style="color:var(--accent)">Identical</span>'; return; }
 
-  const linesA = a.split('\n');
-  const linesB = b.split('\n');
+  const linesA = a.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+  const linesB = b.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
   const ops = myersDiff(linesA, linesB);
 
   let added = 0, deleted = 0, unchanged = 0;
@@ -310,10 +312,10 @@ function charHighlight(line, other, type) {
   let i = n, j = m;
   while (i > 0 && j > 0) {
     if (a[i-1] === b[j-1]) {
-      if (type === 'del') common.add(i - 1); else common.add(i - 1);
+      common.add(i - 1);
       i--; j--;
     } else if (dp[i-1][j] >= dp[i][j-1]) {
-      if (type === 'del') i--; else i--;
+      i--;
     } else {
       j--;
     }

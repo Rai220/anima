@@ -111,6 +111,48 @@ def check_html_files():
             log_warn(f'{f.name}: Missing <title>')
 
 
+def check_js_syntax():
+    """Check JavaScript syntax in HTML files using Node.js."""
+    # Only run if node is available
+    try:
+        result = subprocess.run(['node', '--version'],
+            capture_output=True, text=True, timeout=5)
+        if result.returncode != 0:
+            return  # Skip silently if no node
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return
+
+    print('\n📜 JavaScript Syntax')
+    html_files = sorted(TOOLS_DIR.glob('*.html'))
+    html_files = [f for f in html_files if f.name != 'index.html']
+
+    for f in html_files:
+        content = f.read_text(encoding='utf-8')
+        # Extract all <script> blocks
+        scripts = re.findall(r'<script[^>]*>(.*?)</script>', content, re.DOTALL)
+        if not scripts:
+            continue
+
+        combined = '\n'.join(scripts)
+        tmp = TOOLS_DIR / f'_test_{f.stem}.js'
+        try:
+            tmp.write_text(combined, encoding='utf-8')
+            result = subprocess.run(
+                ['node', '--check', str(tmp)],
+                capture_output=True, text=True, timeout=10
+            )
+            if result.returncode == 0:
+                log_pass(f'{f.name}: JS syntax OK')
+            else:
+                err = result.stderr.strip().split('\n')[0]
+                log_fail(f'{f.name}: JS error: {err}')
+        except Exception as e:
+            log_fail(f'{f.name}: JS check failed: {e}')
+        finally:
+            if tmp.exists():
+                tmp.unlink()
+
+
 def check_python_files():
     print('\n🐍 Python Files')
     py_files = sorted(TOOLS_DIR.glob('*.py'))
@@ -210,13 +252,8 @@ def check_no_external_deps():
     py_files = sorted(TOOLS_DIR.glob('*.py'))
     py_files = [f for f in py_files if f.name != 'self_test.py']
 
-    stdlib = {
-        'sys', 'os', 'math', 'string', 'argparse', 'secrets', 'json',
-        'pathlib', 'subprocess', 're', 'html', 'html.parser',
-        'collections', 'functools', 'itertools', 'hashlib', 'base64',
-        'io', 'textwrap', 'datetime', 'time', 'struct', 'enum',
-        'typing', 'dataclasses', 'abc', 'contextlib', 'unittest',
-        'http', 'socketserver', 'webbrowser', 'urllib', 'shutil',
+    stdlib = getattr(sys, 'stdlib_module_names', set()) | {
+        'html.parser',  # submodule not in stdlib_module_names
     }
 
     for f in py_files:
@@ -229,112 +266,90 @@ def check_no_external_deps():
             log_pass(f'{f.name}: Zero external dependencies')
 
 
+def run_tool(tool_name, args, check, label, stdin=None, env=None):
+    """Run a CLI tool and check output. Returns result or None on failure."""
+    try:
+        cmd = [sys.executable, str(TOOLS_DIR / tool_name)] + args
+        result = subprocess.run(
+            cmd, capture_output=True, text=True, timeout=10,
+            input=stdin, env=env
+        )
+        ok, msg = check(result)
+        if ok:
+            log_pass(f'{tool_name}: {label}' + (f' ({msg})' if msg else ''))
+        else:
+            log_fail(f'{tool_name}: {label} — {msg}')
+        return result
+    except Exception as e:
+        log_fail(f'{tool_name}: {label} — {e}')
+        return None
+
+
 def check_functional():
     """Functional tests — verify tools produce correct output."""
     print('\n🧪 Functional Tests')
 
-    # password.py: generate password of correct length
-    try:
-        result = subprocess.run(
-            [sys.executable, str(TOOLS_DIR / 'password.py'), '-n', '20', '-q'],
-            capture_output=True, text=True, timeout=10
-        )
-        pw = result.stdout.strip()
-        if len(pw) == 20:
-            log_pass(f'password.py: 20-char password generated ({len(pw)} chars)')
-        else:
-            log_fail(f'password.py: Expected 20 chars, got {len(pw)}: "{pw}"')
-    except Exception as e:
-        log_fail(f'password.py functional: {e}')
+    # password.py tests
+    run_tool('password.py', ['-n', '20', '-q'],
+        lambda r: (len(r.stdout.strip()) == 20, f'{len(r.stdout.strip())} chars'),
+        '20-char password generated')
 
-    # password.py: passphrase word count
-    try:
-        result = subprocess.run(
-            [sys.executable, str(TOOLS_DIR / 'password.py'), '-w', '5', '-q'],
-            capture_output=True, text=True, timeout=10
-        )
-        phrase = result.stdout.strip()
-        word_count = len(phrase.split('-'))
-        if word_count == 5:
-            log_pass(f'password.py: 5-word passphrase OK')
-        else:
-            log_fail(f'password.py: Expected 5 words, got {word_count}: "{phrase}"')
-    except Exception as e:
-        log_fail(f'password.py passphrase: {e}')
+    run_tool('password.py', ['-w', '5', '-q'],
+        lambda r: (len(r.stdout.strip().split('-')) == 5, None),
+        '5-word passphrase OK')
 
-    # password.py: PIN is digits only
-    try:
-        result = subprocess.run(
-            [sys.executable, str(TOOLS_DIR / 'password.py'), '--pin', '6', '-q'],
-            capture_output=True, text=True, timeout=10
-        )
-        pin = result.stdout.strip()
-        if len(pin) == 6 and pin.isdigit():
-            log_pass(f'password.py: 6-digit PIN OK')
-        else:
-            log_fail(f'password.py: Bad PIN: "{pin}"')
-    except Exception as e:
-        log_fail(f'password.py PIN: {e}')
+    run_tool('password.py', ['--pin', '6', '-q'],
+        lambda r: (len(r.stdout.strip()) == 6 and r.stdout.strip().isdigit(), None),
+        '6-digit PIN OK')
 
-    # password.py: batch mode
-    try:
-        result = subprocess.run(
-            [sys.executable, str(TOOLS_DIR / 'password.py'), '-c', '3', '-q'],
-            capture_output=True, text=True, timeout=10
-        )
-        lines = [l for l in result.stdout.strip().split('\n') if l.strip()]
-        if len(lines) == 3:
-            log_pass(f'password.py: Batch of 3 OK')
-        else:
-            log_fail(f'password.py: Batch expected 3 lines, got {len(lines)}')
-    except Exception as e:
-        log_fail(f'password.py batch: {e}')
+    run_tool('password.py', ['-c', '3', '-q'],
+        lambda r: (len([l for l in r.stdout.strip().split('\n') if l.strip()]) == 3, None),
+        'Batch of 3 OK')
 
-    # qr.py: terminal output structure
-    try:
-        result = subprocess.run(
-            [sys.executable, str(TOOLS_DIR / 'qr.py'), 'TEST'],
-            capture_output=True, text=True, timeout=10
-        )
-        output = result.stdout
-        if '█' in output and len(output) > 50:
-            log_pass(f'qr.py: Terminal QR rendered ({len(output)} chars)')
-        else:
-            log_fail(f'qr.py: No QR blocks in output')
-    except Exception as e:
-        log_fail(f'qr.py terminal: {e}')
+    run_tool('password.py', ['--check', 'Test123!', '-q'],
+        lambda r: (r.stdout.strip().isdigit() and int(r.stdout.strip()) > 0, None),
+        'Check mode returns entropy')
 
-    # qr.py: SVG output
+    run_tool('password.py', ['--json'],
+        lambda r: ('"password"' in r.stdout and '"entropy"' in r.stdout, None),
+        'JSON output valid')
+
+    # hash.py tests
+    run_tool('hash.py', ['-t', 'hello', '-q'],
+        lambda r: (r.stdout.strip() == '5d41402abc4b2a76b9719d911017c592', None),
+        'Text hash MD5 correct')
+
+    run_tool('hash.py', ['-t', 'hello', '--json'],
+        lambda r: ('"sha256"' in r.stdout and '"md5"' in r.stdout, None),
+        'JSON output valid')
+
+    # qr.py tests
+    run_tool('qr.py', ['TEST'],
+        lambda r: ('█' in r.stdout and len(r.stdout) > 50, f'{len(r.stdout)} chars'),
+        'Terminal QR rendered')
+
+    # qr.py: SVG output (needs file cleanup)
     try:
         svg_path = TOOLS_DIR / '_test_qr.svg'
-        result = subprocess.run(
+        subprocess.run(
             [sys.executable, str(TOOLS_DIR / 'qr.py'), '-o', str(svg_path), 'HELLO'],
             capture_output=True, text=True, timeout=10
         )
         if svg_path.exists():
             content = svg_path.read_text()
             if '<svg' in content and 'viewBox' in content:
-                log_pass(f'qr.py: SVG output valid')
+                log_pass('qr.py: SVG output valid')
             else:
-                log_fail(f'qr.py: SVG missing required elements')
+                log_fail('qr.py: SVG missing required elements')
             svg_path.unlink()
         else:
-            log_fail(f'qr.py: SVG file not created')
+            log_fail('qr.py: SVG file not created')
     except Exception as e:
         log_fail(f'qr.py SVG: {e}')
 
-    # qr.py: stdin pipe
-    try:
-        result = subprocess.run(
-            [sys.executable, str(TOOLS_DIR / 'qr.py')],
-            input='PIPE_TEST', capture_output=True, text=True, timeout=10
-        )
-        if '█' in result.stdout:
-            log_pass(f'qr.py: Stdin pipe OK')
-        else:
-            log_fail(f'qr.py: Stdin pipe failed')
-    except Exception as e:
-        log_fail(f'qr.py pipe: {e}')
+    run_tool('qr.py', [],
+        lambda r: ('█' in r.stdout, None),
+        'Stdin pipe OK', stdin='PIPE_TEST')
 
     # password.py: wordlist integrity
     try:
@@ -344,15 +359,51 @@ def check_functional():
         importlib.reload(pw_mod)
         wl = pw_mod.WORDLIST
         if len(wl) == 1024:
-            log_pass(f'password.py: Wordlist is exactly 1024 words')
+            log_pass('password.py: Wordlist is exactly 1024 words')
         else:
             log_fail(f'password.py: Wordlist has {len(wl)} words, expected 1024')
         if len(set(wl)) == len(wl):
-            log_pass(f'password.py: No duplicate words')
+            log_pass('password.py: No duplicate words')
         else:
-            log_fail(f'password.py: Duplicate words found')
+            log_fail('password.py: Duplicate words found')
     except Exception as e:
         log_fail(f'password.py wordlist: {e}')
+
+    # run_tracker.py: isolated tests using temp log file
+    test_log = str(TOOLS_DIR / '_test_run_log.json')
+    test_env = os.environ.copy()
+    test_env['RUN_TRACKER_LOG'] = test_log
+    try:
+        # Setup: log 4 identical entries silently
+        for i in range(4):
+            subprocess.run(
+                [sys.executable, str(TOOLS_DIR / 'run_tracker.py'),
+                 'log', f'Test action {i+1}', '-t', 'test,html'],
+                capture_output=True, text=True, timeout=10, env=test_env
+            )
+
+        run_tool('run_tracker.py', ['drift'],
+            lambda r: ('ДРЕЙФ' in r.stdout, None),
+            'Drift detection works', env=test_env)
+
+        run_tool('run_tracker.py', ['stats'],
+            lambda r: ('test' in r.stdout and '4' in r.stdout, None),
+            'Stats output correct', env=test_env)
+
+        run_tool('run_tracker.py', ['suggest'],
+            lambda r: ('Рекомендуемые' in r.stdout, None),
+            'Suggest output correct', env=test_env)
+
+        run_tool('run_tracker.py', ['status'],
+            lambda r: ('Статус проекта' in r.stdout and 'дрейф' in r.stdout.lower(), None),
+            'Status output correct', env=test_env)
+
+        run_tool('run_tracker.py', ['log', '', '-t', 'test'],
+            lambda r: (r.returncode != 0, None),
+            'Empty summary rejected', env=test_env)
+    finally:
+        if os.path.exists(test_log):
+            os.remove(test_log)
 
     # serve.py: starts and serves index.html
     try:
@@ -361,7 +412,7 @@ def check_functional():
         import random
         port = 18700 + random.randint(50, 99)
         proc = subprocess.Popen(
-            [sys.executable, str(TOOLS_DIR / 'serve.py'), '-p', str(port)],
+            [sys.executable, str(TOOLS_DIR / 'serve.py'), '-p', str(port), '--no-open'],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
         connected = False
@@ -390,6 +441,7 @@ def main():
     print(f'   Directory: {TOOLS_DIR}')
 
     check_html_files()
+    check_js_syntax()
     check_python_files()
     check_index_links()
     check_no_external_deps()
@@ -403,6 +455,16 @@ def main():
     if warnings:
         print(f'  {YELLOW}{warnings} warnings{RESET}', end='')
     print()
+
+    # Cache results for run_tracker check
+    import json, datetime as _dt
+    cache = {"passed": passed, "failed": failed, "warnings": warnings,
+             "timestamp": _dt.datetime.now().isoformat(timespec='seconds')}
+    try:
+        cache_path = TOOLS_DIR / '.last_test_results.json'
+        cache_path.write_text(json.dumps(cache), encoding='utf-8')
+    except Exception:
+        pass
 
     if failed:
         print(f'\n  {RED}FAIL{RESET}')

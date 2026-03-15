@@ -74,6 +74,8 @@ button.primary:hover { opacity: 0.9; }
   border-top: 1px solid var(--border); align-items: center; justify-content: center;
 }
 .nav-bar button { min-width: 36px; }
+.nav-hints { font-size: 0.6rem; color: var(--muted); text-align: center; padding: 4px; }
+.nav-hints kbd { padding: 0 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg); font-family: inherit; }
 
 /* Presentation mode */
 .present-mode { position: fixed; inset: 0; background: #111; z-index: 1000; display: none; }
@@ -114,6 +116,7 @@ select {
   padding: 4px 6px; border: 1px solid var(--border); border-radius: 5px;
   font-size: 0.75rem; background: var(--surface);
 }
+.nav-back { display:block; font-size:0.7rem; margin-bottom:8px; } .nav-back a { color:var(--muted); text-decoration:none; } .nav-back a:hover { color:var(--accent); }
 </style>
 </head>
 <body>
@@ -150,6 +153,7 @@ select {
       <span class="slide-counter" id="nav-counter">1 / 1</span>
       <button onclick="nextSlide()">→</button>
     </div>
+    <div class="nav-hints"><kbd>←</kbd><kbd>→</kbd><kbd>Space</kbd> navigate &nbsp; <kbd>F</kbd> present &nbsp; <kbd>Esc</kbd> exit</div>
   </div>
 </div>
 
@@ -196,7 +200,7 @@ editor.addEventListener('keydown', (e) => {
 });
 
 function parseSlides() {
-  const raw = editor.value;
+  const raw = editor.value.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   slides = raw.split(/\n---\n/).map(s => s.trim()).filter(s => s);
   slideCounter.textContent = slides.length + ' slide' + (slides.length !== 1 ? 's' : '');
   if (currentSlide >= slides.length) currentSlide = Math.max(0, slides.length - 1);

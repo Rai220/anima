@@ -10,6 +10,7 @@ Usage:
   python3 password.py --no-symbols       # Letters + digits only
   python3 password.py --pin 6            # 6-digit PIN
   python3 password.py -w 4 --sep .       # Passphrase with dot separator
+  python3 password.py --check "MyP@ss1"  # Check password strength
 """
 
 import secrets
@@ -246,8 +247,52 @@ def main():
     parser.add_argument('--no-symbols', action='store_true', help='Exclude symbols')
     parser.add_argument('--sep', default='-', help='Passphrase separator (default: -)')
     parser.add_argument('-q', '--quiet', action='store_true', help='Output only the password')
+    parser.add_argument('--json', action='store_true', help='JSON output for scripting')
+    parser.add_argument('--check', metavar='PW', help='Check strength of existing password')
 
     args = parser.parse_args()
+
+    # Check mode
+    if args.check:
+        pw = args.check
+        entropy = calculate_entropy(pw, mode='password')
+        strength = strength_label(entropy)
+        bar = strength_bar(entropy)
+
+        # Detailed analysis
+        has_lower = any(c in string.ascii_lowercase for c in pw)
+        has_upper = any(c in string.ascii_uppercase for c in pw)
+        has_digit = any(c in string.digits for c in pw)
+        has_symbol = any(c not in string.ascii_letters + string.digits for c in pw)
+
+        if args.json:
+            import json
+            print(json.dumps({"password": pw, "length": len(pw),
+                "entropy": round(entropy, 1), "strength": strength,
+                "charset": {"lower": has_lower, "upper": has_upper,
+                    "digits": has_digit, "symbols": has_symbol}}))
+        elif args.quiet:
+            print(f"{entropy:.0f}")
+        else:
+            print(f"\n  Password:  {'*' * min(len(pw), 4)}{pw[4:] if len(pw) > 4 else ''}")
+            print(f"  Length:    {len(pw)}")
+            print(f"  Entropy:   {entropy:.1f} bits")
+            print(f"  Strength:  {bar} {strength}")
+            print(f"\n  Charset:   {'✓' if has_lower else '✗'} lowercase  {'✓' if has_upper else '✗'} uppercase  {'✓' if has_digit else '✗'} digits  {'✓' if has_symbol else '✗'} symbols")
+            if entropy < 60:
+                print(f"\n  Tip: Use at least 12 chars with mixed case, digits, and symbols")
+            print()
+        sys.exit(0)
+
+    # Validate inputs
+    if args.length < 1:
+        parser.error("password length must be at least 1")
+    if args.words is not None and args.words < 1:
+        parser.error("word count must be at least 1")
+    if args.pin is not None and args.pin < 1:
+        parser.error("PIN length must be at least 1")
+    if args.count < 1:
+        parser.error("count must be at least 1")
 
     for i in range(args.count):
         if args.pin:
@@ -263,7 +308,12 @@ def main():
             entropy = calculate_entropy(pw, mode='password')
             mode_label = f"{args.length}-char password"
 
-        if args.quiet:
+        if args.json:
+            import json
+            print(json.dumps({"password": pw, "type": mode_label,
+                "entropy": round(entropy, 1),
+                "strength": strength_label(entropy)}))
+        elif args.quiet:
             print(pw)
         else:
             strength = strength_label(entropy)
@@ -277,7 +327,7 @@ def main():
                 print(f"  Strength: {bar} {strength}")
                 print()
 
-    if args.count > 1 and not args.quiet:
+    if args.count > 1 and not args.quiet and not args.json:
         print(f"\n  [{mode_label}, ~{entropy:.0f} bits each]")
 
 

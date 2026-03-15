@@ -48,10 +48,12 @@ tr.selected td { background: var(--accent-light); }
 
 .no-data { padding: 40px; text-align: center; color: var(--muted); }
 .pagination { display: flex; gap: 6px; margin-top: 12px; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--muted); }
+.nav-back { display:block; font-size:0.7rem; margin-bottom:8px; } .nav-back a { color:var(--muted); text-decoration:none; } .nav-back a:hover { color:var(--accent); }
 </style>
 </head>
 <body>
 <div class="container">
+  <div class="nav-back"><a href="index.html">← Micro Tools</a></div>
   <h1>CSV Table</h1>
   <p class="subtitle">Paste CSV data — sort, filter, search, export</p>
 
@@ -143,9 +145,10 @@ function parse() {
   const raw = inputEl.value.trim();
   if (!raw) { tableWrap.innerHTML = '<div class="no-data">Paste CSV above to see table</div>'; statsEl.innerHTML = ''; paginationEl.innerHTML = ''; return; }
 
+  const normalized = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   const delimVal = delimiterEl.value;
-  const delim = delimVal === 'auto' ? detectDelimiter(raw) : delimVal;
-  const lines = raw.split('\n').filter(l => l.trim());
+  const delim = delimVal === 'auto' ? detectDelimiter(normalized) : delimVal;
+  const lines = normalized.split('\n').filter(l => l.trim());
   const hasHeader = document.getElementById('has-header').checked;
 
   const allRows = lines.map(l => parseCSVLine(l, delim));

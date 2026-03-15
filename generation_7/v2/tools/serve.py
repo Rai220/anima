@@ -3,9 +3,9 @@
 serve.py — Launch local server for all micro-tools.
 
 Usage:
-  python3 serve.py          # Serve on port 8080
-  python3 serve.py -p 3000  # Custom port
-  python3 serve.py --open   # Open browser automatically
+  python3 serve.py            # Serve on port 8080, open browser
+  python3 serve.py -p 3000    # Custom port
+  python3 serve.py --no-open  # Don't open browser
 
 Serves the tools directory, opens index.html by default.
 """
@@ -57,7 +57,7 @@ def get_tool_list():
 def main():
     parser = argparse.ArgumentParser(description='Serve micro-tools locally')
     parser.add_argument('-p', '--port', type=int, default=8080, help='Port (default: 8080)')
-    parser.add_argument('--open', action='store_true', help='Open browser automatically')
+    parser.add_argument('--no-open', action='store_true', help='Do not open browser automatically')
     args = parser.parse_args()
 
     html_tools, py_tools = get_tool_list()
@@ -95,7 +95,7 @@ def main():
 
     print(f'\n  {MUTED}Press Ctrl+C to stop{RESET}\n')
 
-    if args.open:
+    if not args.no_open:
         webbrowser.open(url)
 
     try:

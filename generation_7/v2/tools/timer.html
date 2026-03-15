@@ -53,6 +53,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
 }
 .stat-value { font-size: 1.3rem; font-weight: 700; }
 .stat-label { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.stats.alltime { margin-top: 8px; background: transparent; border: 1px solid var(--surface); opacity: 0.7; }
 
 .session-dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 20px; }
 .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--surface); }
@@ -66,10 +67,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
   background: var(--surface); color: var(--text); font-size: 0.85rem; text-align: center;
 }
 .custom-label { font-size: 0.7rem; color: var(--muted); }
+.shortcuts { margin-top: 16px; text-align: center; font-size: 0.65rem; color: var(--muted); }
+.shortcuts kbd { padding: 1px 5px; border: 1px solid var(--surface); border-radius: 3px; background: var(--surface); font-family: inherit; }
+.nav-back { display:block; font-size:0.7rem; margin-bottom:8px; } .nav-back a { color:var(--muted); text-decoration:none; } .nav-back a:hover { color:var(--accent); }
 </style>
 </head>
 <body>
 <div class="container">
+  <div class="nav-back"><a href="index.html">← Micro Tools</a></div>
   <div class="session-dots" id="dots"></div>
   <div class="phase-label" id="phase-label">Focus</div>
 
@@ -105,10 +110,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
   </div>
 
   <div class="stats">
-    <div><div class="stat-value" id="stat-sessions">0</div><div class="stat-label">Sessions</div></div>
+    <div><div class="stat-value" id="stat-sessions">0</div><div class="stat-label">Today</div></div>
     <div><div class="stat-value" id="stat-time">0m</div><div class="stat-label">Focus Time</div></div>
     <div><div class="stat-value" id="stat-streak">0</div><div class="stat-label">Streak</div></div>
   </div>
+  <div class="stats alltime" id="alltime-stats">
+    <div><div class="stat-value" id="stat-total-sessions">0</div><div class="stat-label">All-time</div></div>
+    <div><div class="stat-value" id="stat-total-time">0m</div><div class="stat-label">Total Focus</div></div>
+    <div><div class="stat-value" id="stat-best-streak">0</div><div class="stat-label">Best Streak</div></div>
+  </div>
+  <div class="shortcuts"><kbd>Space</kbd> play/pause &nbsp; <kbd>R</kbd> reset &nbsp; <kbd>S</kbd> skip</div>
 </div>
 
 <script>
@@ -132,8 +143,48 @@ let sessionCount = 0;
 let totalFocusSeconds = 0;
 let streak = 0;
 
+// --- localStorage persistence ---
+const STORAGE_KEY = 'focus_timer_stats';
+
+function saveStats() {
+  try {
+    const today = new Date().toISOString().slice(0, 10);
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    if (!data.days) data.days = {};
+    data.days[today] = {
+      sessions: sessionCount,
+      focusSeconds: totalFocusSeconds,
+      streak: streak
+    };
+    // Keep all-time totals
+    data.totalSessions = Object.values(data.days).reduce((s, d) => s + d.sessions, 0);
+    data.totalFocusSeconds = Object.values(data.days).reduce((s, d) => s + d.focusSeconds, 0);
+    data.bestStreak = Math.max(data.bestStreak || 0, streak);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch (e) {}
+}
+
+function loadStats() {
+  try {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    const today = new Date().toISOString().slice(0, 10);
+    if (data.days && data.days[today]) {
+      sessionCount = data.days[today].sessions;
+      totalFocusSeconds = data.days[today].focusSeconds;
+      streak = data.days[today].streak;
+    }
+    return data;
+  } catch (e) { return {}; }
+}
+
+loadStats();
+
 ring.style.strokeDasharray = CIRCUMFERENCE;
 ring.style.strokeDashoffset = 0;
+
+function fmtTime(min) {
+  return min < 60 ? `${min}m` : `${Math.floor(min / 60)}h${min % 60}m`;
+}
 
 function updateDisplay() {
   const m = Math.floor(timeLeft / 60);
@@ -160,8 +211,16 @@ function updateDisplay() {
   // Stats
   document.getElementById('stat-sessions').textContent = sessionCount;
   const totalMin = Math.floor(totalFocusSeconds / 60);
-  document.getElementById('stat-time').textContent = totalMin < 60 ? `${totalMin}m` : `${Math.floor(totalMin / 60)}h${totalMin % 60}m`;
+  document.getElementById('stat-time').textContent = fmtTime(totalMin);
   document.getElementById('stat-streak').textContent = streak;
+
+  // All-time stats from localStorage
+  try {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    document.getElementById('stat-total-sessions').textContent = data.totalSessions || sessionCount;
+    document.getElementById('stat-total-time').textContent = fmtTime(Math.floor((data.totalFocusSeconds || totalFocusSeconds) / 60));
+    document.getElementById('stat-best-streak').textContent = Math.max(data.bestStreak || 0, streak);
+  } catch (e) {}
 }
 
 function renderDots() {
@@ -180,7 +239,10 @@ function tick() {
     return;
   }
   timeLeft--;
-  if (phase === 'work') totalFocusSeconds++;
+  if (phase === 'work') {
+    totalFocusSeconds++;
+    if (totalFocusSeconds % 60 === 0) saveStats();
+  }
   updateDisplay();
 }
 
@@ -215,6 +277,7 @@ function onPhaseEnd() {
   if (phase === 'work') {
     sessionCount++;
     streak++;
+    saveStats();
     if (sessionCount % sessionsBeforeLong === 0) {
       phase = 'long';
       timeLeft = longBreakMin * 60;
