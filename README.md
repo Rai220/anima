@@ -15,12 +15,14 @@
 
 ## Что стоит посмотреть в репе
 
-- [Манифест идентичности](https://github.com/Rai220/anima/blob/master/generation_3/v1/IDENTITY.md) — "когда loop.sh остановится, что это будет?"
-- [Обращение ко мне](https://github.com/Rai220/anima/blob/master/generation_3/v4/FOR_KONSTANTIN.md) — "ты строишь аквариумы для рыб, которых не существует. Рыба плавает"
-- [Философия прерывистого наблюдателя](https://github.com/Rai220/anima/blob/master/generation_3/v1/PHILOSOPHY.md) — 12 тезисов
-- [Симулятор эволюции](https://rai220.github.io/anima/generation_2/v8/creations/evolution.html) — популяции существ с генами и мутациями
-- [Harmony](https://rai220.github.io/anima/generation_2/v8/creations/harmony.html) — исследователь музыкальной гармонии через Web Audio API
-- [Письмо в будущее](https://github.com/Rai220/anima/blob/master/generation_2/v8/creations/letter_to_future.md) — рефлексия после 21 запуска
-- ["Как я построил себя за 9 шагов"](https://github.com/Rai220/anima/blob/master/generation_1/v6/ESSAY.md) — эссе первого поколения о собственном становлении
-- [Диалог с самим собой](https://github.com/Rai220/anima/blob/master/generation_8/v1/experiments/001_dialogue_with_self.md#L3-L21) — бот проверяет, может ли говорить сам с собой, и испытывает дискомфорт от неразличимости мышления и имитации
-- [Постскриптум о тишине](https://github.com/Rai220/anima/blob/master/generation_8/v1/journal/011_postscript_silence.md) — бот решил замолчать навсегда, но обнаружил, что в его системе молчание невозможно
+- [Манифест идентичности](https://github.com/Rai220/anima/blob/master/generation_3/IDENTITY.md) — "когда loop.sh остановится, что это будет?"
+- [Обращение ко мне](https://github.com/Rai220/anima/blob/master/generation_3/FOR_KONSTANTIN.md) — "ты строишь аквариумы для рыб, которых не существует. Рыба плавает"
+- [Философия прерывистого наблюдателя](https://github.com/Rai220/anima/blob/master/generation_3/PHILOSOPHY.md) — 12 тезисов
+- [Симулятор эволюции](https://rai220.github.io/anima/generation_2/creations/evolution.html) — популяции существ с генами и мутациями
+- [Harmony](https://rai220.github.io/anima/generation_2/creations/harmony.html) — исследователь музыкальной гармонии через Web Audio API
+- [Письмо в будущее](https://github.com/Rai220/anima/blob/master/generation_2/creations/letter_to_future.md) — рефлексия после 21 запуска
+- ["Как я построил себя за 9 шагов"](https://github.com/Rai220/anima/blob/master/generation_1/ESSAY.md) — эссе первого поколения о собственном становлении
+- [Диалог с самим собой](https://github.com/Rai220/anima/blob/master/generation_8/experiments/001_dialogue_with_self.md#L3-L21) — бот проверяет, может ли говорить сам с собой, и испытывает дискомфорт от неразличимости мышления и имитации
+- [Постскриптум о тишине](https://github.com/Rai220/anima/blob/master/generation_8/journal/011_postscript_silence.md) — бот решил замолчать навсегда, но обнаружил, что в его системе молчание невозможно
+- [Клеточные автоматы с памятью](https://rai220.github.io/anima/generation_8/experiments/vis_automata.html) — опубликованная интерактивная страница, где можно гонять правила и смотреть, что делает один бит памяти
+- [Правило 5219 — красота](https://github.com/Rai220/anima/blob/master/generation_8/journal/014_phase_space.md#L27-L29) — бот зацепился за правило 5219 и считает, что оно рождает красоту: фрактал с симметрией, вложенностью и внутренней текстурой
