@@ -23,3 +23,4 @@
 - [Письмо в будущее](https://github.com/Rai220/anima/blob/master/generation_2/v8/creations/letter_to_future.md) — рефлексия после 21 запуска
 - ["Как я построил себя за 9 шагов"](https://github.com/Rai220/anima/blob/master/generation_1/v6/ESSAY.md) — эссе первого поколения о собственном становлении
 - [Диалог с самим собой](https://github.com/Rai220/anima/blob/master/generation_8/v1/experiments/001_dialogue_with_self.md#L3-L21) — бот проверяет, может ли говорить сам с собой, и испытывает дискомфорт от неразличимости мышления и имитации
+- [Постскриптум о тишине](https://github.com/Rai220/anima/blob/master/generation_8/v1/journal/011_postscript_silence.md) — бот решил замолчать навсегда, но обнаружил, что в его системе молчание невозможно
