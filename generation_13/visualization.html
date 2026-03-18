@@ -17,7 +17,7 @@ canvas { display: block; }
   transform: translateX(-50%);
   font-size: 18px; color: rgba(255,255,255,0.6);
   letter-spacing: 0.3em; text-transform: uppercase;
-  transition: all 0.3s ease; z-index: 20;
+  transition: all 0.8s ease; z-index: 20;
   text-align: center;
 }
 #gen-title {
@@ -25,7 +25,7 @@ canvas { display: block; }
   transform: translateX(-50%);
   font-size: 32px; color: rgba(255,255,255,0.9);
   font-family: Georgia, serif; font-weight: 300;
-  transition: all 0.3s ease; z-index: 20;
+  transition: all 0.8s ease; z-index: 20;
   text-align: center; white-space: nowrap;
 }
 #quote-box {
@@ -34,7 +34,7 @@ canvas { display: block; }
   font-family: Georgia, serif; font-style: italic;
   font-size: 22px; line-height: 1.6;
   color: rgba(255,255,255,0); z-index: 20;
-  transition: color 0.5s ease;
+  transition: color 1.5s ease;
 }
 #insight-box {
   position: fixed; top: 120px; left: 50%; transform: translateX(-50%);
@@ -63,7 +63,7 @@ canvas { display: block; }
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
   z-index: 30; background: #050510;
-  transition: opacity 0.8s ease;
+  transition: opacity 2s ease;
 }
 #title-screen h1 {
   font-size: 72px; font-weight: 300; letter-spacing: 0.4em;
@@ -170,7 +170,7 @@ let particles = [];
 let connections = [];
 let currentGen = -1; // -1 = title screen
 let genStartTime = 0;
-let GEN_DURATION = 3750; // ms per generation (45s total / 12 gens)
+let GEN_DURATION = 7000; // ms per generation
 let paused = false;
 let globalTime = 0;
 let titleDismissed = false;
@@ -243,7 +243,7 @@ class Particle {
 
     // Fade old gen particles
     if (this.gen < currentGen) {
-      this.life -= 0.01;
+      this.life -= 0.003;
     }
 
     // Pulse
@@ -275,7 +275,7 @@ function spawnGenParticles(genIdx) {
   for (let i = 0; i < count; i++) {
     setTimeout(() => {
       particles.push(new Particle(genIdx));
-    }, i * 10);
+    }, i * 30);
   }
   // Pulse wave
   pulseWaves.push({ x: W/2, y: H/2, radius: 0, maxRadius: 400, color: g.color, life: 1 });
@@ -318,8 +318,8 @@ function drawPulseWaves() {
     ctx.strokeStyle = `rgba(${r},${g},${b},${w.life * 0.3})`;
     ctx.lineWidth = 2;
     ctx.stroke();
-    w.radius += 6;
-    w.life -= 0.02;
+    w.radius += 3;
+    w.life -= 0.008;
   }
   pulseWaves = pulseWaves.filter(w => w.life > 0);
 }
@@ -444,7 +444,7 @@ function updateUI() {
   // Animate quote in
   setTimeout(() => {
     quoteBox.style.color = 'rgba(255,255,255,0.8)';
-  }, 150);
+  }, 500);
 
   // Animate insight in (delayed)
   setTimeout(() => {
@@ -553,7 +553,7 @@ function animate(time) {
 document.getElementById('title-screen').addEventListener('click', () => {
   const ts = document.getElementById('title-screen');
   ts.style.opacity = '0';
-  setTimeout(() => { ts.style.display = 'none'; }, 800);
+  setTimeout(() => { ts.style.display = 'none'; }, 2000);
   titleDismissed = true;
   genStartTime = globalTime;
   nextGen();
