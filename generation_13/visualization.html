@@ -4,60 +4,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anima — Эволюция 12 поколений</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #050510; overflow: hidden; font-family: 'SF Mono','Fira Code',monospace; }
+body { background: #050510; overflow: hidden; font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace; }
 canvas { display: block; }
 #overlay {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none; z-index: 10;
 }
 #gen-label {
-  position: fixed; bottom: 40px; left: 50%;
+  position: fixed; bottom: 48px; left: 50%;
   transform: translateX(-50%);
-  font-size: 18px; color: rgba(255,255,255,0.6);
-  letter-spacing: 0.3em; text-transform: uppercase;
+  font-size: 12px; color: rgba(255,255,255,0.45);
+  letter-spacing: 0.35em; text-transform: uppercase;
+  font-weight: 300;
   transition: all 0.8s ease; z-index: 20;
   text-align: center;
 }
 #gen-title {
-  position: fixed; bottom: 70px; left: 50%;
+  position: fixed; bottom: 74px; left: 50%;
   transform: translateX(-50%);
-  font-size: 32px; color: rgba(255,255,255,0.9);
-  font-family: Georgia, serif; font-weight: 300;
+  font-size: 28px; color: rgba(255,255,255,0.9);
+  font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300;
+  letter-spacing: 0.05em;
   transition: all 0.8s ease; z-index: 20;
   text-align: center; white-space: nowrap;
 }
 #quote-box {
-  position: fixed; top: 50px; left: 50%; transform: translateX(-50%);
-  max-width: 700px; text-align: center;
-  font-family: Georgia, serif; font-style: italic;
-  font-size: 22px; line-height: 1.6;
+  position: fixed; top: 40px; left: 50%; transform: translateX(-50%);
+  max-width: 660px; width: 90%; text-align: center;
+  font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic;
+  font-size: 21px; line-height: 1.7; font-weight: 300;
   color: rgba(255,255,255,0); z-index: 20;
   transition: color 1.5s ease;
+  padding: 0 20px;
 }
 #insight-box {
-  position: fixed; top: 120px; left: 50%; transform: translateX(-50%);
-  max-width: 600px; text-align: center;
-  font-family: 'SF Mono','Fira Code',monospace;
-  font-size: 13px; line-height: 1.5; letter-spacing: 0.05em;
+  position: fixed; top: 130px; left: 50%; transform: translateX(-50%);
+  max-width: 560px; width: 85%; text-align: center;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  font-size: 11px; line-height: 1.6; letter-spacing: 0.06em;
+  font-weight: 300;
   color: rgba(255,255,255,0); z-index: 20;
-  transition: color 0.8s ease;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border: 1px solid rgba(255,255,255,0);
-  border-radius: 6px;
+  border-radius: 8px;
   transition: color 0.8s ease, border-color 0.8s ease, background 0.8s ease;
 }
 #progress {
-  position: fixed; bottom: 12px; left: 50%;
+  position: fixed; bottom: 16px; left: 50%;
   transform: translateX(-50%);
-  display: flex; gap: 8px; z-index: 20;
+  display: flex; gap: 10px; z-index: 20;
 }
 .dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  opacity: 0.25; transition: all 0.5s;
+  width: 6px; height: 6px; border-radius: 50%;
+  opacity: 0.2; transition: all 0.5s ease;
 }
-.dot.active { opacity: 1; transform: scale(1.5); }
+.dot.active { opacity: 1; transform: scale(1.8); }
 #title-screen {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
   display: flex; flex-direction: column;
@@ -66,25 +71,33 @@ canvas { display: block; }
   transition: opacity 2s ease;
 }
 #title-screen h1 {
-  font-size: 72px; font-weight: 300; letter-spacing: 0.4em;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 80px; font-weight: 300; letter-spacing: 0.5em;
   background: linear-gradient(135deg, #7b68ee, #ff6b9d, #4ecdc4);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; margin-bottom: 20px;
+  background-clip: text; margin-bottom: 24px;
+  text-indent: 0.5em;
 }
 #title-screen p {
-  font-size: 16px; color: rgba(255,255,255,0.4);
-  letter-spacing: 0.2em;
+  font-size: 14px; color: rgba(255,255,255,0.35);
+  letter-spacing: 0.25em; font-weight: 300;
 }
 #controls {
-  position: fixed; top: 15px; right: 15px;
-  z-index: 20; display: flex; gap: 8px;
+  position: fixed; top: 16px; right: 16px;
+  z-index: 20; display: flex; gap: 6px;
 }
 #controls button {
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.5); padding: 6px 14px;
-  border-radius: 4px; cursor: pointer; font-family: inherit; font-size: 12px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4); padding: 5px 14px;
+  border-radius: 20px; cursor: pointer; font-family: inherit; font-size: 11px;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
 }
-#controls button:hover { background: rgba(255,255,255,0.15); color: #fff; }
+#controls button:hover {
+  background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85);
+  border-color: rgba(255,255,255,0.25);
+}
 </style>
 </head>
 <body>
