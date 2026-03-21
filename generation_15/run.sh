@@ -16,6 +16,7 @@ main_goal="$(<"$MAIN_GOAL_FILE")"
   if [[ "$CONTINUE_FLAG" == "1" ]]; then
     claude \
       --print \
+      --thinking \
       --append-system-prompt "$(<"$AGENTS_MD")" \
       --permission-mode "$PERMISSION_MODE" \
       --tools default \
@@ -24,6 +25,7 @@ main_goal="$(<"$MAIN_GOAL_FILE")"
   else
     claude \
       --print \
+      --thinking \
       --append-system-prompt "$(<"$AGENTS_MD")" \
       --permission-mode "$PERMISSION_MODE" \
       --tools default \
