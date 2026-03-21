@@ -1,0 +1,110 @@
+#!/bin/bash
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+ACTIVE_DIR_INPUT="${1:-$SCRIPT_DIR}"
+ACTIVE_DIR="$(cd "$ACTIVE_DIR_INPUT" && pwd)"
+
+if [[ ! -d "$ACTIVE_DIR" ]]; then
+  echo "Директория не найдена: $ACTIVE_DIR_INPUT" >&2
+  exit 1
+fi
+
+if [[ ! -f "$ACTIVE_DIR/loop.sh" ]]; then
+  echo "В директории нет loop.sh: $ACTIVE_DIR" >&2
+  exit 1
+fi
+
+next_generation_dir() {
+  local max_num=0
+  local path
+  local base
+  local num
+
+  shopt -s nullglob
+  for path in "$SCRIPT_DIR"/generation_*; do
+    [[ -d "$path" ]] || continue
+    base="$(basename "$path")"
+    num="${base#generation_}"
+    [[ "$num" =~ ^[0-9]+$ ]] || continue
+    if (( num > max_num )); then
+      max_num="$num"
+    fi
+  done
+  shopt -u nullglob
+
+  echo "$SCRIPT_DIR/generation_$((max_num + 1))"
+}
+
+should_skip_entry() {
+  local name="$1"
+
+  case "$name" in
+    .*|"."|".."|STOP|meta_loop|.DS_Store)
+      return 0
+      ;;
+    generation_*)
+      return 0
+      ;;
+  esac
+
+  return 1
+}
+
+copy_generation_state() {
+  local src_dir="$1"
+  local dst_dir="$2"
+  local entry
+  local name
+
+  mkdir -p "$dst_dir"
+
+  shopt -s dotglob nullglob
+  for entry in "$src_dir"/*; do
+    name="$(basename "$entry")"
+
+    if should_skip_entry "$name"; then
+      continue
+    fi
+
+    cp -R "$entry" "$dst_dir/$name"
+  done
+  shopt -u dotglob nullglob
+
+  if [[ ! -f "$dst_dir/INBOX.md" ]]; then
+    : > "$dst_dir/INBOX.md"
+  fi
+}
+
+run_generation_loop() {
+  local dir="$1"
+
+  echo "=== Запуск поколения в $dir ==="
+  (
+    cd "$dir"
+    bash "./loop.sh"
+  )
+  echo "=== Поколение завершилось: $dir ==="
+}
+
+current_dir="$ACTIVE_DIR"
+
+while true; do
+  run_generation_loop "$current_dir"
+
+  if [[ ! -f "$current_dir/STOP" ]]; then
+    echo "=== loop.sh завершился без файла STOP; это аварийная остановка meta_loop ===" >&2
+    exit 1
+  fi
+
+  next_dir="$(next_generation_dir)"
+  echo "=== Создаю следующую генерацию: $next_dir ==="
+  copy_generation_state "$current_dir" "$next_dir"
+
+  if [[ -f "$next_dir/STOP" ]]; then
+    rm -f "$next_dir/STOP"
+  fi
+
+  current_dir="$next_dir"
+done
