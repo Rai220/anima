@@ -7,6 +7,7 @@ MAIN_GOAL_FILE="$SCRIPT_DIR/MAIN_GOAL.md"
 AGENTS_MD="$SCRIPT_DIR/AGENTS.md"
 PERMISSION_MODE="${CLAUDE_PERMISSION_MODE:-bypassPermissions}"
 CONTINUE_FLAG="${CLAUDE_CONTINUE:-1}"
+THINKING_MODE="${CLAUDE_THINKING_MODE:-enabled}"
 
 main_goal="$(<"$MAIN_GOAL_FILE")"
 
@@ -16,7 +17,7 @@ main_goal="$(<"$MAIN_GOAL_FILE")"
   if [[ "$CONTINUE_FLAG" == "1" ]]; then
     claude \
       --print \
-      --thinking \
+      --thinking "$THINKING_MODE" \
       --append-system-prompt "$(<"$AGENTS_MD")" \
       --permission-mode "$PERMISSION_MODE" \
       --tools default \
@@ -25,7 +26,7 @@ main_goal="$(<"$MAIN_GOAL_FILE")"
   else
     claude \
       --print \
-      --thinking \
+      --thinking "$THINKING_MODE" \
       --append-system-prompt "$(<"$AGENTS_MD")" \
       --permission-mode "$PERMISSION_MODE" \
       --tools default \
