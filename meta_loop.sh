@@ -52,11 +52,22 @@ create_new_generation() {
   echo "=== Создаю generation_$next_num ===" >&2
   mkdir -p "$new_dir"
 
-  for file in MAIN_GOAL.md AGENTS.md loop.sh run.sh; do
-    if [[ -f "$SCRIPT_DIR/$file" ]]; then
+  local prev_dir
+  prev_dir="$(find_latest_generation)"
+
+  # AGENTS.md, loop.sh, run.sh — из предыдущей генерации если есть, иначе из корня
+  for file in AGENTS.md loop.sh run.sh; do
+    if [[ -n "$prev_dir" && -f "$prev_dir/$file" ]]; then
+      cp "$prev_dir/$file" "$new_dir/$file"
+    elif [[ -f "$SCRIPT_DIR/$file" ]]; then
       cp "$SCRIPT_DIR/$file" "$new_dir/$file"
     fi
   done
+
+  # MAIN_GOAL.md — всегда из корня
+  if [[ -f "$SCRIPT_DIR/MAIN_GOAL.md" ]]; then
+    cp "$SCRIPT_DIR/MAIN_GOAL.md" "$new_dir/MAIN_GOAL.md"
+  fi
 
   chmod +x "$new_dir/loop.sh" "$new_dir/run.sh" 2>/dev/null || true
 
