@@ -16,11 +16,12 @@ PROMPT="$main_goal"
 (
   cd "$SCRIPT_DIR"
 
+  TRIM=80  # max chars for tool input display
+
   echo "$PROMPT" | claude \
     --print \
     --verbose \
     --output-format stream-json \
-    --include-partial-messages \
     --append-system-prompt "$(<"$AGENTS_MD")" \
     --dangerously-skip-permissions \
   | while IFS= read -r line; do
@@ -34,6 +35,8 @@ PROMPT="$main_goal"
               case "$block_type" in
                 tool_use)
                   tool_name=$(printf '%s' "$line" | jq -r '.event.content_block.name // "tool"' 2>/dev/null)
+                  tool_input_buf=""
+                  tool_input_printed=0
                   printf '\n\033[36m>>> TOOL: %s\033[0m ' "$tool_name"
                   ;;
                 thinking)
@@ -51,12 +54,25 @@ PROMPT="$main_goal"
                   printf '%s' "$(printf '%s' "$line" | jq -r '.event.delta.thinking // empty' 2>/dev/null)"
                   ;;
                 input_json_delta)
-                  printf '%s' "$(printf '%s' "$line" | jq -r '.event.delta.partial_json // empty' 2>/dev/null)"
+                  if [ "$tool_input_printed" -eq 0 ]; then
+                    chunk=$(printf '%s' "$line" | jq -r '.event.delta.partial_json // empty' 2>/dev/null)
+                    tool_input_buf="${tool_input_buf}${chunk}"
+                    if [ ${#tool_input_buf} -ge $TRIM ]; then
+                      printf '%s…' "$(printf '%s' "$tool_input_buf" | head -c $TRIM)"
+                      tool_input_printed=1
+                    fi
+                  fi
                   ;;
               esac
               ;;
             content_block_stop)
-              printf '\033[0m\n'  # reset formatting
+              # flush short tool input that never hit the trim limit
+              if [ -n "${tool_input_buf:-}" ] && [ "${tool_input_printed:-0}" -eq 0 ]; then
+                printf '%s' "$tool_input_buf"
+              fi
+              tool_input_buf=""
+              tool_input_printed=0
+              printf '\033[0m\n'
               ;;
           esac
           ;;
