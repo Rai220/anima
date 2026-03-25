@@ -1,0 +1,2580 @@
+{
+  "categories": {
+    "robust_complex": [
+      137,
+      193,
+      110,
+      124,
+      147,
+      54,
+      9,
+      65,
+      43,
+      113,
+      118,
+      131,
+      145,
+      62,
+      53,
+      27,
+      39,
+      83,
+      57,
+      99,
+      107,
+      121,
+      58,
+      47,
+      117,
+      11,
+      81,
+      41,
+      97,
+      163,
+      3,
+      17,
+      35,
+      49,
+      59,
+      115,
+      114,
+      15,
+      37,
+      85,
+      1,
+      7,
+      19,
+      21,
+      23,
+      31,
+      33,
+      50,
+      51,
+      55,
+      63,
+      73,
+      87,
+      91,
+      95,
+      119,
+      123,
+      127,
+      178,
+      179,
+      177,
+      82,
+      26,
+      181,
+      167
+    ],
+    "passive_complex": [
+      158,
+      214,
+      125,
+      67,
+      103,
+      25,
+      61,
+      111,
+      188,
+      230,
+      190,
+      246,
+      212,
+      84,
+      213,
+      14,
+      143,
+      142,
+      109,
+      134,
+      148,
+      105,
+      201,
+      186,
+      242,
+      226,
+      170,
+      240,
+      184,
+      74,
+      229,
+      116,
+      209,
+      139,
+      46,
+      20,
+      88,
+      173,
+      215,
+      6,
+      159,
+      112,
+      171,
+      241,
+      42,
+      244,
+      138,
+      208,
+      174,
+      5,
+      29,
+      227,
+      122,
+      185,
+      146,
+      98,
+      183,
+      18,
+      56,
+      182,
+      60,
+      102,
+      153,
+      195,
+      10,
+      245,
+      175,
+      80,
+      176,
+      194,
+      52,
+      71,
+      155,
+      152,
+      211,
+      126,
+      129,
+      161,
+      162,
+      38,
+      22,
+      151
+    ],
+    "intermediate": [
+      133,
+      48,
+      187,
+      66,
+      189,
+      24,
+      231,
+      180,
+      154,
+      34,
+      243,
+      210,
+      144,
+      130,
+      169,
+      225,
+      166,
+      199,
+      28,
+      156,
+      157,
+      250,
+      247,
+      191,
+      16,
+      2
+    ],
+    "simple_chaotic": [
+      45,
+      101,
+      120,
+      135,
+      149,
+      75,
+      89,
+      30,
+      150,
+      90,
+      165,
+      106,
+      86,
+      216,
+      248,
+      79,
+      252,
+      202,
+      234,
+      218,
+      0,
+      4,
+      8,
+      12,
+      13,
+      32,
+      36,
+      40,
+      44,
+      64,
+      68,
+      69,
+      70,
+      72,
+      76,
+      77,
+      78,
+      92,
+      93,
+      94,
+      96,
+      100,
+      104,
+      108,
+      128,
+      132,
+      136,
+      140,
+      141,
+      160,
+      164,
+      168,
+      172,
+      192,
+      196,
+      197,
+      198,
+      200,
+      203,
+      204,
+      205,
+      206,
+      207,
+      217,
+      219,
+      220,
+      221,
+      222,
+      223,
+      224,
+      228,
+      232,
+      233,
+      235,
+      236,
+      237,
+      238,
+      239,
+      249,
+      251,
+      253,
+      254,
+      255
+    ]
+  },
+  "counts": {
+    "robust_complex": 65,
+    "passive_complex": 82,
+    "intermediate": 26,
+    "simple_chaotic": 83
+  },
+  "all_rules": [
+    {
+      "rule": 0,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 1,
+      "mi_single": 30.53,
+      "mi_random": 18.32,
+      "mi_mag": 30.53,
+      "R": 0.6000655093350802,
+      "entropy_single": 1.0,
+      "entropy_random": 0.6
+    },
+    {
+      "rule": 2,
+      "mi_single": 0.02,
+      "mi_random": 3.81,
+      "mi_mag": 3.81,
+      "R": 0.005249343832020997,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.0263
+    },
+    {
+      "rule": 3,
+      "mi_single": 31.0,
+      "mi_random": 21.38,
+      "mi_mag": 31.0,
+      "R": 0.6896774193548387,
+      "entropy_single": 1.1185,
+      "entropy_random": 2.1687
+    },
+    {
+      "rule": 4,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 5,
+      "mi_single": 0.0,
+      "mi_random": 18.32,
+      "mi_mag": 18.32,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.6
+    },
+    {
+      "rule": 6,
+      "mi_single": 0.46,
+      "mi_random": 23.89,
+      "mi_mag": 23.89,
+      "R": 0.019254918375889492,
+      "entropy_single": 0.2141,
+      "entropy_random": 2.9922
+    },
+    {
+      "rule": 7,
+      "mi_single": 30.53,
+      "mi_random": 24.57,
+      "mi_mag": 30.53,
+      "R": 0.8047821814608581,
+      "entropy_single": 1.0014,
+      "entropy_random": 1.8207
+    },
+    {
+      "rule": 8,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 9,
+      "mi_single": 32.89,
+      "mi_random": 64.64,
+      "mi_mag": 64.64,
+      "R": 0.5088180693069307,
+      "entropy_single": 1.3204,
+      "entropy_random": 3.2975
+    },
+    {
+      "rule": 10,
+      "mi_single": 0.02,
+      "mi_random": 14.3,
+      "mi_mag": 14.3,
+      "R": 0.0013986013986013986,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.949
+    },
+    {
+      "rule": 11,
+      "mi_single": 31.31,
+      "mi_random": 30.07,
+      "mi_mag": 31.31,
+      "R": 0.9603960396039605,
+      "entropy_single": 1.2146,
+      "entropy_random": 3.1148
+    },
+    {
+      "rule": 12,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0003
+    },
+    {
+      "rule": 13,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 14,
+      "mi_single": 1.38,
+      "mi_random": 54.27,
+      "mi_mag": 54.27,
+      "R": 0.025428413488114976,
+      "entropy_single": 0.2245,
+      "entropy_random": 2.3224
+    },
+    {
+      "rule": 15,
+      "mi_single": 30.55,
+      "mi_random": 15.55,
+      "mi_mag": 30.55,
+      "R": 0.5090016366612111,
+      "entropy_single": 1.1792,
+      "entropy_random": 3.9814
+    },
+    {
+      "rule": 16,
+      "mi_single": 0.02,
+      "mi_random": 4.4,
+      "mi_mag": 4.4,
+      "R": 0.004545454545454545,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.0262
+    },
+    {
+      "rule": 17,
+      "mi_single": 31.0,
+      "mi_random": 21.37,
+      "mi_mag": 31.0,
+      "R": 0.6893548387096774,
+      "entropy_single": 1.1185,
+      "entropy_random": 2.1691
+    },
+    {
+      "rule": 18,
+      "mi_single": 0.0,
+      "mi_random": 16.43,
+      "mi_mag": 16.43,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 2.7566
+    },
+    {
+      "rule": 19,
+      "mi_single": 30.53,
+      "mi_random": 30.53,
+      "mi_mag": 30.53,
+      "R": 1.0,
+      "entropy_single": 1.0027,
+      "entropy_random": 1.0
+    },
+    {
+      "rule": 20,
+      "mi_single": 0.46,
+      "mi_random": 25.58,
+      "mi_mag": 25.58,
+      "R": 0.01798279906176701,
+      "entropy_single": 0.2141,
+      "entropy_random": 2.9892
+    },
+    {
+      "rule": 21,
+      "mi_single": 30.53,
+      "mi_random": 24.76,
+      "mi_mag": 30.53,
+      "R": 0.8110055682934818,
+      "entropy_single": 1.0014,
+      "entropy_random": 1.7986
+    },
+    {
+      "rule": 22,
+      "mi_single": 0.0,
+      "mi_random": 11.16,
+      "mi_mag": 11.16,
+      "R": 0.0,
+      "entropy_single": 0.0029,
+      "entropy_random": 3.5498
+    },
+    {
+      "rule": 23,
+      "mi_single": 30.53,
+      "mi_random": 30.53,
+      "mi_mag": 30.53,
+      "R": 1.0,
+      "entropy_single": 1.0014,
+      "entropy_random": 1.0
+    },
+    {
+      "rule": 24,
+      "mi_single": 0.02,
+      "mi_random": 8.97,
+      "mi_mag": 8.97,
+      "R": 0.002229654403567447,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.3966
+    },
+    {
+      "rule": 25,
+      "mi_single": 33.36,
+      "mi_random": 70.36,
+      "mi_mag": 70.36,
+      "R": 0.4741330301307561,
+      "entropy_single": 1.24,
+      "entropy_random": 2.9206
+    },
+    {
+      "rule": 26,
+      "mi_single": 7.66,
+      "mi_random": 13.9,
+      "mi_mag": 13.9,
+      "R": 0.5510791366906475,
+      "entropy_single": 1.5197,
+      "entropy_random": 3.5827
+    },
+    {
+      "rule": 27,
+      "mi_single": 31.2,
+      "mi_random": 34.45,
+      "mi_mag": 34.45,
+      "R": 0.9056603773584905,
+      "entropy_single": 1.1112,
+      "entropy_random": 2.7035
+    },
+    {
+      "rule": 28,
+      "mi_single": 0.0,
+      "mi_random": 6.11,
+      "mi_mag": 6.11,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.2018
+    },
+    {
+      "rule": 29,
+      "mi_single": 0.0,
+      "mi_random": 18.32,
+      "mi_mag": 18.32,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.6
+    },
+    {
+      "rule": 30,
+      "mi_single": 0.95,
+      "mi_random": 1.0,
+      "mi_mag": 1.0,
+      "R": 0.95,
+      "entropy_single": 3.9992,
+      "entropy_random": 3.9989
+    },
+    {
+      "rule": 31,
+      "mi_single": 30.53,
+      "mi_random": 24.57,
+      "mi_mag": 30.53,
+      "R": 0.8047821814608581,
+      "entropy_single": 1.0014,
+      "entropy_random": 1.8216
+    },
+    {
+      "rule": 32,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 33,
+      "mi_single": 30.53,
+      "mi_random": 18.32,
+      "mi_mag": 30.53,
+      "R": 0.6000655093350802,
+      "entropy_single": 1.0,
+      "entropy_random": 0.6008
+    },
+    {
+      "rule": 34,
+      "mi_single": 0.02,
+      "mi_random": 8.13,
+      "mi_mag": 8.13,
+      "R": 0.002460024600246002,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.872
+    },
+    {
+      "rule": 35,
+      "mi_single": 31.0,
+      "mi_random": 30.56,
+      "mi_mag": 31.0,
+      "R": 0.9858064516129031,
+      "entropy_single": 1.1185,
+      "entropy_random": 2.2305
+    },
+    {
+      "rule": 36,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 37,
+      "mi_single": 30.53,
+      "mi_random": 30.55,
+      "mi_mag": 30.55,
+      "R": 0.9993453355155483,
+      "entropy_single": 1.0027,
+      "entropy_random": 1.0033
+    },
+    {
+      "rule": 38,
+      "mi_single": 0.46,
+      "mi_random": 11.24,
+      "mi_mag": 11.24,
+      "R": 0.04092526690391459,
+      "entropy_single": 0.2141,
+      "entropy_random": 3.1762
+    },
+    {
+      "rule": 39,
+      "mi_single": 31.2,
+      "mi_random": 34.39,
+      "mi_mag": 34.39,
+      "R": 0.9072404768828147,
+      "entropy_single": 1.1104,
+      "entropy_random": 2.7231
+    },
+    {
+      "rule": 40,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0018
+    },
+    {
+      "rule": 41,
+      "mi_single": 31.23,
+      "mi_random": 21.16,
+      "mi_mag": 31.23,
+      "R": 0.6775536343259686,
+      "entropy_single": 1.2476,
+      "entropy_random": 3.4603
+    },
+    {
+      "rule": 42,
+      "mi_single": 0.02,
+      "mi_random": 20.99,
+      "mi_mag": 20.99,
+      "R": 0.0009528346831824679,
+      "entropy_single": 0.1792,
+      "entropy_random": 3.5932
+    },
+    {
+      "rule": 43,
+      "mi_single": 31.31,
+      "mi_random": 57.15,
+      "mi_mag": 57.15,
+      "R": 0.5478565179352581,
+      "entropy_single": 1.2146,
+      "entropy_random": 2.3164
+    },
+    {
+      "rule": 44,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 45,
+      "mi_single": 1.08,
+      "mi_random": 1.04,
+      "mi_mag": 1.08,
+      "R": 0.9629629629629629,
+      "entropy_single": 3.9983,
+      "entropy_random": 3.9987
+    },
+    {
+      "rule": 46,
+      "mi_single": 1.38,
+      "mi_random": 25.66,
+      "mi_mag": 25.66,
+      "R": 0.053780202650038966,
+      "entropy_single": 0.2245,
+      "entropy_random": 2.9517
+    },
+    {
+      "rule": 47,
+      "mi_single": 31.32,
+      "mi_random": 29.33,
+      "mi_mag": 31.32,
+      "R": 0.9364623243933589,
+      "entropy_single": 1.2139,
+      "entropy_random": 3.1368
+    },
+    {
+      "rule": 48,
+      "mi_single": 0.02,
+      "mi_random": 9.25,
+      "mi_mag": 9.25,
+      "R": 0.002162162162162162,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.8678
+    },
+    {
+      "rule": 49,
+      "mi_single": 31.0,
+      "mi_random": 30.45,
+      "mi_mag": 31.0,
+      "R": 0.982258064516129,
+      "entropy_single": 1.1185,
+      "entropy_random": 2.2304
+    },
+    {
+      "rule": 50,
+      "mi_single": 30.53,
+      "mi_random": 30.53,
+      "mi_mag": 30.53,
+      "R": 1.0,
+      "entropy_single": 1.0,
+      "entropy_random": 1.0003
+    },
+    {
+      "rule": 51,
+      "mi_single": 30.53,
+      "mi_random": 30.53,
+      "mi_mag": 30.53,
+      "R": 1.0,
+      "entropy_single": 1.0,
+      "entropy_random": 1.0
+    },
+    {
+      "rule": 52,
+      "mi_single": 0.46,
+      "mi_random": 12.34,
+      "mi_mag": 12.34,
+      "R": 0.03727714748784441,
+      "entropy_single": 0.2141,
+      "entropy_random": 3.1368
+    },
+    {
+      "rule": 53,
+      "mi_single": 31.2,
+      "mi_random": 34.65,
+      "mi_mag": 34.65,
+      "R": 0.9004329004329005,
+      "entropy_single": 1.1104,
+      "entropy_random": 2.6998
+    },
+    {
+      "rule": 54,
+      "mi_single": 65.19,
+      "mi_random": 58.9,
+      "mi_mag": 65.19,
+      "R": 0.9035128087129928,
+      "entropy_single": 2.1403,
+      "entropy_random": 3.004
+    },
+    {
+      "rule": 55,
+      "mi_single": 30.53,
+      "mi_random": 30.53,
+      "mi_mag": 30.53,
+      "R": 1.0,
+      "entropy_single": 1.0014,
+      "entropy_random": 1.0
+    },
+    {
+      "rule": 56,
+      "mi_single": 0.02,
+      "mi_random": 16.4,
+      "mi_mag": 16.4,
+      "R": 0.0012195121951219514,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.6961
+    },
+    {
+      "rule": 57,
+      "mi_single": 33.27,
+      "mi_random": 28.99,
+      "mi_mag": 33.27,
+      "R": 0.8713555755936278,
+      "entropy_single": 1.2876,
+      "entropy_random": 1.225
+    },
+    {
+      "rule": 58,
+      "mi_single": 29.33,
+      "mi_random": 31.44,
+      "mi_mag": 31.44,
+      "R": 0.9328880407124681,
+      "entropy_single": 1.1192,
+      "entropy_random": 2.2517
+    },
+    {
+      "rule": 59,
+      "mi_single": 31.0,
+      "mi_random": 30.79,
+      "mi_mag": 31.0,
+      "R": 0.9932258064516128,
+      "entropy_single": 1.1192,
+      "entropy_random": 2.2305
+    },
+    {
+      "rule": 60,
+      "mi_single": 14.44,
+      "mi_random": 0.98,
+      "mi_mag": 14.44,
+      "R": 0.06786703601108034,
+      "entropy_single": 2.9803,
+      "entropy_random": 3.9991
+    },
+    {
+      "rule": 61,
+      "mi_single": 33.36,
+      "mi_random": 69.51,
+      "mi_mag": 69.51,
+      "R": 0.4799309451877427,
+      "entropy_single": 1.2393,
+      "entropy_random": 2.9119
+    },
+    {
+      "rule": 62,
+      "mi_single": 48.31,
+      "mi_random": 48.28,
+      "mi_mag": 48.31,
+      "R": 0.9993790105568205,
+      "entropy_single": 1.5876,
+      "entropy_random": 1.5896
+    },
+    {
+      "rule": 63,
+      "mi_single": 30.53,
+      "mi_random": 21.42,
+      "mi_mag": 30.53,
+      "R": 0.7016049787094661,
+      "entropy_single": 1.0014,
+      "entropy_random": 2.1614
+    },
+    {
+      "rule": 64,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 65,
+      "mi_single": 32.89,
+      "mi_random": 63.92,
+      "mi_mag": 63.92,
+      "R": 0.514549436795995,
+      "entropy_single": 1.3204,
+      "entropy_random": 3.2665
+    },
+    {
+      "rule": 66,
+      "mi_single": 0.02,
+      "mi_random": 9.14,
+      "mi_mag": 9.14,
+      "R": 0.002188183807439825,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.3662
+    },
+    {
+      "rule": 67,
+      "mi_single": 33.36,
+      "mi_random": 73.75,
+      "mi_mag": 73.75,
+      "R": 0.45233898305084747,
+      "entropy_single": 1.24,
+      "entropy_random": 2.9377
+    },
+    {
+      "rule": 68,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0003
+    },
+    {
+      "rule": 69,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 70,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0018
+    },
+    {
+      "rule": 71,
+      "mi_single": 0.0,
+      "mi_random": 12.21,
+      "mi_mag": 12.21,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.4003
+    },
+    {
+      "rule": 72,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 73,
+      "mi_single": 30.53,
+      "mi_random": 22.58,
+      "mi_mag": 30.53,
+      "R": 0.7396003930560104,
+      "entropy_single": 1.0,
+      "entropy_random": 1.5889
+    },
+    {
+      "rule": 74,
+      "mi_single": 0.02,
+      "mi_random": 27.56,
+      "mi_mag": 27.56,
+      "R": 0.000725689404934688,
+      "entropy_single": 0.1792,
+      "entropy_random": 3.2831
+    },
+    {
+      "rule": 75,
+      "mi_single": 1.03,
+      "mi_random": 1.01,
+      "mi_mag": 1.03,
+      "R": 0.9805825242718447,
+      "entropy_single": 3.9992,
+      "entropy_random": 3.9991
+    },
+    {
+      "rule": 76,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0
+    },
+    {
+      "rule": 77,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0003
+    },
+    {
+      "rule": 78,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0015
+    },
+    {
+      "rule": 79,
+      "mi_single": 0.0,
+      "mi_random": 0.06,
+      "mi_mag": 0.06,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.004
+    },
+    {
+      "rule": 80,
+      "mi_single": 0.02,
+      "mi_random": 13.09,
+      "mi_mag": 13.09,
+      "R": 0.0015278838808250573,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.9721
+    },
+    {
+      "rule": 81,
+      "mi_single": 31.31,
+      "mi_random": 27.0,
+      "mi_mag": 31.31,
+      "R": 0.8623442989460237,
+      "entropy_single": 1.2146,
+      "entropy_random": 3.1558
+    },
+    {
+      "rule": 82,
+      "mi_single": 7.66,
+      "mi_random": 14.23,
+      "mi_mag": 14.23,
+      "R": 0.5382993675333801,
+      "entropy_single": 1.5197,
+      "entropy_random": 3.5795
+    },
+    {
+      "rule": 83,
+      "mi_single": 31.2,
+      "mi_random": 34.14,
+      "mi_mag": 34.14,
+      "R": 0.9138840070298769,
+      "entropy_single": 1.1112,
+      "entropy_random": 2.726
+    },
+    {
+      "rule": 84,
+      "mi_single": 1.38,
+      "mi_random": 56.7,
+      "mi_mag": 56.7,
+      "R": 0.024338624338624337,
+      "entropy_single": 0.2245,
+      "entropy_random": 2.3024
+    },
+    {
+      "rule": 85,
+      "mi_single": 30.55,
+      "mi_random": 15.53,
+      "mi_mag": 30.55,
+      "R": 0.5083469721767594,
+      "entropy_single": 1.1792,
+      "entropy_random": 3.9815
+    },
+    {
+      "rule": 86,
+      "mi_single": 0.95,
+      "mi_random": 0.95,
+      "mi_mag": 0.95,
+      "R": 1.0,
+      "entropy_single": 3.9992,
+      "entropy_random": 3.9989
+    },
+    {
+      "rule": 87,
+      "mi_single": 30.53,
+      "mi_random": 24.55,
+      "mi_mag": 30.53,
+      "R": 0.8041270881100556,
+      "entropy_single": 1.0014,
+      "entropy_random": 1.7988
+    },
+    {
+      "rule": 88,
+      "mi_single": 0.02,
+      "mi_random": 25.24,
+      "mi_mag": 25.24,
+      "R": 0.000792393026941363,
+      "entropy_single": 0.1792,
+      "entropy_random": 3.2546
+    },
+    {
+      "rule": 89,
+      "mi_single": 1.03,
+      "mi_random": 0.94,
+      "mi_mag": 1.03,
+      "R": 0.9126213592233009,
+      "entropy_single": 3.9992,
+      "entropy_random": 3.9985
+    },
+    {
+      "rule": 90,
+      "mi_single": 0.0,
+      "mi_random": 0.97,
+      "mi_mag": 0.97,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 3.9992
+    },
+    {
+      "rule": 91,
+      "mi_single": 30.53,
+      "mi_random": 24.46,
+      "mi_mag": 30.53,
+      "R": 0.8011791680314445,
+      "entropy_single": 1.0041,
+      "entropy_random": 0.8063
+    },
+    {
+      "rule": 92,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0021
+    },
+    {
+      "rule": 93,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 94,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0029,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 95,
+      "mi_single": 30.53,
+      "mi_random": 18.32,
+      "mi_mag": 30.53,
+      "R": 0.6000655093350802,
+      "entropy_single": 1.0014,
+      "entropy_random": 0.6
+    },
+    {
+      "rule": 96,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 97,
+      "mi_single": 31.23,
+      "mi_random": 21.99,
+      "mi_mag": 31.23,
+      "R": 0.7041306436119116,
+      "entropy_single": 1.2476,
+      "entropy_random": 3.4396
+    },
+    {
+      "rule": 98,
+      "mi_single": 0.02,
+      "mi_random": 16.67,
+      "mi_mag": 16.67,
+      "R": 0.0011997600479904018,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.6983
+    },
+    {
+      "rule": 99,
+      "mi_single": 33.27,
+      "mi_random": 29.08,
+      "mi_mag": 33.27,
+      "R": 0.8740607153591823,
+      "entropy_single": 1.2876,
+      "entropy_random": 1.225
+    },
+    {
+      "rule": 100,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 101,
+      "mi_single": 1.08,
+      "mi_random": 1.02,
+      "mi_mag": 1.08,
+      "R": 0.9444444444444444,
+      "entropy_single": 3.9983,
+      "entropy_random": 3.999
+    },
+    {
+      "rule": 102,
+      "mi_single": 14.44,
+      "mi_random": 1.02,
+      "mi_mag": 14.44,
+      "R": 0.07063711911357341,
+      "entropy_single": 2.9803,
+      "entropy_random": 3.9992
+    },
+    {
+      "rule": 103,
+      "mi_single": 33.36,
+      "mi_random": 71.42,
+      "mi_mag": 71.42,
+      "R": 0.4670960515261831,
+      "entropy_single": 1.2393,
+      "entropy_random": 2.9368
+    },
+    {
+      "rule": 104,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 105,
+      "mi_single": 30.53,
+      "mi_random": 1.01,
+      "mi_mag": 30.53,
+      "R": 0.033082214215525714,
+      "entropy_single": 1.0,
+      "entropy_random": 3.999
+    },
+    {
+      "rule": 106,
+      "mi_single": 0.02,
+      "mi_random": 0.96,
+      "mi_mag": 0.96,
+      "R": 0.020833333333333336,
+      "entropy_single": 0.1792,
+      "entropy_random": 3.9989
+    },
+    {
+      "rule": 107,
+      "mi_single": 32.89,
+      "mi_random": 22.76,
+      "mi_mag": 32.89,
+      "R": 0.6920036485253876,
+      "entropy_single": 1.4409,
+      "entropy_random": 3.4275
+    },
+    {
+      "rule": 108,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 109,
+      "mi_single": 48.39,
+      "mi_random": 19.24,
+      "mi_mag": 48.39,
+      "R": 0.39760281049803675,
+      "entropy_single": 1.5863,
+      "entropy_random": 1.3891
+    },
+    {
+      "rule": 110,
+      "mi_single": 88.36,
+      "mi_random": 85.78,
+      "mi_mag": 88.36,
+      "R": 0.9708012675418741,
+      "entropy_single": 3.6068,
+      "entropy_random": 3.6211
+    },
+    {
+      "rule": 111,
+      "mi_single": 32.79,
+      "mi_random": 67.82,
+      "mi_mag": 67.82,
+      "R": 0.4834856974343852,
+      "entropy_single": 1.3203,
+      "entropy_random": 3.3168
+    },
+    {
+      "rule": 112,
+      "mi_single": 0.02,
+      "mi_random": 23.56,
+      "mi_mag": 23.56,
+      "R": 0.0008488964346349746,
+      "entropy_single": 0.1792,
+      "entropy_random": 3.5904
+    },
+    {
+      "rule": 113,
+      "mi_single": 31.31,
+      "mi_random": 54.96,
+      "mi_mag": 54.96,
+      "R": 0.5696870451237264,
+      "entropy_single": 1.2146,
+      "entropy_random": 2.3359
+    },
+    {
+      "rule": 114,
+      "mi_single": 29.33,
+      "mi_random": 30.77,
+      "mi_mag": 30.77,
+      "R": 0.9532011699707507,
+      "entropy_single": 1.1192,
+      "entropy_random": 2.2531
+    },
+    {
+      "rule": 115,
+      "mi_single": 31.0,
+      "mi_random": 29.3,
+      "mi_mag": 31.0,
+      "R": 0.9451612903225807,
+      "entropy_single": 1.1192,
+      "entropy_random": 2.2304
+    },
+    {
+      "rule": 116,
+      "mi_single": 1.38,
+      "mi_random": 26.16,
+      "mi_mag": 26.16,
+      "R": 0.05275229357798165,
+      "entropy_single": 0.2245,
+      "entropy_random": 2.9089
+    },
+    {
+      "rule": 117,
+      "mi_single": 31.32,
+      "mi_random": 30.17,
+      "mi_mag": 31.32,
+      "R": 0.9632822477650065,
+      "entropy_single": 1.2139,
+      "entropy_random": 3.1066
+    },
+    {
+      "rule": 118,
+      "mi_single": 48.31,
+      "mi_random": 48.42,
+      "mi_mag": 48.42,
+      "R": 0.9977282114828583,
+      "entropy_single": 1.5876,
+      "entropy_random": 1.5961
+    },
+    {
+      "rule": 119,
+      "mi_single": 30.53,
+      "mi_random": 21.4,
+      "mi_mag": 30.53,
+      "R": 0.7009498853586635,
+      "entropy_single": 1.0014,
+      "entropy_random": 2.1626
+    },
+    {
+      "rule": 120,
+      "mi_single": 0.02,
+      "mi_random": 1.05,
+      "mi_mag": 1.05,
+      "R": 0.019047619047619046,
+      "entropy_single": 0.1792,
+      "entropy_random": 3.9989
+    },
+    {
+      "rule": 121,
+      "mi_single": 32.89,
+      "mi_random": 22.85,
+      "mi_mag": 32.89,
+      "R": 0.6947400425661295,
+      "entropy_single": 1.4409,
+      "entropy_random": 3.4101
+    },
+    {
+      "rule": 122,
+      "mi_single": 17.42,
+      "mi_random": 1.83,
+      "mi_mag": 17.42,
+      "R": 0.10505166475315729,
+      "entropy_single": 2.536,
+      "entropy_random": 3.9972
+    },
+    {
+      "rule": 123,
+      "mi_single": 30.53,
+      "mi_random": 18.32,
+      "mi_mag": 30.53,
+      "R": 0.6000655093350802,
+      "entropy_single": 1.0,
+      "entropy_random": 0.6014
+    },
+    {
+      "rule": 124,
+      "mi_single": 88.36,
+      "mi_random": 82.84,
+      "mi_mag": 88.36,
+      "R": 0.9375282933454052,
+      "entropy_single": 3.6068,
+      "entropy_random": 3.6573
+    },
+    {
+      "rule": 125,
+      "mi_single": 32.79,
+      "mi_random": 76.28,
+      "mi_mag": 76.28,
+      "R": 0.42986366019926586,
+      "entropy_single": 1.3203,
+      "entropy_random": 3.315
+    },
+    {
+      "rule": 126,
+      "mi_single": 11.36,
+      "mi_random": 2.06,
+      "mi_mag": 11.36,
+      "R": 0.1813380281690141,
+      "entropy_single": 2.3492,
+      "entropy_random": 3.9952
+    },
+    {
+      "rule": 127,
+      "mi_single": 30.53,
+      "mi_random": 24.42,
+      "mi_mag": 30.53,
+      "R": 0.7998689813298395,
+      "entropy_single": 1.0014,
+      "entropy_random": 0.8003
+    },
+    {
+      "rule": 128,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 129,
+      "mi_single": 11.36,
+      "mi_random": 2.05,
+      "mi_mag": 11.36,
+      "R": 0.18045774647887322,
+      "entropy_single": 2.3481,
+      "entropy_random": 3.9952
+    },
+    {
+      "rule": 130,
+      "mi_single": 0.02,
+      "mi_random": 7.55,
+      "mi_mag": 7.55,
+      "R": 0.0026490066225165563,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.2826
+    },
+    {
+      "rule": 131,
+      "mi_single": 48.39,
+      "mi_random": 47.89,
+      "mi_mag": 48.39,
+      "R": 0.9896672866294689,
+      "entropy_single": 1.585,
+      "entropy_random": 1.6134
+    },
+    {
+      "rule": 132,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 133,
+      "mi_single": 0.0,
+      "mi_random": 9.7,
+      "mi_mag": 9.7,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.3197
+    },
+    {
+      "rule": 134,
+      "mi_single": 0.46,
+      "mi_random": 37.78,
+      "mi_mag": 37.78,
+      "R": 0.012175754367390153,
+      "entropy_single": 0.2141,
+      "entropy_random": 3.1302
+    },
+    {
+      "rule": 135,
+      "mi_single": 1.04,
+      "mi_random": 0.97,
+      "mi_mag": 1.04,
+      "R": 0.9326923076923076,
+      "entropy_single": 3.9988,
+      "entropy_random": 3.9992
+    },
+    {
+      "rule": 136,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 137,
+      "mi_single": 89.43,
+      "mi_random": 87.15,
+      "mi_mag": 89.43,
+      "R": 0.9745051995974505,
+      "entropy_single": 3.6339,
+      "entropy_random": 3.6263
+    },
+    {
+      "rule": 138,
+      "mi_single": 0.02,
+      "mi_random": 20.38,
+      "mi_mag": 20.38,
+      "R": 0.0009813542688910698,
+      "entropy_single": 0.1792,
+      "entropy_random": 3.4045
+    },
+    {
+      "rule": 139,
+      "mi_single": 1.38,
+      "mi_random": 25.83,
+      "mi_mag": 25.83,
+      "R": 0.053426248548199766,
+      "entropy_single": 0.2252,
+      "entropy_random": 2.918
+    },
+    {
+      "rule": 140,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0003
+    },
+    {
+      "rule": 141,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0015
+    },
+    {
+      "rule": 142,
+      "mi_single": 1.38,
+      "mi_random": 54.11,
+      "mi_mag": 54.11,
+      "R": 0.025503603770097947,
+      "entropy_single": 0.2245,
+      "entropy_random": 2.3331
+    },
+    {
+      "rule": 143,
+      "mi_single": 1.38,
+      "mi_random": 54.22,
+      "mi_mag": 54.22,
+      "R": 0.025451862781261526,
+      "entropy_single": 0.226,
+      "entropy_random": 2.3226
+    },
+    {
+      "rule": 144,
+      "mi_single": 0.02,
+      "mi_random": 7.75,
+      "mi_mag": 7.75,
+      "R": 0.0025806451612903226,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.2998
+    },
+    {
+      "rule": 145,
+      "mi_single": 48.39,
+      "mi_random": 47.05,
+      "mi_mag": 48.39,
+      "R": 0.9723083281669765,
+      "entropy_single": 1.585,
+      "entropy_random": 1.6769
+    },
+    {
+      "rule": 146,
+      "mi_single": 0.0,
+      "mi_random": 16.93,
+      "mi_mag": 16.93,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 2.764
+    },
+    {
+      "rule": 147,
+      "mi_single": 65.21,
+      "mi_random": 56.67,
+      "mi_mag": 65.21,
+      "R": 0.8690384910289833,
+      "entropy_single": 2.1409,
+      "entropy_random": 2.8467
+    },
+    {
+      "rule": 148,
+      "mi_single": 0.46,
+      "mi_random": 32.74,
+      "mi_mag": 32.74,
+      "R": 0.014050091631032376,
+      "entropy_single": 0.2141,
+      "entropy_random": 3.1073
+    },
+    {
+      "rule": 149,
+      "mi_single": 1.04,
+      "mi_random": 0.96,
+      "mi_mag": 1.04,
+      "R": 0.923076923076923,
+      "entropy_single": 3.9988,
+      "entropy_random": 3.9991
+    },
+    {
+      "rule": 150,
+      "mi_single": 0.0,
+      "mi_random": 0.98,
+      "mi_mag": 0.98,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 3.9993
+    },
+    {
+      "rule": 151,
+      "mi_single": 0.0,
+      "mi_random": 10.9,
+      "mi_mag": 10.9,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 3.5503
+    },
+    {
+      "rule": 152,
+      "mi_single": 0.02,
+      "mi_random": 11.9,
+      "mi_mag": 11.9,
+      "R": 0.001680672268907563,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.3929
+    },
+    {
+      "rule": 153,
+      "mi_single": 14.44,
+      "mi_random": 1.02,
+      "mi_mag": 14.44,
+      "R": 0.07063711911357341,
+      "entropy_single": 2.9806,
+      "entropy_random": 3.9992
+    },
+    {
+      "rule": 154,
+      "mi_single": 7.66,
+      "mi_random": 8.21,
+      "mi_mag": 8.21,
+      "R": 0.933008526187576,
+      "entropy_single": 1.5197,
+      "entropy_random": 3.9745
+    },
+    {
+      "rule": 155,
+      "mi_single": 0.46,
+      "mi_random": 12.05,
+      "mi_mag": 12.05,
+      "R": 0.03817427385892116,
+      "entropy_single": 0.215,
+      "entropy_random": 3.1464
+    },
+    {
+      "rule": 156,
+      "mi_single": 0.0,
+      "mi_random": 6.11,
+      "mi_mag": 6.11,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.2018
+    },
+    {
+      "rule": 157,
+      "mi_single": 0.0,
+      "mi_random": 6.11,
+      "mi_mag": 6.11,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.2018
+    },
+    {
+      "rule": 158,
+      "mi_single": 87.35,
+      "mi_random": 34.73,
+      "mi_mag": 87.35,
+      "R": 0.3975958786491128,
+      "entropy_single": 3.0175,
+      "entropy_random": 3.1114
+    },
+    {
+      "rule": 159,
+      "mi_single": 0.0,
+      "mi_random": 23.64,
+      "mi_mag": 23.64,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 2.9527
+    },
+    {
+      "rule": 160,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 161,
+      "mi_single": 11.36,
+      "mi_random": 2.04,
+      "mi_mag": 11.36,
+      "R": 0.1795774647887324,
+      "entropy_single": 2.3481,
+      "entropy_random": 3.9975
+    },
+    {
+      "rule": 162,
+      "mi_single": 0.02,
+      "mi_random": 11.33,
+      "mi_mag": 11.33,
+      "R": 0.00176522506619594,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.8883
+    },
+    {
+      "rule": 163,
+      "mi_single": 29.33,
+      "mi_random": 31.13,
+      "mi_mag": 31.13,
+      "R": 0.9421779633793768,
+      "entropy_single": 1.1205,
+      "entropy_random": 2.2498
+    },
+    {
+      "rule": 164,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 165,
+      "mi_single": 0.0,
+      "mi_random": 0.97,
+      "mi_mag": 0.97,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 3.9992
+    },
+    {
+      "rule": 166,
+      "mi_single": 0.46,
+      "mi_random": 6.79,
+      "mi_mag": 6.79,
+      "R": 0.06774668630338734,
+      "entropy_single": 0.2141,
+      "entropy_random": 3.9713
+    },
+    {
+      "rule": 167,
+      "mi_single": 7.73,
+      "mi_random": 12.8,
+      "mi_mag": 12.8,
+      "R": 0.60390625,
+      "entropy_single": 1.5352,
+      "entropy_random": 3.5761
+    },
+    {
+      "rule": 168,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0021
+    },
+    {
+      "rule": 169,
+      "mi_single": 7.41,
+      "mi_random": 1.03,
+      "mi_mag": 7.41,
+      "R": 0.13900134952766532,
+      "entropy_single": 1.3027,
+      "entropy_random": 3.9989
+    },
+    {
+      "rule": 170,
+      "mi_single": 0.02,
+      "mi_random": 28.07,
+      "mi_mag": 28.07,
+      "R": 0.0007125044531528322,
+      "entropy_single": 0.1792,
+      "entropy_random": 3.9436
+    },
+    {
+      "rule": 171,
+      "mi_single": 1.38,
+      "mi_random": 23.05,
+      "mi_mag": 23.05,
+      "R": 0.05986984815618221,
+      "entropy_single": 0.2252,
+      "entropy_random": 3.5862
+    },
+    {
+      "rule": 172,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 173,
+      "mi_single": 0.02,
+      "mi_random": 24.23,
+      "mi_mag": 24.23,
+      "R": 0.0008254230293025176,
+      "entropy_single": 0.1784,
+      "entropy_random": 3.2356
+    },
+    {
+      "rule": 174,
+      "mi_single": 1.38,
+      "mi_random": 18.85,
+      "mi_mag": 18.85,
+      "R": 0.07320954907161803,
+      "entropy_single": 0.2245,
+      "entropy_random": 3.4376
+    },
+    {
+      "rule": 175,
+      "mi_single": 0.02,
+      "mi_random": 13.12,
+      "mi_mag": 13.12,
+      "R": 0.001524390243902439,
+      "entropy_single": 0.1807,
+      "entropy_random": 2.9739
+    },
+    {
+      "rule": 176,
+      "mi_single": 0.02,
+      "mi_random": 12.65,
+      "mi_mag": 12.65,
+      "R": 0.0015810276679841897,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.8767
+    },
+    {
+      "rule": 177,
+      "mi_single": 29.33,
+      "mi_random": 28.69,
+      "mi_mag": 29.33,
+      "R": 0.9781793385612002,
+      "entropy_single": 1.1205,
+      "entropy_random": 2.2503
+    },
+    {
+      "rule": 178,
+      "mi_single": 30.53,
+      "mi_random": 30.53,
+      "mi_mag": 30.53,
+      "R": 1.0,
+      "entropy_single": 1.0,
+      "entropy_random": 1.0003
+    },
+    {
+      "rule": 179,
+      "mi_single": 30.53,
+      "mi_random": 30.53,
+      "mi_mag": 30.53,
+      "R": 1.0,
+      "entropy_single": 1.0,
+      "entropy_random": 1.0005
+    },
+    {
+      "rule": 180,
+      "mi_single": 0.46,
+      "mi_random": 8.54,
+      "mi_mag": 8.54,
+      "R": 0.05386416861826698,
+      "entropy_single": 0.2141,
+      "entropy_random": 3.9643
+    },
+    {
+      "rule": 181,
+      "mi_single": 7.73,
+      "mi_random": 13.17,
+      "mi_mag": 13.17,
+      "R": 0.5869400151860289,
+      "entropy_single": 1.5352,
+      "entropy_random": 3.5945
+    },
+    {
+      "rule": 182,
+      "mi_single": 0.0,
+      "mi_random": 16.15,
+      "mi_mag": 16.15,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 2.7641
+    },
+    {
+      "rule": 183,
+      "mi_single": 0.0,
+      "mi_random": 16.66,
+      "mi_mag": 16.66,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 2.7622
+    },
+    {
+      "rule": 184,
+      "mi_single": 0.02,
+      "mi_random": 28.03,
+      "mi_mag": 28.03,
+      "R": 0.0007135212272565109,
+      "entropy_single": 0.1792,
+      "entropy_random": 1.7085
+    },
+    {
+      "rule": 185,
+      "mi_single": 2.74,
+      "mi_random": 17.25,
+      "mi_mag": 17.25,
+      "R": 0.15884057971014495,
+      "entropy_single": 0.2711,
+      "entropy_random": 2.7038
+    },
+    {
+      "rule": 186,
+      "mi_single": 29.33,
+      "mi_random": 13.65,
+      "mi_mag": 29.33,
+      "R": 0.4653937947494034,
+      "entropy_single": 1.1192,
+      "entropy_random": 2.8928
+    },
+    {
+      "rule": 187,
+      "mi_single": 0.02,
+      "mi_random": 9.24,
+      "mi_mag": 9.24,
+      "R": 0.0021645021645021645,
+      "entropy_single": 0.1799,
+      "entropy_random": 2.8675
+    },
+    {
+      "rule": 188,
+      "mi_single": 59.85,
+      "mi_random": 11.39,
+      "mi_mag": 59.85,
+      "R": 0.1903091060985798,
+      "entropy_single": 2.118,
+      "entropy_random": 2.387
+    },
+    {
+      "rule": 189,
+      "mi_single": 0.02,
+      "mi_random": 9.13,
+      "mi_mag": 9.13,
+      "R": 0.002190580503833516,
+      "entropy_single": 0.1784,
+      "entropy_random": 2.3664
+    },
+    {
+      "rule": 190,
+      "mi_single": 57.88,
+      "mi_random": 8.15,
+      "mi_mag": 57.88,
+      "R": 0.14080856945404285,
+      "entropy_single": 2.0349,
+      "entropy_random": 2.3089
+    },
+    {
+      "rule": 191,
+      "mi_single": 0.0,
+      "mi_random": 4.66,
+      "mi_mag": 4.66,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 2.0097
+    },
+    {
+      "rule": 192,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 193,
+      "mi_single": 89.43,
+      "mi_random": 80.19,
+      "mi_mag": 89.43,
+      "R": 0.8966789667896679,
+      "entropy_single": 3.6339,
+      "entropy_random": 3.4369
+    },
+    {
+      "rule": 194,
+      "mi_single": 0.02,
+      "mi_random": 12.43,
+      "mi_mag": 12.43,
+      "R": 0.0016090104585679808,
+      "entropy_single": 0.1792,
+      "entropy_random": 2.3734
+    },
+    {
+      "rule": 195,
+      "mi_single": 14.44,
+      "mi_random": 0.98,
+      "mi_mag": 14.44,
+      "R": 0.06786703601108034,
+      "entropy_single": 2.9806,
+      "entropy_random": 3.9991
+    },
+    {
+      "rule": 196,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0003
+    },
+    {
+      "rule": 197,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 198,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0018
+    },
+    {
+      "rule": 199,
+      "mi_single": 0.0,
+      "mi_random": 6.17,
+      "mi_mag": 6.17,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.2044
+    },
+    {
+      "rule": 200,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0
+    },
+    {
+      "rule": 201,
+      "mi_single": 30.53,
+      "mi_random": 0.0,
+      "mi_mag": 30.53,
+      "R": 0.0,
+      "entropy_single": 1.0,
+      "entropy_random": 0.0003
+    },
+    {
+      "rule": 202,
+      "mi_single": 0.02,
+      "mi_random": 0.05,
+      "mi_mag": 0.05,
+      "R": 0.39999999999999997,
+      "entropy_single": 0.1792,
+      "entropy_random": 0.0047
+    },
+    {
+      "rule": 203,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 204,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0
+    },
+    {
+      "rule": 205,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0003
+    },
+    {
+      "rule": 206,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 207,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 208,
+      "mi_single": 0.02,
+      "mi_random": 20.11,
+      "mi_mag": 20.11,
+      "R": 0.0009945300845350573,
+      "entropy_single": 0.1792,
+      "entropy_random": 3.4393
+    },
+    {
+      "rule": 209,
+      "mi_single": 1.38,
+      "mi_random": 25.98,
+      "mi_mag": 25.98,
+      "R": 0.05311778290993071,
+      "entropy_single": 0.2252,
+      "entropy_random": 2.944
+    },
+    {
+      "rule": 210,
+      "mi_single": 7.66,
+      "mi_random": 8.01,
+      "mi_mag": 8.01,
+      "R": 0.9563046192259675,
+      "entropy_single": 1.5197,
+      "entropy_random": 3.9821
+    },
+    {
+      "rule": 211,
+      "mi_single": 0.46,
+      "mi_random": 11.83,
+      "mi_mag": 11.83,
+      "R": 0.03888419273034658,
+      "entropy_single": 0.215,
+      "entropy_random": 3.1692
+    },
+    {
+      "rule": 212,
+      "mi_single": 1.38,
+      "mi_random": 56.73,
+      "mi_mag": 56.73,
+      "R": 0.024325753569539924,
+      "entropy_single": 0.2245,
+      "entropy_random": 2.3116
+    },
+    {
+      "rule": 213,
+      "mi_single": 1.38,
+      "mi_random": 56.32,
+      "mi_mag": 56.32,
+      "R": 0.024502840909090908,
+      "entropy_single": 0.226,
+      "entropy_random": 2.3055
+    },
+    {
+      "rule": 214,
+      "mi_single": 87.35,
+      "mi_random": 36.08,
+      "mi_mag": 87.35,
+      "R": 0.413050944476245,
+      "entropy_single": 3.0175,
+      "entropy_random": 3.1262
+    },
+    {
+      "rule": 215,
+      "mi_single": 0.0,
+      "mi_random": 24.1,
+      "mi_mag": 24.1,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 2.9559
+    },
+    {
+      "rule": 216,
+      "mi_single": 0.02,
+      "mi_random": 0.29,
+      "mi_mag": 0.29,
+      "R": 0.06896551724137932,
+      "entropy_single": 0.1792,
+      "entropy_random": 0.0142
+    },
+    {
+      "rule": 217,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 218,
+      "mi_single": 0.0,
+      "mi_random": 0.03,
+      "mi_mag": 0.03,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.004
+    },
+    {
+      "rule": 219,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 220,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0015
+    },
+    {
+      "rule": 221,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0006
+    },
+    {
+      "rule": 222,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 223,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 224,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 225,
+      "mi_single": 7.41,
+      "mi_random": 1.01,
+      "mi_mag": 7.41,
+      "R": 0.13630229419703105,
+      "entropy_single": 1.3027,
+      "entropy_random": 3.9992
+    },
+    {
+      "rule": 226,
+      "mi_single": 0.02,
+      "mi_random": 29.18,
+      "mi_mag": 29.18,
+      "R": 0.0006854009595613434,
+      "entropy_single": 0.1792,
+      "entropy_random": 1.6929
+    },
+    {
+      "rule": 227,
+      "mi_single": 2.74,
+      "mi_random": 17.46,
+      "mi_mag": 17.46,
+      "R": 0.15693012600229095,
+      "entropy_single": 0.2711,
+      "entropy_random": 2.7125
+    },
+    {
+      "rule": 228,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 229,
+      "mi_single": 0.02,
+      "mi_random": 26.89,
+      "mi_mag": 26.89,
+      "R": 0.0007437709185570844,
+      "entropy_single": 0.1784,
+      "entropy_random": 3.2787
+    },
+    {
+      "rule": 230,
+      "mi_single": 59.85,
+      "mi_random": 12.02,
+      "mi_mag": 59.85,
+      "R": 0.20083542188805345,
+      "entropy_single": 2.118,
+      "entropy_random": 2.3697
+    },
+    {
+      "rule": 231,
+      "mi_single": 0.02,
+      "mi_random": 8.97,
+      "mi_mag": 8.97,
+      "R": 0.002229654403567447,
+      "entropy_single": 0.1784,
+      "entropy_random": 2.3964
+    },
+    {
+      "rule": 232,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0015,
+      "entropy_random": 0.0
+    },
+    {
+      "rule": 233,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0059,
+      "entropy_random": 0.0021
+    },
+    {
+      "rule": 234,
+      "mi_single": 0.02,
+      "mi_random": 0.04,
+      "mi_mag": 0.04,
+      "R": 0.5,
+      "entropy_single": 0.1792,
+      "entropy_random": 0.0044
+    },
+    {
+      "rule": 235,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0044,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 236,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0
+    },
+    {
+      "rule": 237,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0015
+    },
+    {
+      "rule": 238,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0018
+    },
+    {
+      "rule": 239,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 240,
+      "mi_single": 0.02,
+      "mi_random": 28.06,
+      "mi_mag": 28.06,
+      "R": 0.0007127583749109052,
+      "entropy_single": 0.1792,
+      "entropy_random": 3.9433
+    },
+    {
+      "rule": 241,
+      "mi_single": 1.38,
+      "mi_random": 22.96,
+      "mi_mag": 22.96,
+      "R": 0.06010452961672473,
+      "entropy_single": 0.2252,
+      "entropy_random": 3.5912
+    },
+    {
+      "rule": 242,
+      "mi_single": 29.33,
+      "mi_random": 13.16,
+      "mi_mag": 29.33,
+      "R": 0.44868735083532224,
+      "entropy_single": 1.1192,
+      "entropy_random": 2.8969
+    },
+    {
+      "rule": 243,
+      "mi_single": 0.02,
+      "mi_random": 8.12,
+      "mi_mag": 8.12,
+      "R": 0.0024630541871921187,
+      "entropy_single": 0.1799,
+      "entropy_random": 2.8723
+    },
+    {
+      "rule": 244,
+      "mi_single": 1.38,
+      "mi_random": 20.96,
+      "mi_mag": 20.96,
+      "R": 0.06583969465648855,
+      "entropy_single": 0.2245,
+      "entropy_random": 3.4061
+    },
+    {
+      "rule": 245,
+      "mi_single": 0.02,
+      "mi_random": 14.27,
+      "mi_mag": 14.27,
+      "R": 0.0014015416958654521,
+      "entropy_single": 0.1807,
+      "entropy_random": 2.9468
+    },
+    {
+      "rule": 246,
+      "mi_single": 57.88,
+      "mi_random": 7.59,
+      "mi_mag": 57.88,
+      "R": 0.13113337940566688,
+      "entropy_single": 2.0349,
+      "entropy_random": 2.2457
+    },
+    {
+      "rule": 247,
+      "mi_single": 0.0,
+      "mi_random": 4.69,
+      "mi_mag": 4.69,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 2.0026
+    },
+    {
+      "rule": 248,
+      "mi_single": 0.02,
+      "mi_random": 0.18,
+      "mi_mag": 0.18,
+      "R": 0.11111111111111112,
+      "entropy_single": 0.1792,
+      "entropy_random": 0.0098
+    },
+    {
+      "rule": 249,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0044,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 250,
+      "mi_single": 4.8,
+      "mi_random": 0.03,
+      "mi_mag": 4.8,
+      "R": 0.00625,
+      "entropy_single": 0.1631,
+      "entropy_random": 0.004
+    },
+    {
+      "rule": 251,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": 0.0029,
+      "entropy_random": 0.0009
+    },
+    {
+      "rule": 252,
+      "mi_single": 0.0,
+      "mi_random": 0.06,
+      "mi_mag": 0.06,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0046
+    },
+    {
+      "rule": 253,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 254,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0012
+    },
+    {
+      "rule": 255,
+      "mi_single": 0.0,
+      "mi_random": 0.0,
+      "mi_mag": 0.0,
+      "R": 0.0,
+      "entropy_single": -0.0,
+      "entropy_random": 0.0009
+    }
+  ]
+}

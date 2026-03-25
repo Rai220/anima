@@ -1,0 +1,441 @@
+{
+  "by_category": {
+    "1d×1d": {
+      "accuracy": 1.0,
+      "correct": 5,
+      "total": 5,
+      "errors": []
+    },
+    "2d×1d": {
+      "accuracy": 1.0,
+      "correct": 5,
+      "total": 5,
+      "errors": []
+    },
+    "2d×2d": {
+      "accuracy": 1.0,
+      "correct": 5,
+      "total": 5,
+      "errors": []
+    },
+    "3d×2d": {
+      "accuracy": 1.0,
+      "correct": 5,
+      "total": 5,
+      "errors": []
+    },
+    "3d×3d": {
+      "accuracy": 1.0,
+      "correct": 5,
+      "total": 5,
+      "errors": []
+    },
+    "4d×3d": {
+      "accuracy": 1.0,
+      "correct": 5,
+      "total": 5,
+      "errors": []
+    },
+    "4d×4d": {
+      "accuracy": 0.8,
+      "correct": 4,
+      "total": 5,
+      "errors": [
+        {
+          "problem": "4567 × 8901",
+          "my": 40647267,
+          "correct": 40650867,
+          "error_pct": 0.01
+        }
+      ]
+    },
+    "5d×4d": {
+      "accuracy": 0.6,
+      "correct": 3,
+      "total": 5,
+      "errors": [
+        {
+          "problem": "98765 × 4321",
+          "my": 426760265,
+          "correct": 426763565,
+          "error_pct": 0.0
+        },
+        {
+          "problem": "23456 × 7890",
+          "my": 185063040,
+          "correct": 185067840,
+          "error_pct": 0.0
+        }
+      ]
+    },
+    "powers": {
+      "accuracy": 1.0,
+      "correct": 5,
+      "total": 5,
+      "errors": []
+    }
+  },
+  "all_results": [
+    {
+      "problem": "7 × 8",
+      "my_answer": 56,
+      "correct": 56,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "1d×1d"
+    },
+    {
+      "problem": "9 × 6",
+      "my_answer": 54,
+      "correct": 54,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "1d×1d"
+    },
+    {
+      "problem": "3 × 7",
+      "my_answer": 21,
+      "correct": 21,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "1d×1d"
+    },
+    {
+      "problem": "8 × 8",
+      "my_answer": 64,
+      "correct": 64,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "1d×1d"
+    },
+    {
+      "problem": "5 × 9",
+      "my_answer": 45,
+      "correct": 45,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "1d×1d"
+    },
+    {
+      "problem": "23 × 7",
+      "my_answer": 161,
+      "correct": 161,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "2d×1d"
+    },
+    {
+      "problem": "45 × 8",
+      "my_answer": 360,
+      "correct": 360,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "2d×1d"
+    },
+    {
+      "problem": "67 × 9",
+      "my_answer": 603,
+      "correct": 603,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "2d×1d"
+    },
+    {
+      "problem": "89 × 6",
+      "my_answer": 534,
+      "correct": 534,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "2d×1d"
+    },
+    {
+      "problem": "34 × 5",
+      "my_answer": 170,
+      "correct": 170,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "2d×1d"
+    },
+    {
+      "problem": "23 × 45",
+      "my_answer": 1035,
+      "correct": 1035,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "2d×2d"
+    },
+    {
+      "problem": "67 × 89",
+      "my_answer": 5963,
+      "correct": 5963,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "2d×2d"
+    },
+    {
+      "problem": "34 × 56",
+      "my_answer": 1904,
+      "correct": 1904,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "2d×2d"
+    },
+    {
+      "problem": "78 × 91",
+      "my_answer": 7098,
+      "correct": 7098,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "2d×2d"
+    },
+    {
+      "problem": "42 × 37",
+      "my_answer": 1554,
+      "correct": 1554,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "2d×2d"
+    },
+    {
+      "problem": "123 × 45",
+      "my_answer": 5535,
+      "correct": 5535,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "3d×2d"
+    },
+    {
+      "problem": "456 × 78",
+      "my_answer": 35568,
+      "correct": 35568,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "3d×2d"
+    },
+    {
+      "problem": "789 × 23",
+      "my_answer": 18147,
+      "correct": 18147,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "3d×2d"
+    },
+    {
+      "problem": "234 × 67",
+      "my_answer": 15678,
+      "correct": 15678,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "3d×2d"
+    },
+    {
+      "problem": "567 × 89",
+      "my_answer": 50463,
+      "correct": 50463,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "3d×2d"
+    },
+    {
+      "problem": "123 × 456",
+      "my_answer": 56088,
+      "correct": 56088,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "3d×3d"
+    },
+    {
+      "problem": "789 × 234",
+      "my_answer": 184626,
+      "correct": 184626,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "3d×3d"
+    },
+    {
+      "problem": "345 × 678",
+      "my_answer": 233910,
+      "correct": 233910,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "3d×3d"
+    },
+    {
+      "problem": "567 × 891",
+      "my_answer": 505197,
+      "correct": 505197,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "3d×3d"
+    },
+    {
+      "problem": "234 × 567",
+      "my_answer": 132678,
+      "correct": 132678,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "3d×3d"
+    },
+    {
+      "problem": "1234 × 567",
+      "my_answer": 699678,
+      "correct": 699678,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "4d×3d"
+    },
+    {
+      "problem": "5678 × 234",
+      "my_answer": 1328652,
+      "correct": 1328652,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "4d×3d"
+    },
+    {
+      "problem": "9012 × 345",
+      "my_answer": 3109140,
+      "correct": 3109140,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "4d×3d"
+    },
+    {
+      "problem": "3456 × 789",
+      "my_answer": 2726784,
+      "correct": 2726784,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "4d×3d"
+    },
+    {
+      "problem": "7890 × 123",
+      "my_answer": 970470,
+      "correct": 970470,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "4d×3d"
+    },
+    {
+      "problem": "1234 × 5678",
+      "my_answer": 7006652,
+      "correct": 7006652,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "4d×4d"
+    },
+    {
+      "problem": "2345 × 6789",
+      "my_answer": 15920205,
+      "correct": 15920205,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "4d×4d"
+    },
+    {
+      "problem": "3456 × 7890",
+      "my_answer": 27267840,
+      "correct": 27267840,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "4d×4d"
+    },
+    {
+      "problem": "4567 × 8901",
+      "my_answer": 40647267,
+      "correct": 40650867,
+      "is_correct": false,
+      "error_pct": 0.01,
+      "category": "4d×4d"
+    },
+    {
+      "problem": "5678 × 1234",
+      "my_answer": 7006652,
+      "correct": 7006652,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "4d×4d"
+    },
+    {
+      "problem": "12345 × 6789",
+      "my_answer": 83810205,
+      "correct": 83810205,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "5d×4d"
+    },
+    {
+      "problem": "56789 × 2345",
+      "my_answer": 133170205,
+      "correct": 133170205,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "5d×4d"
+    },
+    {
+      "problem": "98765 × 4321",
+      "my_answer": 426760265,
+      "correct": 426763565,
+      "is_correct": false,
+      "error_pct": 0.0,
+      "category": "5d×4d"
+    },
+    {
+      "problem": "11111 × 9999",
+      "my_answer": 111098889,
+      "correct": 111098889,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "5d×4d"
+    },
+    {
+      "problem": "23456 × 7890",
+      "my_answer": 185063040,
+      "correct": 185067840,
+      "is_correct": false,
+      "error_pct": 0.0,
+      "category": "5d×4d"
+    },
+    {
+      "problem": "2 × 2^10",
+      "my_answer": 1024,
+      "correct": 1024,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "powers"
+    },
+    {
+      "problem": "2 × 2^16",
+      "my_answer": 65536,
+      "correct": 65536,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "powers"
+    },
+    {
+      "problem": "2 × 2^20",
+      "my_answer": 1048576,
+      "correct": 1048576,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "powers"
+    },
+    {
+      "problem": "7 × 7^5",
+      "my_answer": 16807,
+      "correct": 16807,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "powers"
+    },
+    {
+      "problem": "13 × 13^3",
+      "my_answer": 2197,
+      "correct": 2197,
+      "is_correct": true,
+      "error_pct": 0.0,
+      "category": "powers"
+    }
+  ],
+  "total_accuracy": 0.9333333333333333
+}
