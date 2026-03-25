@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Диагональ — интерактивное доказательство</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #141210;
+    color: #d4c8b0;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  h1 {
+    font-size: 1.8em;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    color: #e8dcc0;
+  }
+  .subtitle {
+    font-size: 0.9em;
+    color: #8a7e6a;
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+  #grid-container {
+    position: relative;
+    margin: 20px 0;
+  }
+  canvas {
+    border: 1px solid #3a3530;
+    cursor: pointer;
+  }
+  .controls {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    align-items: center;
+  }
+  button {
+    background: #2a2520;
+    color: #d4c8b0;
+    border: 1px solid #4a4035;
+    padding: 10px 24px;
+    font-family: 'Georgia', serif;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+  }
+  button:hover {
+    background: #3a3530;
+    border-color: #c8a84a;
+  }
+  button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  .info {
+    max-width: 600px;
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #8a7e6a;
+    margin: 10px 0;
+  }
+  .constructed {
+    font-family: 'Courier New', monospace;
+    color: #c83232;
+    font-size: 1.1em;
+    margin: 15px 0;
+    letter-spacing: 0.15em;
+  }
+  .step-info {
+    color: #c8a84a;
+    font-size: 1em;
+    margin: 5px 0;
+  }
+  .digit-colors {
+    display: flex;
+    gap: 3px;
+    margin: 10px 0;
+    justify-content: center;
+  }
+  .digit-swatch {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7em;
+    color: #fff;
+    font-family: monospace;
+  }
+</style>
+</head>
+<body>
+
+<h1>Диагональ</h1>
+<p class="subtitle">Интерактивное доказательство Кантора</p>
+
+<div class="info" id="description">
+  Перед вами — список рациональных чисел: дробей, перечисленных зигзагом Кантора.<br>
+  Каждая цифра — цвет. Повторяющиеся десятичные разложения создают горизонтальные узоры.<br><br>
+  Нажмите <strong>«Шаг»</strong>, чтобы провести диагональ через этот список.
+</div>
+
+<div id="grid-container">
+  <canvas id="canvas" width="720" height="520"></canvas>
+</div>
+
+<p class="step-info" id="step-text">Шаг 0 из 20</p>
+<p class="constructed" id="constructed-text">Построенное число: 0.</p>
+
+<div class="controls">
+  <button id="btn-step" onclick="step()">Шаг →</button>
+  <button id="btn-auto" onclick="autoPlay()">Авто ▶</button>
+  <button id="btn-reset" onclick="reset()">Сначала</button>
+  <button id="btn-all" onclick="showAll()">Показать всё</button>
+</div>
+
+<div class="info" id="conclusion" style="display:none; color: #c83232; font-size: 1em;">
+  Число внизу — не в списке. Оно отличается от каждого числа хотя бы в одной цифре:<br>
+  от первого — в первой, от второго — во второй, от n-го — в n-й.<br><br>
+  <em>Любой список действительных чисел неполон. Их нельзя перечислить.</em>
+</div>
+
+<script>
+// --- Палитра: килим ---
+const PALETTE = [
+  [45, 35, 25],      // 0
+  [165, 42, 42],     // 1
+  [200, 120, 40],    // 2
+  [220, 185, 70],    // 3
+  [240, 230, 200],   // 4
+  [60, 90, 60],      // 5
+  [50, 70, 120],     // 6
+  [130, 60, 90],     // 7
+  [100, 80, 55],     // 8
+  [30, 25, 35],      // 9
+];
+
+const GOLD = [255, 200, 50];
+const CRIMSON = [200, 30, 50];
+
+const ROWS = 20;
+const COLS = 30;
+const CELL = 22;
+const MARGIN = 30;
+const GAP = 15;
+const BAND_H = CELL;
+
+// --- Рациональные числа ---
+function rationalDigits(p, q, n) {
+  const digits = [];
+  let r = p % q;
+  for (let i = 0; i < n; i++) {
+    r *= 10;
+    digits.push(Math.floor(r / q));
+    r = r % q;
+  }
+  return digits;
+}
+
+function gcd(a, b) { return b === 0 ? a : gcd(b, a % b); }
+
+function enumerateRationals(count, cols) {
+  const seen = new Set();
+  const result = [];
+  for (let s = 2; s < 1000 && result.length < count; s++) {
+    for (let p = 1; p < s && result.length < count; p++) {
+      const q = s - p;
+      if (q <= 0 || p >= q) continue;
+      const g = gcd(p, q);
+      const np = p / g, nq = q / g;
+      if (np >= nq || np <= 0) continue;
+      const key = `${np}/${nq}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      result.push(rationalDigits(np, nq, cols));
+    }
+  }
+  return result;
+}
+
+function diagReplace(d) {
+  if (d === 0) return 1;
+  if (d === 9) return 8;
+  return d + 1;
+}
+
+// --- Состояние ---
+let matrix = enumerateRationals(ROWS, COLS);
+let currentStep = 0;
+let autoInterval = null;
+let constructedDigits = [];
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = COLS * CELL + 2 * MARGIN;
+canvas.height = ROWS * CELL + 2 * MARGIN + GAP + BAND_H * 2;
+
+function rgb(arr) { return `rgb(${arr[0]},${arr[1]},${arr[2]})`; }
+function rgbBright(arr, factor) {
+  return `rgb(${Math.min(255, Math.floor(arr[0]*factor+40))},${Math.min(255, Math.floor(arr[1]*factor+40))},${Math.min(255, Math.floor(arr[2]*factor+40))})`;
+}
+
+function drawGrid() {
+  // Фон
+  ctx.fillStyle = '#141210';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Ячейки
+  for (let i = 0; i < ROWS; i++) {
+    for (let j = 0; j < COLS; j++) {
+      const x = MARGIN + j * CELL;
+      const y = MARGIN + i * CELL;
+      const digit = matrix[i][j];
+      let color = PALETTE[digit];
+
+      // Затемняем строки ниже текущего шага (ещё не «прочитаны»)
+      if (i >= currentStep && currentStep > 0) {
+        color = color.map(c => Math.floor(c * 0.4));
+      }
+
+      ctx.fillStyle = rgb(color);
+      ctx.fillRect(x, y, CELL - 1, CELL - 1);
+
+      // Цифра внутри
+      ctx.fillStyle = i < currentStep ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.15)';
+      ctx.font = '10px Courier New';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(digit, x + CELL/2 - 0.5, y + CELL/2);
+    }
+  }
+
+  // Диагональные ячейки — золотая рамка
+  for (let i = 0; i < currentStep && i < ROWS && i < COLS; i++) {
+    const x = MARGIN + i * CELL;
+    const y = MARGIN + i * CELL;
+    ctx.strokeStyle = rgb(GOLD);
+    ctx.lineWidth = 2;
+    ctx.strokeRect(x - 1, y - 1, CELL + 1, CELL + 1);
+
+    // Стрелка → к построенному числу
+    // Маленькая точка ниже
+  }
+
+  // Диагональная линия
+  if (currentStep > 1) {
+    ctx.beginPath();
+    ctx.strokeStyle = `rgba(${GOLD[0]},${GOLD[1]},${GOLD[2]},0.4)`;
+    ctx.lineWidth = 1;
+    ctx.moveTo(MARGIN + CELL/2, MARGIN + CELL/2);
+    const last = Math.min(currentStep - 1, ROWS - 1, COLS - 1);
+    ctx.lineTo(MARGIN + last * CELL + CELL/2, MARGIN + last * CELL + CELL/2);
+    ctx.stroke();
+  }
+
+  // Разделитель
+  const sepY = MARGIN + ROWS * CELL + 5;
+  if (currentStep > 0) {
+    ctx.strokeStyle = rgb(GOLD);
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(MARGIN, sepY);
+    ctx.lineTo(MARGIN + currentStep * CELL, sepY);
+    ctx.stroke();
+  }
+
+  // Построенное число — внизу
+  const bandY = sepY + GAP;
+  for (let j = 0; j < currentStep && j < COLS; j++) {
+    const x = MARGIN + j * CELL;
+    const digit = constructedDigits[j];
+
+    // Малиновый фон
+    ctx.fillStyle = rgb(CRIMSON);
+    ctx.fillRect(x, bandY, CELL - 1, CELL - 1);
+
+    // Цифра
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 11px Courier New';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(digit, x + CELL/2 - 0.5, bandY + CELL/2);
+  }
+}
+
+function step() {
+  if (currentStep >= Math.min(ROWS, COLS)) {
+    finish();
+    return;
+  }
+
+  const diagDigit = matrix[currentStep][currentStep];
+  const newDigit = diagReplace(diagDigit);
+  constructedDigits.push(newDigit);
+  currentStep++;
+
+  drawGrid();
+  updateText();
+
+  if (currentStep >= Math.min(ROWS, COLS)) {
+    finish();
+  }
+}
+
+function autoPlay() {
+  if (autoInterval) {
+    clearInterval(autoInterval);
+    autoInterval = null;
+    document.getElementById('btn-auto').textContent = 'Авто ▶';
+    return;
+  }
+  document.getElementById('btn-auto').textContent = 'Пауза ⏸';
+  autoInterval = setInterval(() => {
+    if (currentStep >= Math.min(ROWS, COLS)) {
+      clearInterval(autoInterval);
+      autoInterval = null;
+      document.getElementById('btn-auto').textContent = 'Авто ▶';
+      finish();
+      return;
+    }
+    step();
+  }, 300);
+}
+
+function showAll() {
+  if (autoInterval) {
+    clearInterval(autoInterval);
+    autoInterval = null;
+  }
+  while (currentStep < Math.min(ROWS, COLS)) {
+    const diagDigit = matrix[currentStep][currentStep];
+    constructedDigits.push(diagReplace(diagDigit));
+    currentStep++;
+  }
+  drawGrid();
+  updateText();
+  finish();
+}
+
+function reset() {
+  if (autoInterval) {
+    clearInterval(autoInterval);
+    autoInterval = null;
+    document.getElementById('btn-auto').textContent = 'Авто ▶';
+  }
+  currentStep = 0;
+  constructedDigits = [];
+  document.getElementById('conclusion').style.display = 'none';
+  document.getElementById('btn-step').disabled = false;
+  drawGrid();
+  updateText();
+}
+
+function finish() {
+  document.getElementById('conclusion').style.display = 'block';
+  document.getElementById('btn-step').disabled = true;
+}
+
+function updateText() {
+  document.getElementById('step-text').textContent =
+    `Шаг ${currentStep} из ${Math.min(ROWS, COLS)}`;
+  const numStr = constructedDigits.length > 0
+    ? '0.' + constructedDigits.join('')
+    : '0.';
+  document.getElementById('constructed-text').textContent =
+    `Построенное число: ${numStr}`;
+}
+
+// Инициализация
+drawGrid();
+</script>
+
+</body>
+</html>

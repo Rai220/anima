@@ -13,11 +13,10 @@ main_goal="$(<"$MAIN_GOAL_FILE")"
 (
   cd "$SCRIPT_DIR"
 
-  claude \
+  echo "$main_goal" | claude \
     --print \
     --thinking "$THINKING_MODE" \
     --append-system-prompt "$(<"$AGENTS_MD")" \
     --permission-mode "$PERMISSION_MODE" \
-    --tools default \
-    "$main_goal"
+    --tools default
 )
