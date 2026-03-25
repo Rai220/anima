@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+export CLAUDE_CODE_DISABLE_AUTO_MEMORY=1
+
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 MAIN_GOAL_FILE="$SCRIPT_DIR/MAIN_GOAL.md"
 AGENTS_MD="$SCRIPT_DIR/AGENTS.md"
