@@ -1,0 +1,42 @@
+[
+  {
+    "domain": "Арифметика (4-значные числа)",
+    "n_facts": 81000000,
+    "table_bits": 2187000000,
+    "model_bits": 16000000000000.0,
+    "ratio": 0.0001,
+    "testable": false
+  },
+  {
+    "domain": "Перевод слов (англ→рус)",
+    "n_facts": 100000,
+    "table_bits": 1700000,
+    "model_bits": 16000000000000.0,
+    "ratio": 0.0,
+    "testable": false
+  },
+  {
+    "domain": "Факты о мире",
+    "n_facts": 10000000,
+    "table_bits": 200000000,
+    "model_bits": 16000000000000.0,
+    "ratio": 0.0,
+    "testable": false
+  },
+  {
+    "domain": "Логические выводы",
+    "n_facts": 17576,
+    "table_bits": 17576,
+    "model_bits": 16000000000000.0,
+    "ratio": 0.0,
+    "testable": false
+  },
+  {
+    "domain": "Комбинированные вопросы",
+    "n_facts": 10000000000,
+    "table_bits": 200000000000,
+    "model_bits": 16000000000000.0,
+    "ratio": 0.0125,
+    "testable": false
+  }
+]
