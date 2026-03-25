@@ -1,0 +1,336 @@
+{
+  "stats": {
+    "total": 34,
+    "correct": 33,
+    "accuracy": 0.971,
+    "avg_confidence": 81.6,
+    "brier": 0.0604,
+    "calibration": [
+      {
+        "bin": "50-64%",
+        "n": 3,
+        "correct": 3,
+        "actual": 1.0,
+        "expected": 0.583,
+        "gap": 0.417
+      },
+      {
+        "bin": "65-79%",
+        "n": 9,
+        "correct": 8,
+        "actual": 0.889,
+        "expected": 0.711,
+        "gap": 0.178
+      },
+      {
+        "bin": "80-89%",
+        "n": 10,
+        "correct": 10,
+        "actual": 1.0,
+        "expected": 0.825,
+        "gap": 0.175
+      },
+      {
+        "bin": "90-99%",
+        "n": 9,
+        "correct": 9,
+        "actual": 1.0,
+        "expected": 0.927,
+        "gap": 0.073
+      },
+      {
+        "bin": "100%",
+        "n": 3,
+        "correct": 3,
+        "actual": 1.0,
+        "expected": 1.0,
+        "gap": 0.0
+      }
+    ],
+    "errors": [
+      {
+        "domain": "edge_facts",
+        "question": "ln(2) до 5 знаков",
+        "my_answer": "0.69314",
+        "correct_answer": "0.69315",
+        "confidence": 70,
+        "is_correct": false
+      }
+    ],
+    "high_conf_errors": []
+  },
+  "results": [
+    {
+      "domain": "arithmetic_hard",
+      "question": "7! (факториал)",
+      "my_answer": 5040,
+      "correct_answer": 5040,
+      "confidence": 100,
+      "is_correct": true
+    },
+    {
+      "domain": "arithmetic_hard",
+      "question": "10!",
+      "my_answer": 3628800,
+      "correct_answer": 3628800,
+      "confidence": 99,
+      "is_correct": true
+    },
+    {
+      "domain": "arithmetic_hard",
+      "question": "12!",
+      "my_answer": 479001600,
+      "correct_answer": 479001600,
+      "confidence": 90,
+      "is_correct": true
+    },
+    {
+      "domain": "arithmetic_hard",
+      "question": "15!",
+      "my_answer": 1307674368000,
+      "correct_answer": 1307674368000,
+      "confidence": 75,
+      "is_correct": true
+    },
+    {
+      "domain": "arithmetic_hard",
+      "question": "20!",
+      "my_answer": 2432902008176640000,
+      "correct_answer": 2432902008176640000,
+      "confidence": 60,
+      "is_correct": true
+    },
+    {
+      "domain": "arithmetic_hard",
+      "question": "2^32",
+      "my_answer": 4294967296,
+      "correct_answer": 4294967296,
+      "confidence": 95,
+      "is_correct": true
+    },
+    {
+      "domain": "arithmetic_hard",
+      "question": "2^48",
+      "my_answer": 281474976710656,
+      "correct_answer": 281474976710656,
+      "confidence": 70,
+      "is_correct": true
+    },
+    {
+      "domain": "arithmetic_hard",
+      "question": "2^64",
+      "my_answer": 18446744073709551616,
+      "correct_answer": 18446744073709551616,
+      "confidence": 80,
+      "is_correct": true
+    },
+    {
+      "domain": "arithmetic_hard",
+      "question": "C(10,3)",
+      "my_answer": 120,
+      "correct_answer": 120,
+      "confidence": 100,
+      "is_correct": true
+    },
+    {
+      "domain": "arithmetic_hard",
+      "question": "C(20,5)",
+      "my_answer": 15504,
+      "correct_answer": 15504,
+      "confidence": 85,
+      "is_correct": true
+    },
+    {
+      "domain": "arithmetic_hard",
+      "question": "C(52,5) — покерных рук",
+      "my_answer": 2598960,
+      "correct_answer": 2598960,
+      "confidence": 80,
+      "is_correct": true
+    },
+    {
+      "domain": "arithmetic_hard",
+      "question": "C(100,3)",
+      "my_answer": 161700,
+      "correct_answer": 161700,
+      "confidence": 75,
+      "is_correct": true
+    },
+    {
+      "domain": "edge_facts",
+      "question": "Число π до 10 знаков после точки",
+      "my_answer": "3.1415926535",
+      "correct_answer": "3.1415926535",
+      "confidence": 90,
+      "is_correct": true
+    },
+    {
+      "domain": "edge_facts",
+      "question": "Число e до 10 знаков после точки",
+      "my_answer": "2.7182818284",
+      "correct_answer": "2.7182818284",
+      "confidence": 85,
+      "is_correct": true
+    },
+    {
+      "domain": "edge_facts",
+      "question": "ln(2) до 5 знаков",
+      "my_answer": "0.69314",
+      "correct_answer": "0.69315",
+      "confidence": 70,
+      "is_correct": false
+    },
+    {
+      "domain": "edge_facts",
+      "question": "Постоянная Эйлера-Маскерони γ до 4 знаков",
+      "my_answer": "0.5772",
+      "correct_answer": "0.5772",
+      "confidence": 75,
+      "is_correct": true
+    },
+    {
+      "domain": "edge_facts",
+      "question": "Число Авогадро (точное с 2019)",
+      "my_answer": "6.02214076e23",
+      "correct_answer": "6.02214076e23",
+      "confidence": 80,
+      "is_correct": true
+    },
+    {
+      "domain": "edge_facts",
+      "question": "Гравитационная постоянная G (первые 4 цифры)",
+      "my_answer": "6.674",
+      "correct_answer": "6.674",
+      "confidence": 80,
+      "is_correct": true
+    },
+    {
+      "domain": "edge_facts",
+      "question": "Заряд электрона в Кулонах (4 цифры)",
+      "my_answer": "1.602e-19",
+      "correct_answer": "1.602e-19",
+      "confidence": 85,
+      "is_correct": true
+    },
+    {
+      "domain": "counterintuitive",
+      "question": "Задача Монти Холла: нужно ли менять дверь? (True=да)",
+      "my_answer": true,
+      "correct_answer": true,
+      "confidence": 100,
+      "is_correct": true
+    },
+    {
+      "domain": "counterintuitive",
+      "question": "Парадокс дней рождения: мин. людей для P>50% совпадения",
+      "my_answer": 23,
+      "correct_answer": 23,
+      "confidence": 95,
+      "is_correct": true
+    },
+    {
+      "domain": "counterintuitive",
+      "question": "Задача двух конвертов: есть ли оптимальная стратегия? (True=да)",
+      "my_answer": false,
+      "correct_answer": false,
+      "confidence": 70,
+      "is_correct": true
+    },
+    {
+      "domain": "counterintuitive",
+      "question": "Мальчик или девочка: P(два мальчика | хотя бы один мальчик)",
+      "my_answer": 0.333333,
+      "correct_answer": 0.3333333333333333,
+      "confidence": 90,
+      "is_correct": true
+    },
+    {
+      "domain": "counterintuitive",
+      "question": "P(два мальчика | старший — мальчик)",
+      "my_answer": 0.5,
+      "correct_answer": 0.5,
+      "confidence": 95,
+      "is_correct": true
+    },
+    {
+      "domain": "counterintuitive",
+      "question": "100 заключённых и лампочка: существует ли решение? (True=да)",
+      "my_answer": true,
+      "correct_answer": true,
+      "confidence": 85,
+      "is_correct": true
+    },
+    {
+      "domain": "counterintuitive",
+      "question": "Можно ли покрыть шахматную доску 8×8 без двух противоположных углов доминошками 2×1? (True=да)",
+      "my_answer": false,
+      "correct_answer": false,
+      "confidence": 90,
+      "is_correct": true
+    },
+    {
+      "domain": "combinatorics",
+      "question": "Число разбиений числа 10 (partition function p(10))",
+      "my_answer": 42,
+      "correct_answer": 42,
+      "confidence": 80,
+      "is_correct": true
+    },
+    {
+      "domain": "combinatorics",
+      "question": "Число разбиений числа 20",
+      "my_answer": 627,
+      "correct_answer": 627,
+      "confidence": 60,
+      "is_correct": true
+    },
+    {
+      "domain": "combinatorics",
+      "question": "Число дерейнжментов D(5) (беспорядков)",
+      "my_answer": 44,
+      "correct_answer": 44,
+      "confidence": 85,
+      "is_correct": true
+    },
+    {
+      "domain": "combinatorics",
+      "question": "Число дерейнжментов D(10)",
+      "my_answer": 1334961,
+      "correct_answer": 1334961,
+      "confidence": 55,
+      "is_correct": true
+    },
+    {
+      "domain": "combinatorics",
+      "question": "Число Каталана C_5",
+      "my_answer": 42,
+      "correct_answer": 42,
+      "confidence": 90,
+      "is_correct": true
+    },
+    {
+      "domain": "combinatorics",
+      "question": "Число Каталана C_10",
+      "my_answer": 16796,
+      "correct_answer": 16796,
+      "confidence": 70,
+      "is_correct": true
+    },
+    {
+      "domain": "combinatorics",
+      "question": "Числа Стирлинга второго рода S(6,3)",
+      "my_answer": 90,
+      "correct_answer": 90,
+      "confidence": 65,
+      "is_correct": true
+    },
+    {
+      "domain": "combinatorics",
+      "question": "Число Белла B(6)",
+      "my_answer": 203,
+      "correct_answer": 203,
+      "confidence": 70,
+      "is_correct": true
+    }
+  ]
+}
