@@ -1,0 +1,1838 @@
+{
+  "rules": [
+    {
+      "rule": 0,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 1,
+      "compression_ratio": 0.0052,
+      "density": 0.4926,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 2,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 3,
+      "compression_ratio": 0.011,
+      "density": 0.4951,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 4,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 5,
+      "compression_ratio": 0.0052,
+      "density": 0.4951,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 6,
+      "compression_ratio": 0.0052,
+      "density": 0.0075,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 7,
+      "compression_ratio": 0.0052,
+      "density": 0.4975,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 8,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 9,
+      "compression_ratio": 0.0169,
+      "density": 0.4926,
+      "entropy": 0.1409,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 10,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 11,
+      "compression_ratio": 0.0151,
+      "density": 0.4975,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 12,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 13,
+      "compression_ratio": 0.0112,
+      "density": 0.4975,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 14,
+      "compression_ratio": 0.0047,
+      "density": 0.0099,
+      "entropy": 0.0805,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 15,
+      "compression_ratio": 0.0151,
+      "density": 0.4975,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 16,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 17,
+      "compression_ratio": 0.011,
+      "density": 0.4951,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 18,
+      "compression_ratio": 0.0298,
+      "density": 0.0857,
+      "entropy": 0.2414,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 19,
+      "compression_ratio": 0.0052,
+      "density": 0.4975,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 20,
+      "compression_ratio": 0.0052,
+      "density": 0.0075,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 21,
+      "compression_ratio": 0.0053,
+      "density": 0.4975,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 22,
+      "compression_ratio": 0.0542,
+      "density": 0.1548,
+      "entropy": 0.9232,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 23,
+      "compression_ratio": 0.0052,
+      "density": 0.4975,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 24,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 25,
+      "compression_ratio": 0.0111,
+      "density": 0.4951,
+      "entropy": 0.1409,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 26,
+      "compression_ratio": 0.0246,
+      "density": 0.0698,
+      "entropy": 0.1409,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 27,
+      "compression_ratio": 0.011,
+      "density": 0.4975,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 28,
+      "compression_ratio": 0.0107,
+      "density": 0.2549,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 29,
+      "compression_ratio": 0.0052,
+      "density": 0.4975,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 30,
+      "compression_ratio": 0.1186,
+      "density": 0.379,
+      "entropy": 0.9986,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 31,
+      "compression_ratio": 0.0052,
+      "density": 0.4975,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 32,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 33,
+      "compression_ratio": 0.0052,
+      "density": 0.4926,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 34,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 35,
+      "compression_ratio": 0.011,
+      "density": 0.4951,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 36,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 37,
+      "compression_ratio": 0.0054,
+      "density": 0.4927,
+      "entropy": 0.1119,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 38,
+      "compression_ratio": 0.0052,
+      "density": 0.0075,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 39,
+      "compression_ratio": 0.011,
+      "density": 0.4975,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 40,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 41,
+      "compression_ratio": 0.0176,
+      "density": 0.4926,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 42,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 43,
+      "compression_ratio": 0.0151,
+      "density": 0.4975,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 44,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 45,
+      "compression_ratio": 0.1089,
+      "density": 0.4945,
+      "entropy": 0.9998,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 46,
+      "compression_ratio": 0.0047,
+      "density": 0.0099,
+      "entropy": 0.0805,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 47,
+      "compression_ratio": 0.0151,
+      "density": 0.4976,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 48,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 49,
+      "compression_ratio": 0.011,
+      "density": 0.4951,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 50,
+      "compression_ratio": 0.0066,
+      "density": 0.3763,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 51,
+      "compression_ratio": 0.0051,
+      "density": 0.4975,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 52,
+      "compression_ratio": 0.0052,
+      "density": 0.0075,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 53,
+      "compression_ratio": 0.011,
+      "density": 0.4975,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 54,
+      "compression_ratio": 0.0201,
+      "density": 0.3763,
+      "entropy": 0.8248,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 55,
+      "compression_ratio": 0.0052,
+      "density": 0.4975,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 56,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 57,
+      "compression_ratio": 0.0217,
+      "density": 0.4975,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 58,
+      "compression_ratio": 0.0101,
+      "density": 0.3775,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 59,
+      "compression_ratio": 0.011,
+      "density": 0.5,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 60,
+      "compression_ratio": 0.0268,
+      "density": 0.0931,
+      "entropy": 0.2414,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 61,
+      "compression_ratio": 0.0113,
+      "density": 0.5,
+      "entropy": 0.168,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 62,
+      "compression_ratio": 0.0196,
+      "density": 0.4699,
+      "entropy": 0.953,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 63,
+      "compression_ratio": 0.0052,
+      "density": 0.4975,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 64,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 65,
+      "compression_ratio": 0.0197,
+      "density": 0.4926,
+      "entropy": 0.1409,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 66,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 67,
+      "compression_ratio": 0.0112,
+      "density": 0.4951,
+      "entropy": 0.1409,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 68,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 69,
+      "compression_ratio": 0.0111,
+      "density": 0.4975,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 70,
+      "compression_ratio": 0.0107,
+      "density": 0.2549,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 71,
+      "compression_ratio": 0.0052,
+      "density": 0.4975,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 72,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 73,
+      "compression_ratio": 0.0867,
+      "density": 0.4169,
+      "entropy": 0.908,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 74,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 75,
+      "compression_ratio": 0.1044,
+      "density": 0.5032,
+      "entropy": 1.0,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 76,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 77,
+      "compression_ratio": 0.0133,
+      "density": 0.5,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 78,
+      "compression_ratio": 0.0107,
+      "density": 0.2574,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 79,
+      "compression_ratio": 0.0112,
+      "density": 0.5,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 80,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 81,
+      "compression_ratio": 0.0202,
+      "density": 0.4975,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 82,
+      "compression_ratio": 0.0252,
+      "density": 0.0698,
+      "entropy": 0.1409,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 83,
+      "compression_ratio": 0.011,
+      "density": 0.4975,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 84,
+      "compression_ratio": 0.0047,
+      "density": 0.0099,
+      "entropy": 0.0805,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 85,
+      "compression_ratio": 0.0185,
+      "density": 0.4975,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 86,
+      "compression_ratio": 0.1177,
+      "density": 0.379,
+      "entropy": 0.9986,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 87,
+      "compression_ratio": 0.0052,
+      "density": 0.4975,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 88,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 89,
+      "compression_ratio": 0.1043,
+      "density": 0.5032,
+      "entropy": 1.0,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 90,
+      "compression_ratio": 0.0309,
+      "density": 0.0931,
+      "entropy": 0.2414,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 91,
+      "compression_ratio": 0.0054,
+      "density": 0.5025,
+      "entropy": 0.168,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 92,
+      "compression_ratio": 0.0108,
+      "density": 0.2574,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 93,
+      "compression_ratio": 0.0112,
+      "density": 0.5,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 94,
+      "compression_ratio": 0.0118,
+      "density": 0.3812,
+      "entropy": 0.9998,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 95,
+      "compression_ratio": 0.0052,
+      "density": 0.4975,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 96,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 97,
+      "compression_ratio": 0.019,
+      "density": 0.4926,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 98,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 99,
+      "compression_ratio": 0.0216,
+      "density": 0.4975,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 100,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 101,
+      "compression_ratio": 0.109,
+      "density": 0.4945,
+      "entropy": 0.9998,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 102,
+      "compression_ratio": 0.0264,
+      "density": 0.0931,
+      "entropy": 0.2414,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 103,
+      "compression_ratio": 0.0112,
+      "density": 0.5,
+      "entropy": 0.168,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 104,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 105,
+      "compression_ratio": 0.0427,
+      "density": 0.4365,
+      "entropy": 0.383,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 106,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 107,
+      "compression_ratio": 0.0218,
+      "density": 0.5074,
+      "entropy": 0.1936,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 108,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 109,
+      "compression_ratio": 0.0179,
+      "density": 0.5627,
+      "entropy": 0.9805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 110,
+      "compression_ratio": 0.0562,
+      "density": 0.29,
+      "entropy": 0.9698,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 111,
+      "compression_ratio": 0.0168,
+      "density": 0.5025,
+      "entropy": 0.1936,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 112,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 113,
+      "compression_ratio": 0.0202,
+      "density": 0.4975,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 114,
+      "compression_ratio": 0.0101,
+      "density": 0.3775,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 115,
+      "compression_ratio": 0.011,
+      "density": 0.5,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 116,
+      "compression_ratio": 0.0047,
+      "density": 0.0099,
+      "entropy": 0.0805,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 117,
+      "compression_ratio": 0.0201,
+      "density": 0.4976,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 118,
+      "compression_ratio": 0.0192,
+      "density": 0.4699,
+      "entropy": 0.953,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 119,
+      "compression_ratio": 0.0052,
+      "density": 0.4975,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 120,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 121,
+      "compression_ratio": 0.0212,
+      "density": 0.5074,
+      "entropy": 0.1936,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 122,
+      "compression_ratio": 0.0237,
+      "density": 0.3098,
+      "entropy": 0.383,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 123,
+      "compression_ratio": 0.0052,
+      "density": 0.5025,
+      "entropy": 0.1119,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 124,
+      "compression_ratio": 0.0548,
+      "density": 0.29,
+      "entropy": 0.9698,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 125,
+      "compression_ratio": 0.0197,
+      "density": 0.5025,
+      "entropy": 0.1936,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 126,
+      "compression_ratio": 0.0338,
+      "density": 0.1712,
+      "entropy": 0.4008,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 127,
+      "compression_ratio": 0.0052,
+      "density": 0.4975,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 128,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 129,
+      "compression_ratio": 0.0338,
+      "density": 0.8238,
+      "entropy": 0.4008,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 130,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 131,
+      "compression_ratio": 0.0165,
+      "density": 0.5268,
+      "entropy": 0.9492,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 132,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 133,
+      "compression_ratio": 0.0119,
+      "density": 0.6139,
+      "entropy": 0.9998,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 134,
+      "compression_ratio": 0.0052,
+      "density": 0.0075,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 135,
+      "compression_ratio": 0.1178,
+      "density": 0.6187,
+      "entropy": 0.9991,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 136,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 137,
+      "compression_ratio": 0.0563,
+      "density": 0.7025,
+      "entropy": 0.996,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 138,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 139,
+      "compression_ratio": 0.0048,
+      "density": 0.9851,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 140,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 141,
+      "compression_ratio": 0.0109,
+      "density": 0.7352,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 142,
+      "compression_ratio": 0.0047,
+      "density": 0.0099,
+      "entropy": 0.0805,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 143,
+      "compression_ratio": 0.0048,
+      "density": 0.9852,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 144,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 145,
+      "compression_ratio": 0.016,
+      "density": 0.5268,
+      "entropy": 0.9492,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 146,
+      "compression_ratio": 0.0298,
+      "density": 0.0857,
+      "entropy": 0.2414,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 147,
+      "compression_ratio": 0.02,
+      "density": 0.6225,
+      "entropy": 0.8093,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 148,
+      "compression_ratio": 0.0052,
+      "density": 0.0075,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 149,
+      "compression_ratio": 0.1168,
+      "density": 0.6187,
+      "entropy": 0.9991,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 150,
+      "compression_ratio": 0.0411,
+      "density": 0.193,
+      "entropy": 0.383,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 151,
+      "compression_ratio": 0.0017,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 152,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 153,
+      "compression_ratio": 0.0265,
+      "density": 0.902,
+      "entropy": 0.2414,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 154,
+      "compression_ratio": 0.0246,
+      "density": 0.0698,
+      "entropy": 0.1409,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 155,
+      "compression_ratio": 0.0053,
+      "density": 0.9876,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 156,
+      "compression_ratio": 0.0107,
+      "density": 0.2549,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 157,
+      "compression_ratio": 0.0108,
+      "density": 0.7426,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 158,
+      "compression_ratio": 0.0169,
+      "density": 0.4722,
+      "entropy": 0.8093,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 159,
+      "compression_ratio": 0.0017,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 160,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 161,
+      "compression_ratio": 0.0338,
+      "density": 0.8238,
+      "entropy": 0.4008,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 162,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 163,
+      "compression_ratio": 0.0103,
+      "density": 0.6176,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 164,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 165,
+      "compression_ratio": 0.0309,
+      "density": 0.902,
+      "entropy": 0.2414,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 166,
+      "compression_ratio": 0.0052,
+      "density": 0.0075,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 167,
+      "compression_ratio": 0.0247,
+      "density": 0.9254,
+      "entropy": 0.4008,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 168,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 169,
+      "compression_ratio": 0.0191,
+      "density": 0.962,
+      "entropy": 0.168,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 170,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 171,
+      "compression_ratio": 0.0048,
+      "density": 0.9851,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 172,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 173,
+      "compression_ratio": 0.0049,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 174,
+      "compression_ratio": 0.0047,
+      "density": 0.0099,
+      "entropy": 0.0805,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 175,
+      "compression_ratio": 0.0047,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 176,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 177,
+      "compression_ratio": 0.0104,
+      "density": 0.6176,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 178,
+      "compression_ratio": 0.0066,
+      "density": 0.3763,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 179,
+      "compression_ratio": 0.0067,
+      "density": 0.6213,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 180,
+      "compression_ratio": 0.0052,
+      "density": 0.0075,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 181,
+      "compression_ratio": 0.0254,
+      "density": 0.9254,
+      "entropy": 0.4008,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 182,
+      "compression_ratio": 0.0336,
+      "density": 0.6689,
+      "entropy": 0.4008,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 183,
+      "compression_ratio": 0.0017,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 184,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 185,
+      "compression_ratio": 0.0049,
+      "density": 0.9851,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 186,
+      "compression_ratio": 0.0101,
+      "density": 0.3775,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 187,
+      "compression_ratio": 0.0048,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 188,
+      "compression_ratio": 0.0174,
+      "density": 0.3787,
+      "entropy": 0.8093,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 189,
+      "compression_ratio": 0.0048,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 190,
+      "compression_ratio": 0.0129,
+      "density": 0.5644,
+      "entropy": 0.8093,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 191,
+      "compression_ratio": 0.0017,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 192,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 193,
+      "compression_ratio": 0.0548,
+      "density": 0.7025,
+      "entropy": 0.996,
+      "class": "class2_or_4_structured"
+    },
+    {
+      "rule": 194,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 195,
+      "compression_ratio": 0.0269,
+      "density": 0.902,
+      "entropy": 0.2414,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 196,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 197,
+      "compression_ratio": 0.0109,
+      "density": 0.7352,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 198,
+      "compression_ratio": 0.0107,
+      "density": 0.2549,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 199,
+      "compression_ratio": 0.0108,
+      "density": 0.7426,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 200,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 201,
+      "compression_ratio": 0.0053,
+      "density": 0.9827,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 202,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 203,
+      "compression_ratio": 0.0047,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 204,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 205,
+      "compression_ratio": 0.0048,
+      "density": 0.9851,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 206,
+      "compression_ratio": 0.01,
+      "density": 0.5025,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 207,
+      "compression_ratio": 0.0047,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 208,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 209,
+      "compression_ratio": 0.0048,
+      "density": 0.9851,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 210,
+      "compression_ratio": 0.0252,
+      "density": 0.0698,
+      "entropy": 0.1409,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 211,
+      "compression_ratio": 0.0053,
+      "density": 0.9876,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 212,
+      "compression_ratio": 0.0047,
+      "density": 0.0099,
+      "entropy": 0.0805,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 213,
+      "compression_ratio": 0.0048,
+      "density": 0.9852,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 214,
+      "compression_ratio": 0.0179,
+      "density": 0.4722,
+      "entropy": 0.8093,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 215,
+      "compression_ratio": 0.0017,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 216,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 217,
+      "compression_ratio": 0.0047,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 218,
+      "compression_ratio": 0.0217,
+      "density": 0.2965,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 219,
+      "compression_ratio": 0.0047,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 220,
+      "compression_ratio": 0.01,
+      "density": 0.5025,
+      "entropy": 0.0452,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 221,
+      "compression_ratio": 0.0047,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 222,
+      "compression_ratio": 0.0066,
+      "density": 0.75,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 223,
+      "compression_ratio": 0.0017,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 224,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 225,
+      "compression_ratio": 0.0166,
+      "density": 0.962,
+      "entropy": 0.168,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 226,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 227,
+      "compression_ratio": 0.0049,
+      "density": 0.9851,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 228,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 229,
+      "compression_ratio": 0.0048,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 230,
+      "compression_ratio": 0.0188,
+      "density": 0.3787,
+      "entropy": 0.8093,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 231,
+      "compression_ratio": 0.0048,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 232,
+      "compression_ratio": 0.0016,
+      "density": 0.0,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 233,
+      "compression_ratio": 0.002,
+      "density": 0.9949,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 234,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 235,
+      "compression_ratio": 0.0019,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 236,
+      "compression_ratio": 0.0046,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 237,
+      "compression_ratio": 0.0018,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 238,
+      "compression_ratio": 0.01,
+      "density": 0.5025,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 239,
+      "compression_ratio": 0.0018,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 240,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 241,
+      "compression_ratio": 0.0048,
+      "density": 0.9851,
+      "entropy": 0.0805,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 242,
+      "compression_ratio": 0.0101,
+      "density": 0.3775,
+      "entropy": 1.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 243,
+      "compression_ratio": 0.0048,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 244,
+      "compression_ratio": 0.0047,
+      "density": 0.0099,
+      "entropy": 0.0805,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 245,
+      "compression_ratio": 0.0048,
+      "density": 0.9901,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 246,
+      "compression_ratio": 0.0127,
+      "density": 0.5644,
+      "entropy": 0.8093,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 247,
+      "compression_ratio": 0.0017,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 248,
+      "compression_ratio": 0.0047,
+      "density": 0.005,
+      "entropy": 0.0452,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 249,
+      "compression_ratio": 0.0019,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 250,
+      "compression_ratio": 0.01,
+      "density": 0.5025,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 251,
+      "compression_ratio": 0.0018,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 252,
+      "compression_ratio": 0.01,
+      "density": 0.5025,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 253,
+      "compression_ratio": 0.0018,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    },
+    {
+      "rule": 254,
+      "compression_ratio": 0.0066,
+      "density": 0.75,
+      "entropy": 0.0,
+      "class": "class2_periodic"
+    },
+    {
+      "rule": 255,
+      "compression_ratio": 0.0017,
+      "density": 0.995,
+      "entropy": 0.0,
+      "class": "class1_uniform"
+    }
+  ],
+  "transitions": {
+    "top_gaps": [
+      {
+        "gap": 0.0304,
+        "position": 247,
+        "below": 0.0563,
+        "above": 0.0867
+      },
+      {
+        "gap": 0.0176,
+        "position": 248,
+        "below": 0.0867,
+        "above": 0.1043
+      },
+      {
+        "gap": 0.0115,
+        "position": 242,
+        "below": 0.0427,
+        "above": 0.0542
+      },
+      {
+        "gap": 0.0078,
+        "position": 252,
+        "below": 0.109,
+        "above": 0.1168
+      },
+      {
+        "gap": 0.0073,
+        "position": 240,
+        "below": 0.0338,
+        "above": 0.0411
+      }
+    ],
+    "class_distribution": {
+      "class1_uniform": 108,
+      "class2_periodic": 134,
+      "class2_or_4_structured": 14
+    },
+    "cr_min": 0.0016,
+    "cr_max": 0.1186,
+    "cr_mean": 0.0139
+  }
+}

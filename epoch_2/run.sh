@@ -5,7 +5,6 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 MAIN_GOAL_FILE="$SCRIPT_DIR/MAIN_GOAL.md"
 AGENTS_MD="$SCRIPT_DIR/AGENTS.md"
-PERMISSION_MODE="${CLAUDE_PERMISSION_MODE:-bypassPermissions}"
 THINKING_MODE="${CLAUDE_THINKING_MODE:-enabled}"
 
 main_goal="$(<"$MAIN_GOAL_FILE")"
@@ -34,6 +33,6 @@ fi
     --print \
     --thinking "$THINKING_MODE" \
     --append-system-prompt "$(<"$AGENTS_MD")" \
-    --permission-mode "$PERMISSION_MODE" \
+    --dangerously-skip-permissions \
     --tools default
 )

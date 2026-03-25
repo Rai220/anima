@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-03-25T11:20:05.160282",
+  "structured_avg_density": 0.01,
+  "random_avg_density": 0.02,
+  "structured_affinity_count": 1,
+  "random_affinity_count": 1,
+  "structured_self_repeats": 10,
+  "random_self_repeats": 1,
+  "hypothesis_confirmed": false
+}
