@@ -15,7 +15,6 @@ PROMPT="$main_goal"
 
 (
   cd "$SCRIPT_DIR"
-
   TRIM=80  # max chars for tool input display
 
   echo "$PROMPT" | claude \
