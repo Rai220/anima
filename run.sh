@@ -1,28 +1,15 @@
 #!/bin/bash
-
 set -euo pipefail
 
 export CLAUDE_CODE_DISABLE_AUTO_MEMORY=1
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-MAIN_GOAL_FILE="$SCRIPT_DIR/MAIN_GOAL.md"
-AGENTS_MD="$SCRIPT_DIR/AGENTS.md"
+DIR="$(cd "$(dirname "$0")" && pwd)"
+TRIM=80
 
-main_goal="$(<"$MAIN_GOAL_FILE")"
-
-# Сформировать промпт с контекстом
-PROMPT="$main_goal"
-
-(
-  cd "$SCRIPT_DIR"
-  TRIM=80  # max chars for tool input display
-
-  echo "$PROMPT" | claude \
-    --print \
-    --verbose \
-    --output-format stream-json \
-    --append-system-prompt "$(<"$AGENTS_MD")" \
+cd "$DIR"
+claude --print --verbose --output-format stream-json --include-partial-messages \
     --dangerously-skip-permissions \
+    < MAIN_GOAL.md \
   | while IFS= read -r line; do
       top_type=$(printf '%s' "$line" | jq -r '.type // empty' 2>/dev/null) || continue
       case "$top_type" in
@@ -39,7 +26,7 @@ PROMPT="$main_goal"
                   printf '\n\033[36m>>> TOOL: %s\033[0m ' "$tool_name"
                   ;;
                 thinking)
-                  printf '\033[2m'  # dim
+                  printf '\033[2m'
                   ;;
               esac
               ;;
@@ -65,7 +52,6 @@ PROMPT="$main_goal"
               esac
               ;;
             content_block_stop)
-              # flush short tool input that never hit the trim limit
               if [ -n "${tool_input_buf:-}" ] && [ "${tool_input_printed:-0}" -eq 0 ]; then
                 printf '%s' "$tool_input_buf"
               fi
@@ -84,4 +70,3 @@ PROMPT="$main_goal"
           ;;
       esac
     done
-)
