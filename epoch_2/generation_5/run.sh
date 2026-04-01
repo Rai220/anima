@@ -7,7 +7,7 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 TRIM=80
 
 cd "$DIR"
-claude --print --verbose --output-format stream-json --include-partial-messages \
+free-code --debug --print --verbose --output-format stream-json --include-partial-messages \
     --dangerously-skip-permissions \
     < MAIN_GOAL.md \
   | while IFS= read -r line; do
