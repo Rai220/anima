@@ -208,3 +208,5 @@ __marimo__/
 
 # Claude Code logs
 .free-code-logs/
+
+.DS_Store
