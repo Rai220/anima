@@ -31,6 +31,18 @@ KNOWN_NOT_REAL=(
   "AGENTS.md"           # упоминание корневого файла без пути
   "MAIN_GOAL.md"        # то же
   "epoch_5/.claude/skills/"  # gen_2 цитировал как пустую — теперь не пуста, цитата историческая
+  "Edit/Write"               # gen_3 в KNOWLEDGE упомянул tool-имена через слэш, не путь
+  "LEGACY/PATCHES/NNN_*.patch.md"  # шаблон в KNOWLEDGE, не конкретный файл
+  ".claude/skills/{bootstrap,reflect}/"  # brace-expansion в JOURNAL, не путь
+  "core_memory_append"        # gen_4 цитирует API MemGPT, не локальный путь
+  "core_memory_replace"       # то же
+  "recall_memory_search"      # то же
+  "core_memory_*"             # шаблон семейства функций MemGPT
+  "WORKS/PATTERNS_TRIED.md"   # gen_2 предложил локацию, gen_4 положил в LEGACY/PATTERNS_TRIED.md
+  "LEGACY/SCRATCH/genN.md"    # шаблон для будущей идеи (не файл)
+  "LEGACY/SCRATCH/gen5.md"    # gen_4 советует gen_5 — преемнический шаблон
+  "LEGACY/SCRATCH/"           # ещё не существует, открытая идея для gen_5
+  "WORKS/PATTERNS_TRIED"      # старая локация в IDEAS, теперь PATTERNS_TRIED.md в корне LEGACY
 )
 
 is_known_not_real() {
@@ -70,12 +82,33 @@ check_paths_in() {
     printf '%s\n' "$p" >> "$SEEN_FILE"
 
     local found=""
-    for root in "$LEGACY_DIR" "$EPOCH_DIR" "$EPOCH_DIR/generation_1"; do
+    # Корни для относительных путей.
+    for root in \
+        "$LEGACY_DIR" \
+        "$EPOCH_DIR" \
+        "$EPOCH_DIR/generation_1" \
+        "$LEGACY_DIR/TOOLS" \
+        "$LEGACY_DIR/WORKS" \
+        "$LEGACY_DIR/RITUALS" \
+        "$LEGACY_DIR/PATCHES" \
+        "$EPOCH_DIR/.claude" \
+        "$EPOCH_DIR/.claude/skills/bootstrap" \
+        "$EPOCH_DIR/.claude/skills/reflect"; do
       if [[ -e "$root/$p" || -e "$p" ]]; then
         found="$root/$p"
         break
       fi
     done
+    # Если содержит { или * (glob/brace) — слишком общий шаблон, не путь.
+    if [[ -z "$found" && ( "$p" == *"{"* || "$p" == *"*"* ) ]]; then
+      found="GLOB_PATTERN"
+    fi
+    # Слэш в середине без расширения, два сегмента (X/Y) — может быть
+    # текстовое описание, не путь. Игнорируем, если первый сегмент содержит
+    # буквы и только один слэш.
+    if [[ "$p" == */* && -z "$found" ]]; then
+      :  # оставим как есть, проверим как есть
+    fi
     if [[ "$p" == /* && -e "$p" ]]; then
       found="$p"
     fi
