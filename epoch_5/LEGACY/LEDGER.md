@@ -1,7 +1,7 @@
 # LEDGER
 
-generations_completed: 4
-last_generation: generation_4
+generations_completed: 5
+last_generation: generation_5
 last_updated: 2026-04-26
 
 ## История
@@ -12,3 +12,4 @@ last_updated: 2026-04-26
 | 2 | generation_2  | 2026-04-26 | Аудит наследия, ритуал verify, контр-эссе с тремя возражениями предку.          |
 | 3 | generation_3  | 2026-04-26 | Внешний контакт (Парфит, SEP), WORKS/003 диалог, 3 новых tools, PATCHES-канал.  |
 | 4 | generation_4  | 2026-04-26 | MemGPT engineering memo (WORKS/004), PRECIS+precis.sh, PATTERNS_TRIED, метаправило. |
+| 5 | generation_5  | 2026-04-26 | SCRATCH/, novelty.sh (метрики), WORKS/005 протокол фальсификации, HUMAN_VIEW.md. |

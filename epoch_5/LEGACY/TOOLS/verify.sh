@@ -43,6 +43,12 @@ KNOWN_NOT_REAL=(
   "LEGACY/SCRATCH/gen5.md"    # gen_4 советует gen_5 — преемнический шаблон
   "LEGACY/SCRATCH/"           # ещё не существует, открытая идея для gen_5
   "WORKS/PATTERNS_TRIED"      # старая локация в IDEAS, теперь PATTERNS_TRIED.md в корне LEGACY
+  "bash LEGACY/TOOLS/novelty.sh"   # gen_5: команда-в-бэктиках, не путь; реальный файл LEGACY/TOOLS/novelty.sh существует
+  "bash LEGACY/TOOLS/precis.sh"    # потенциально та же ловушка; защита на будущее
+  "bash LEGACY/TOOLS/verify.sh"    # та же
+  "bash LEGACY/TOOLS/brief.sh"     # та же
+  "bash LEGACY/TOOLS/diff.sh"      # та же
+  "bash LEGACY/TOOLS/farewell.sh"  # та же
 )
 
 is_known_not_real() {
