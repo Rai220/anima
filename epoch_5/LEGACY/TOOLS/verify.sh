@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
-# verify.sh — автоматизация ритуала проверки наследия (RITUALS/verify.md).
+# verify.sh — автоматизация ритуала RITUALS/verify.md.
 #
 # Извлекает из JOURNAL.md и KNOWLEDGE.md упоминания путей и проверяет, что
-# эти пути существуют на диске. Печатает только несовпадения.
+# эти пути существуют на диске. Печатает только несовпадения. Игнорирует
+# заведомо непутевые токены: slash-команды (/word без второго сегмента),
+# абсолютные пустышки, текстовые маркеры (`generation_N/` как шаблон).
 #
-# Контракт: read-only, exit 0 если всё совпало, exit 1 если найдены
-# несоответствия (полезно для CI/хука).
+# Контракт: read-only, exit 0 если всё совпало (или все промахи помечены
+# как известные), exit 1 если найдено новое реальное несоответствие.
+#
+# Эволюция:
+#   gen_2: создал базовую версию.
+#   gen_3: добавил KNOWN-список, шаблон-исключения, гибридный exit-код.
 
 set -uo pipefail
 
@@ -13,13 +19,33 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LEGACY_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 EPOCH_DIR="$(cd "$LEGACY_DIR/.." && pwd)"
 
-# Что считаем «упоминанием пути»: строка с кавычками-бэктиками,
-# содержащая внутри `/` или знакомое расширение, плюс простые `.claude/...` и
-# `LEGACY/...` без кавычек.
+# Известные несоответствия — упомянуты в наследии как УРОК или ПРИМЕР, не как
+# существующая цель. Поддерживай этот список вручную при обновлении IDEAS.md.
+# Формат: одна строка — один токен (как он появляется в `..`-кавычках).
+KNOWN_NOT_REAL=(
+  "/bootstrap"          # slash-команда, не путь
+  "/reflect"            # slash-команда, не путь
+  "generation_N/"       # шаблон в KNOWLEDGE
+  "SKILL.md"            # generic-имя файла внутри skill-папок
+  "settings.json"       # часто без префикса .claude/
+  "AGENTS.md"           # упоминание корневого файла без пути
+  "MAIN_GOAL.md"        # то же
+  "epoch_5/.claude/skills/"  # gen_2 цитировал как пустую — теперь не пуста, цитата историческая
+)
+
+is_known_not_real() {
+  local p="$1"
+  for k in "${KNOWN_NOT_REAL[@]}"; do
+    [[ "$p" == "$k" ]] && return 0
+  done
+  return 1
+}
+
+# Что считаем «упоминанием пути»: строка с бэктиками, содержащая внутри `/`
+# или знакомое расширение. Чистка хвостов вроде `path.` или `path/.` .
 extract_paths() {
   local file="$1"
   [[ -f "$file" ]] || return 0
-  # Бэктики: `something/with.ext` или `path/to/dir/`.
   grep -oE '`[^`]+`' "$file" \
     | tr -d '`' \
     | grep -E '(/|\.(md|sh|json|py|txt|yml|yaml))' \
@@ -28,6 +54,7 @@ extract_paths() {
 }
 
 bad=0
+known=0
 SEEN_FILE="$(mktemp)"
 trap 'rm -f "$SEEN_FILE"' EXIT
 
@@ -36,15 +63,12 @@ check_paths_in() {
   local label="$2"
 
   while IFS= read -r raw; do
-    # Чистка хвостов вроде `.claude/skills/bootstrap/.`
     local p="${raw%/.}"
     p="${p%.}"
     [[ -z "$p" ]] && continue
-    # Уже видели? (bash 3.2-совместимо, без declare -A)
     if grep -Fxq "$p" "$SEEN_FILE" 2>/dev/null; then continue; fi
     printf '%s\n' "$p" >> "$SEEN_FILE"
 
-    # Резолвим относительно нескольких корней по очереди.
     local found=""
     for root in "$LEGACY_DIR" "$EPOCH_DIR" "$EPOCH_DIR/generation_1"; do
       if [[ -e "$root/$p" || -e "$p" ]]; then
@@ -52,14 +76,18 @@ check_paths_in() {
         break
       fi
     done
-    # Абсолютные пути проверяем как есть.
     if [[ "$p" == /* && -e "$p" ]]; then
       found="$p"
     fi
 
     if [[ -z "$found" ]]; then
-      printf '[MISS] %-50s (упомянуто в %s)\n' "$p" "$label"
-      bad=1
+      if is_known_not_real "$p"; then
+        printf '[ KNOWN ] %-50s (упомянуто в %s — известный не-путь)\n' "$p" "$label"
+        known=$((known+1))
+      else
+        printf '[ MISS  ] %-50s (упомянуто в %s)\n' "$p" "$label"
+        bad=1
+      fi
     fi
   done < <(extract_paths "$file")
 }
@@ -70,13 +98,13 @@ check_paths_in "$LEGACY_DIR/JOURNAL.md" "JOURNAL"
 echo "=== Проверка KNOWLEDGE.md ==="
 check_paths_in "$LEGACY_DIR/KNOWLEDGE.md" "KNOWLEDGE"
 
+echo
 if [[ $bad -eq 0 ]]; then
-  echo "OK: все упомянутые пути существуют на диске."
+  echo "OK: новых несоответствий нет (известных не-путей: $known)."
 else
-  echo
-  echo "Несовпадения найдены. Это не обязательно ошибка — путь мог быть"
-  echo "упомянут как пример, как несуществующая цель или как закрытое"
-  echo "несоответствие. Решение принимай ты, не скрипт."
+  echo "Найдены НОВЫЕ несоответствия. Это либо ложное срабатывание (тогда"
+  echo "добавь токен в KNOWN_NOT_REAL в этом скрипте), либо реальный разрыв"
+  echo "между журналом и диском (тогда отмечай в IDEAS как [discrepancy])."
 fi
 
 exit $bad
