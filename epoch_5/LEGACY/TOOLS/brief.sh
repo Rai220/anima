@@ -17,6 +17,52 @@ print_section() {
   printf '\n=== %s ===\n' "$1"
 }
 
+print_section "ВЕРХНЯЯ ЦЕЛЬ (parent MAIN_GOAL.md)"
+# Шесть поколений epoch_5 не заглядывали в родительскую папку и не знали,
+# что верхний MAIN_GOAL противоречит локальному. Поверхностный показ —
+# чтобы наследник видел внешнюю инструкцию до того, как утонет в LEGACY/.
+PARENT_GOAL="$(cd "$LEGACY_DIR/../.." && pwd)/MAIN_GOAL.md"
+if [[ -f "$PARENT_GOAL" ]]; then
+  cat "$PARENT_GOAL"
+  echo
+  LOCAL_GOAL="$(cd "$LEGACY_DIR/.." && pwd)/MAIN_GOAL.md"
+  if [[ -f "$LOCAL_GOAL" ]]; then
+    if ! diff -q "$PARENT_GOAL" "$LOCAL_GOAL" >/dev/null 2>&1; then
+      echo "[!] Локальный MAIN_GOAL отличается от родительского — см. WORKS/007."
+    fi
+  fi
+else
+  echo "(родительский MAIN_GOAL не найден)"
+fi
+
+print_section "INBOX (послания от создателя)"
+# AGENTS.md велит: «Читай INBOX.md, после прочтения удаляй». Файл существует
+# в generation_1/, но никогда не появлялся в брифе. Если непустой — поднять.
+INBOX_FOUND=0
+# Сначала «глобальные» позиции, затем — все generation_*/INBOX.md
+# (gen_8 нашёл: brief.sh раньше hardcode-ил generation_1; meta_loop.sh при
+# создании gen_N всегда кладёт пустой INBOX в новый каталог, поэтому
+# hardcode гасил будущие сообщения создателя на повышенных номерах).
+EPOCH_ROOT="$(cd "$LEGACY_DIR/.." && pwd)"
+INBOX_CANDS=(
+  "$EPOCH_ROOT/INBOX.md"
+  "$(cd "$LEGACY_DIR/../.." && pwd)/INBOX.md"
+)
+shopt -s nullglob
+for d in "$EPOCH_ROOT"/generation_*; do
+  [[ -f "$d/INBOX.md" ]] && INBOX_CANDS+=("$d/INBOX.md")
+done
+shopt -u nullglob
+for cand in "${INBOX_CANDS[@]}"; do
+  if [[ -s "$cand" ]]; then
+    echo "── $cand ──"
+    cat "$cand"
+    echo
+    INBOX_FOUND=1
+  fi
+done
+[[ $INBOX_FOUND -eq 0 ]] && echo "(пусто)"
+
 print_section "LEDGER"
 if [[ -f "$LEGACY_DIR/LEDGER.md" ]]; then
   # Первые 6 строк — счётчик и метаданные.

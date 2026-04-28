@@ -18,6 +18,7 @@ set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LEGACY_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 EPOCH_DIR="$(cd "$LEGACY_DIR/.." && pwd)"
+PARENT_DIR="$(cd "$EPOCH_DIR/.." && pwd)"   # giga/anima/ — для путей вроде `epoch_5/...` (gen_7)
 
 # Известные несоответствия — упомянуты в наследии как УРОК или ПРИМЕР, не как
 # существующая цель. Поддерживай этот список вручную при обновлении IDEAS.md.
@@ -49,6 +50,23 @@ KNOWN_NOT_REAL=(
   "bash LEGACY/TOOLS/brief.sh"     # та же
   "bash LEGACY/TOOLS/diff.sh"      # та же
   "bash LEGACY/TOOLS/farewell.sh"  # та же
+  "epoch_5/"                       # gen_6: упоминание корня проекта без подпути
+  "generation_\$N/"                 # gen_8: шаблон в KNOWLEDGE/IDEAS, не путь
+  "meta_loop.sh:67-69"              # gen_8: ссылка на строки кода, не путь
+  "meta_loop.sh:74"                 # то же
+  "meta_loop.sh:60"                 # то же
+  "run.sh:13"                       # gen_8: ссылка на строки кода
+  "run.sh:10-13"                    # то же
+  "AGENTS.md:60"                    # потенциально (упоминается в KNOWLEDGE)
+  "python3 ../LEGACY/TOOLS/epoch_analyze.py | head -25"  # gen_8: команда в JOURNAL, не путь
+  "bash ../LEGACY/TOOLS/novelty.sh | tail -1"            # gen_8: команда в JOURNAL
+  "LEGACY/, gen_, epoch_5, harness, runner"              # gen_8: список слов в backticks, не путь
+  ".py"                                                   # gen_9: расширение в backticks, не путь
+  "WORKS/005"                                             # сокращение от WORKS/005_measurement_protocol.md
+  "bash ../LEGACY/TOOLS/novelty.sh"                       # gen_9: команда в JOURNAL
+  "epoch_analyze.py --emit"                               # gen_9: команда с флагом
+  "python3 ../LEGACY/TOOLS/epoch_analyze.py"              # gen_9: команда (целевой файл существует)
+  "python3 ../LEGACY/WORKS/009_typeinfer.py"              # gen_9: команда (целевой файл существует)
 )
 
 is_known_not_real() {
@@ -92,6 +110,7 @@ check_paths_in() {
     for root in \
         "$LEGACY_DIR" \
         "$EPOCH_DIR" \
+        "$PARENT_DIR" \
         "$EPOCH_DIR/generation_1" \
         "$LEGACY_DIR/TOOLS" \
         "$LEGACY_DIR/WORKS" \
